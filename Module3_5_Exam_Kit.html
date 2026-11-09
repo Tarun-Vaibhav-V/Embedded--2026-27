@@ -1,0 +1,1911 @@
+<meta charset="utf-8">
+<title>Modules 3 &amp; 5 Exam Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ink:#121212; --paper:#FFFFFF; --y:#FFD60A; --y-soft:#FFF6C7; --wash:#F6F5EF;
+  --mute:#57544A; --ok:#177245; --bad:#C1121F;
+  --sh:5px 5px 0 var(--ink); --sh-sm:3px 3px 0 var(--ink);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "Work Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--ink)}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--y)}
+h1,h2,h3,h4{font-family:"Archivo Black","Arial Black",Impact,sans-serif;font-weight:400;line-height:1.12;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,5vw,46px)}
+h2{font-size:clamp(22px,3.2vw,30px)}
+h3{font-size:19px}
+h4{font-size:16px}
+p{margin:0}
+code,pre,kbd{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+code{background:var(--y-soft);border:1.5px solid var(--ink);padding:0 4px;font-size:.88em}
+pre{margin:0;background:var(--wash);border:2.5px solid var(--ink);padding:12px 14px;overflow-x:auto;font-size:13px;line-height:1.55}
+pre code{background:none;border:0;padding:0;font-size:inherit}
+ul,ol{margin:0;padding-left:1.25em}
+li+li{margin-top:4px}
+
+/* nav */
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ink);border-bottom:4px solid var(--y)}
+nav.top .in{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;max-width:1120px;margin:0 auto;scrollbar-width:thin}
+nav.top a{flex:none;color:#fff;text-decoration:none;font:700 12.5px/1 "JetBrains Mono",monospace;letter-spacing:.04em;padding:9px 11px;border:2px solid #fff;text-transform:uppercase}
+nav.top a:hover{background:#2a2a2a}
+nav.top a.on{background:var(--y);color:var(--ink);border-color:var(--y)}
+nav.top a .dot{display:inline-block;width:8px;height:8px;border:1.5px solid currentColor;margin-left:6px;vertical-align:1px}
+nav.top a .dot.full{background:var(--y);border-color:var(--y)}
+nav.top a.on .dot.full{background:var(--ink);border-color:var(--ink)}
+
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px;padding-block:28px 96px}
+.page{display:flex;flex-direction:column;gap:30px}
+
+/* blocks */
+.box{border:3px solid var(--ink);background:var(--paper);box-shadow:var(--sh);padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.box.y{background:var(--y)}
+.box.soft{background:var(--y-soft)}
+.box.dark{background:var(--ink);color:#fff}
+.box.dark code{background:#2b2b2b;color:var(--y);border-color:var(--y)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;align-items:start}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;align-items:start}
+.stack{display:flex;flex-direction:column;gap:14px}
+.muted{color:var(--mute)}
+.small{font-size:14px}
+.lede{font-size:18px;max-width:68ch}
+.eyebrow{font:700 12px/1 "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
+.chip{display:inline-flex;align-items:center;gap:6px;font:700 12px/1 "JetBrains Mono",monospace;padding:6px 8px;border:2px solid var(--ink);background:var(--paper);white-space:nowrap}
+.chip.y{background:var(--y)}
+.chip.k{background:var(--ink);color:var(--y)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.mk{display:inline-block;font:700 11.5px/1 "JetBrains Mono",monospace;background:var(--ink);color:var(--y);padding:4px 6px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.btn{font:700 13px/1 "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.04em;padding:11px 14px;border:3px solid var(--ink);background:var(--y);box-shadow:var(--sh-sm);cursor:pointer;color:var(--ink)}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.w{background:var(--paper)}
+
+/* unit header */
+.uhead{display:flex;flex-direction:column;gap:14px;border:3px solid var(--ink);box-shadow:var(--sh);padding:22px;background:var(--y)}
+.ubadge{align-self:flex-start;font:700 13px/1 "JetBrains Mono",monospace;background:var(--ink);color:var(--y);padding:7px 10px;letter-spacing:.12em}
+.sh{display:flex;align-items:center;gap:12px;padding-bottom:8px;border-bottom:4px solid var(--ink)}
+.sh .n{font:700 13px/1 "JetBrains Mono",monospace;background:var(--y);border:2.5px solid var(--ink);padding:6px 8px;flex:none}
+
+/* tables */
+.tbl{overflow-x:auto;border:3px solid var(--ink);box-shadow:var(--sh-sm)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;background:var(--paper)}
+th,td{border:1.5px solid var(--ink);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--ink);color:#fff;font:700 12.5px/1.3 "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.05em}
+tr:nth-child(even) td{background:var(--wash)}
+td.hl{background:var(--y-soft)!important;font-weight:600}
+.num{font-variant-numeric:tabular-nums}
+
+/* diagrams */
+.dg{border:3px solid var(--ink);background:#fff;overflow-x:auto;padding:12px;box-shadow:var(--sh-sm)}
+.dg svg{display:block;margin:0 auto;max-width:none;height:auto}
+figure{margin:0;display:flex;flex-direction:column;gap:8px}
+figcaption{font:600 13px/1.4 "JetBrains Mono",monospace;color:var(--mute)}
+
+/* memory & mnemonic */
+.mn{background:var(--ink);color:#fff;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--y);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.mn .big{font:400 clamp(20px,3vw,26px)/1.2 "Archivo Black",sans-serif;color:var(--y);letter-spacing:.02em}
+.mn .big b{background:var(--y);color:var(--ink);padding:0 4px;font-weight:400}
+.mn ul{color:#eee}
+.tpl{border:3px dashed var(--ink);background:var(--y-soft);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.tpl ol li::marker{font-weight:700}
+.tip{border-left:10px solid var(--y);background:var(--wash);border-top:2px solid var(--ink);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:12px 14px}
+.trap{border-left:10px solid var(--bad);background:#fff;border-top:2px solid var(--ink);border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:12px 14px}
+
+/* scenario */
+.scn{border:3px solid var(--ink);box-shadow:var(--sh);background:var(--paper)}
+.scn>.q{padding:18px 20px;background:var(--y);border-bottom:3px solid var(--ink);display:flex;flex-direction:column;gap:10px}
+.scn>.q .meta{display:flex;flex-wrap:wrap;gap:8px}
+.scn details.sol>summary{cursor:pointer;list-style:none;padding:12px 20px;font:700 13px/1 "JetBrains Mono",monospace;text-transform:uppercase;letter-spacing:.06em;background:var(--ink);color:var(--y)}
+.scn details.sol>summary::-webkit-details-marker{display:none}
+.scn details.sol>summary::before{content:"▼ ";}
+.scn details.sol:not([open])>summary::before{content:"► ";}
+.scn .body{padding:18px 20px;display:flex;flex-direction:column;gap:16px}
+.step{display:flex;flex-direction:column;gap:8px}
+.step>h4{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+
+/* checklist */
+.ck{display:flex;flex-direction:column;gap:6px;list-style:none;padding:0;margin:0}
+.ck li{margin:0}
+.ck label,.symlist label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;line-height:1.4}
+input[type=checkbox]{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:3px solid var(--ink);background:#fff;flex:none;margin:0;cursor:pointer}
+input[type=checkbox]:checked{background:var(--y) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 8.5l3.5 3.5 7.5-8' fill='none' stroke='%23121212' stroke-width='3'/%3E%3C/svg%3E") center/14px no-repeat}
+input:checked+span{text-decoration:line-through;text-decoration-thickness:2px;color:var(--mute)}
+.prog{height:16px;border:3px solid var(--ink);background:#fff;position:relative}
+.prog>i{position:absolute;inset:0 auto 0 0;background:var(--y);border-right:3px solid var(--ink);width:0}
+.prog.zero>i{border-right:0}
+
+/* unit cards on home */
+.ucard{border:3px solid var(--ink);box-shadow:var(--sh);background:var(--paper);display:flex;flex-direction:column}
+.ucard .top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;background:var(--ink);color:#fff}
+.ucard .top .eyebrow{color:var(--y)}
+.ucard .mid{padding:14px;display:flex;flex-direction:column;gap:10px}
+.ucard .done{display:flex;gap:10px;align-items:center;font-weight:700}
+.ucard.complete{background:var(--y-soft)}
+.ucard.complete .top{background:var(--y);color:var(--ink)}
+.ucard.complete .top .eyebrow{color:var(--ink)}
+.ucard a.go{font:700 12.5px/1 "JetBrains Mono",monospace;text-transform:uppercase;text-decoration:none;border:2.5px solid var(--ink);padding:9px 10px;align-self:flex-start;background:var(--y);box-shadow:var(--sh-sm)}
+
+/* symbols */
+.symlist{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.symlist li{margin:0;border:2.5px solid var(--ink);padding:10px;background:#fff}
+.symlist .g{flex:none;width:74px;height:44px;border:1.5px solid var(--ink);background:var(--wash);display:flex;align-items:center;justify-content:center}
+.symlist .g svg{display:block}
+.symlist b{display:block}
+.symlist small{display:block;color:var(--mute);font-size:13px;line-height:1.35}
+
+/* keyword map */
+.kw td:first-child{font-family:"JetBrains Mono",monospace;font-size:13px}
+.arrow{font-weight:700}
+
+/* glossary */
+.gl{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.gl div{border:2.5px solid var(--ink);padding:10px 12px;background:#fff}
+.gl dt{font:700 14px/1.3 "JetBrains Mono",monospace;background:var(--y);display:inline;padding:1px 4px}
+.gl dd{margin:6px 0 0;font-size:14.5px}
+.gl .u{font:700 11px/1 "JetBrains Mono",monospace;color:var(--mute);margin-left:6px}
+input[type=search]{font:16px "Work Sans",sans-serif;padding:12px 14px;border:3px solid var(--ink);box-shadow:var(--sh-sm);width:100%;max-width:460px;background:#fff;color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:22px;align-items:stretch}
+@media (max-width:760px){.hero{grid-template-columns:1fr}}
+.hero .title{border:4px solid var(--ink);box-shadow:8px 8px 0 var(--ink);padding:26px;background:var(--y);display:flex;flex-direction:column;gap:14px}
+.hero .title h1{font-size:clamp(34px,6.4vw,64px);line-height:.98}
+.hero .title h1 span{background:var(--ink);color:var(--y);padding:0 8px;display:inline-block;transform:rotate(-1.5deg)}
+.bigpct{font:400 64px/1 "Archivo Black",sans-serif;font-variant-numeric:tabular-nums}
+
+/* ---------- lessons ---------- */
+.roadmap{max-width:880px;width:100%;margin:0 auto}
+.rmh{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.ck.rm{columns:2 300px;column-gap:28px;display:block}
+.ck.rm li{break-inside:avoid;margin:0 0 8px}
+.ck a{text-decoration:none;border-bottom:1.5px solid transparent}
+.ck a:hover{border-bottom-color:var(--ink)}
+.lnum{display:inline-block;min-width:24px;font:700 12px/1.6 "JetBrains Mono",monospace;margin-right:4px}
+.doneli{margin-top:10px!important;padding-top:10px;border-top:2.5px solid var(--ink);column-span:all}
+.lessons{display:flex;flex-direction:column;gap:30px;max-width:880px;width:100%;margin:0 auto}
+.lesson{border:3px solid var(--ink);box-shadow:var(--sh);background:#fff;padding:24px 26px;display:flex;flex-direction:column;gap:18px;scroll-margin-top:84px;font-size:16.5px;line-height:1.7}
+.lesson.learned{box-shadow:6px 6px 0 var(--y),6px 6px 0 3px var(--ink)}
+.lesson .lh{display:flex;flex-direction:column;gap:8px;padding-bottom:14px;border-bottom:3px solid var(--ink)}
+.ln{align-self:flex-start;font:700 12px/1 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--y);padding:6px 9px}
+.lesson h3{font-size:clamp(20px,2.6vw,26px)}
+.lesson p,.lesson li{max-width:72ch}
+.plain,.exam{border:2px solid var(--ink);padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.plain{background:var(--y-soft)}
+.tag{align-self:flex-start;font:700 11px/1 "JetBrains Mono",monospace;letter-spacing:.1em;text-transform:uppercase;border:2px solid var(--ink);padding:5px 7px;background:var(--y)}
+.exam .tag{background:var(--ink);color:#fff}
+.rem{background:var(--ink);color:#fff;padding:12px 16px;border-left:12px solid var(--y)}
+.rem b{color:var(--y)}
+details.chk{border:2.5px dashed var(--ink);padding:12px 16px;background:#fff}
+details.chk summary{cursor:pointer;font-weight:700}
+details.chk[open] summary{margin-bottom:8px}
+.got{display:flex;gap:12px;align-items:center;font-weight:700;padding:12px 16px;background:var(--wash);border:2.5px solid var(--ink);cursor:pointer}
+.lesson.practice{background:var(--y-soft)}
+.lesson .symlist{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.ucard .top .cnt{font:700 12px/1 "JetBrains Mono",monospace;background:var(--y);color:var(--ink);padding:6px 8px}
+.ucard.complete .top .cnt{background:var(--ink);color:var(--y)}
+.ucard details summary{cursor:pointer;font-weight:700;font-size:14.5px}
+.ucard details .ck{margin-top:10px}
+.ucard .ck li{font-size:14px}
+@media (max-width:600px){.lesson{padding:16px 14px;font-size:16px}.plain,.exam{padding:12px}.rem{padding:10px 12px}}
+
+.mono{font-family:"JetBrains Mono",monospace}
+.bits{font-family:"JetBrains Mono",monospace;font-weight:700;word-break:break-all;background:var(--y-soft);border:2px solid var(--ink);padding:10px 12px}
+.ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}.warn{color:#8a5a00;font-weight:700}
+.formula{font:700 clamp(16px,2.4vw,21px)/1.4 "JetBrains Mono",monospace;background:var(--ink);color:var(--y);padding:14px 18px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--y);overflow-x:auto}
+.runs{display:flex;flex-wrap:wrap;gap:6px}
+.run{display:inline-flex;flex-direction:column;align-items:center;border:2px solid var(--ink);padding:4px 8px;font-family:"JetBrains Mono",monospace}
+.run i{font-style:normal;font-size:11px;font-weight:700}
+.lesson [data-auto],.scn [data-auto]{display:flex;flex-direction:column;gap:16px}
+.lab{gap:14px}
+.lab h2{font-size:24px}
+.lab textarea,.lab input,.lab select{font:15px "JetBrains Mono",monospace;padding:10px 12px;border:3px solid var(--ink);background:#fff;color:var(--ink);width:100%}
+.labrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.labrow>div{display:flex;flex-direction:column;gap:8px}
+.labout{display:flex;flex-direction:column;gap:16px}
+.labout:empty{display:none}
+table.edit input{padding:6px 8px;border-width:2px;min-width:64px}
+.btn.sm{padding:6px 9px;font-size:12px}
+</style><nav class="top" aria-label="Units">
+  <div class="in" id="nav">
+    <a href="#home" data-p="home">Index</a>
+    <a href="#m3u1" data-p="m3u1">M3·1 Basics</a>
+    <a href="#m3u2" data-p="m3u2">M3·2 RLE</a>
+    <a href="#m3u3" data-p="m3u3">M3·3 Huffman</a>
+    <a href="#m3u4" data-p="m3u4">M3·4 Lempel-Ziv</a>
+    <a href="#m3u5" data-p="m3u5">M3·5 Lossy</a>
+    <a href="#m5u1" data-p="m5u1">M5·1 Why RTOS</a>
+    <a href="#m5u2" data-p="m5u2">M5·2 Features</a>
+    <a href="#m5u3" data-p="m5u3">M5·3 Kernel&amp;BSP</a>
+    <a href="#m5u4" data-p="m5u4">M5·4 Metrics</a>
+    <a href="#m5u5" data-p="m5u5">M5·5 Tasks</a>
+    <a href="#m5u6" data-p="m5u6">M5·6 Tests</a>
+    <a href="#m5u7" data-p="m5u7">M5·7 RMS</a>
+    <a href="#m5u8" data-p="m5u8">M5·8 EDF</a>
+    <a href="#labs" data-p="labs">Labs</a>
+    <a href="#glossary" data-p="glossary">Glossary</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section class="page" id="home">
+  <div class="hero">
+    <div class="title">
+      <span class="eyebrow">BSCE305L · Embedded Systems · CAT prep</span>
+      <h1>Modules 3 &amp; 5<br><span>Exam Kit</span></h1>
+      <p class="lede">Module 3 (data compression) and Module 5 (RTOS and real-time scheduling), taught from zero. Numericals come with step-by-step recipes, worked solutions for every PYQ, and labs that solve and draw any question you type in.</p>
+      <div class="chips"><span class="chip k">13 units</span><span class="chip">beginner lessons</span><span class="chip">12 PYQs solved</span><span class="chip">Huffman · LZ · RLE · RMS · EDF labs</span></div>
+    </div>
+    <div class="box">
+      <span class="eyebrow">Your progress</span>
+      <div class="bigpct" id="totalPct">0%</div>
+      <div class="prog zero" id="totalBar"><i></i></div>
+      <p class="small muted" id="totalTxt">0 of 0 lessons ticked</p>
+      <p class="small">Ticks are saved in this browser only. Tick a lesson after you answer its "Check yourself" question.</p>
+      <button class="btn w" id="resetAll" type="button">Reset all ticks</button>
+      <p class="small" id="resetMsg" hidden></p>
+    </div>
+  </div>
+
+  <h2 class="sh"><span class="n">A</span>Module 3 roadmap: data compression</h2>
+  <div class="grid3" id="cards3"></div>
+  <h2 class="sh"><span class="n">B</span>Module 5 roadmap: RTOS &amp; scheduling</h2>
+  <div class="grid3" id="cards5"></div>
+
+  <h2 class="sh"><span class="n">C</span>What your papers ask from these modules</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Paper</th><th>Question</th><th>Marks</th><th>Solved in</th><th>Type</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>Q1a Huffman A5 B9 C12 D13 E16 F45: bits saved + tree</td><td class="num">7</td><td><a href="#m3u3">M3·3</a></td><td>Numerical</td></tr>
+      <tr><td>A</td><td>Q1b Compression of encrypted records gave no reduction</td><td class="num">3</td><td><a href="#m3u1">M3·1</a></td><td>Reasoning</td></tr>
+      <tr><td>B</td><td>Q1 Huffman a–h: encode "adhhgehdabchgfe", decode bits</td><td class="num">10</td><td><a href="#m3u3">M3·3</a></td><td>Numerical</td></tr>
+      <tr><td>C</td><td>Q1 Message EFFFBBB…: Huffman + RLE + compare</td><td class="num">10</td><td><a href="#m3u3">M3·3</a> + <a href="#m3u2">M3·2</a></td><td>Numerical</td></tr>
+      <tr><td>D</td><td>Q1 Lempel-Ziv on "3535353453536636", bits, decode 9,0,29,…</td><td class="num">10</td><td><a href="#m3u4">M3·4</a></td><td>Numerical</td></tr>
+      <tr><td>Slide</td><td>LZ78 encode/decode SSCSSCCSCCCCSSSSCCSSCCC</td><td class="num">—</td><td><a href="#m3u4">M3·4</a></td><td>Numerical</td></tr>
+      <tr><td>B</td><td>Q4 RTOS, GPOS or EOS for thermostat, tracker, drone, voice assistant, coffee machine</td><td class="num">5</td><td><a href="#m5u1">M5·1</a></td><td>Scenario</td></tr>
+      <tr><td>A</td><td>Q4 RMS response times UTL/UTr/GPST, verify schedulability</td><td class="num">10</td><td><a href="#m5u7">M5·7</a></td><td>Numerical</td></tr>
+      <tr><td>A</td><td>Q5 Same tasks under EDF with arrival times 1, 3, 0</td><td class="num">10</td><td><a href="#m5u8">M5·8</a></td><td>Numerical</td></tr>
+      <tr><td>B</td><td>Q5 Smart home 5 tasks: priorities, tests, RMS + EDF Gantt</td><td class="num">15</td><td><a href="#m5u7">M5·7</a> + <a href="#m5u8">M5·8</a></td><td>Numerical</td></tr>
+      <tr><td>C</td><td>Q4 Automotive ECU (ENG/BRA/DIAG) RMS + RTA</td><td class="num">10</td><td><a href="#m5u6">M5·6</a></td><td>Numerical</td></tr>
+      <tr><td>C</td><td>Q5 EDF with D &lt; T (T1/T2/T3), Gantt for one hyperperiod</td><td class="num">10</td><td><a href="#m5u8">M5·8</a></td><td>Numerical</td></tr>
+      <tr><td>D</td><td>Q5 RMS fails? then EDF (D &lt; T)</td><td class="num">10</td><td><a href="#m5u7">M5·7</a> + <a href="#m5u8">M5·8</a></td><td>Numerical</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 class="sh"><span class="n">D</span>Numerical recipes (one-glance)</h2>
+  <div class="grid2">
+    <div class="box y"><h3>Huffman in 5 moves</h3><ol><li>Count frequencies (table).</li><li>Repeatedly merge the two smallest (write the list after each merge).</li><li>Draw the tree: left = 0, right = 1.</li><li>Read codes root → leaf; bits = Σ f × code length.</li><li>Compare with 8 × N (or fixed-length); saved = difference.</li></ol></div>
+    <div class="box y"><h3>Lempel-Ziv in 4 moves</h3><ol><li>From the remaining text take the <b>longest</b> known prefix + one new symbol.</li><li>Store it as the next dictionary entry.</li><li>Output (index of known part)(new symbol); no match → just the symbol.</li><li>Bits = tokens × (index bits + symbol bits).</li></ol></div>
+    <div class="box y"><h3>RMS in 4 moves</h3><ol><li>Priority: smaller period = higher.</li><li>U = Σ C/T; U ≤ 1 (necessary); U ≤ n(2^{1/n} − 1) (sufficient).</li><li>If UB fails, use RTA: R = C + Σ ⌈R/Tⱼ⌉Cⱼ until stable; check R ≤ D.</li><li>Gantt over the hyperperiod (LCM of periods).</li></ol></div>
+    <div class="box y"><h3>EDF in 3 moves</h3><ol><li>D = T: schedulable ⇔ U ≤ 1. D &lt; T: Σ C/D ≤ 1 is sufficient.</li><li>At every tick, run the ready job with the earliest absolute deadline (tie: keep the running job).</li><li>Draw the Gantt up to the hyperperiod and mark any miss.</li></ol></div>
+  </div>
+  <div class="grid2">
+    <div class="box"><h3>90-minute plan</h3><p>Numericals take longer than theory. For a 10-mark numerical: 2 min to list the data and formula, 10 min for tables and the diagram, 3 min for the final comparison and a one-line verdict. Always write the <b>formula before the numbers</b>; method marks are given even if arithmetic slips.</p></div>
+    <div class="box dark"><h3 style="color:var(--y)">Last 15 minutes</h3><ul>
+      <li>Entropy: H = −Σ p log₂ p · average length L = Σ pᵢlᵢ</li>
+      <li>Lossless: RLE, Huffman, LZ · Lossy: JPEG, MPEG, MP3</li>
+      <li>JPEG: blocks → DCT → quantize → zig-zag + RLE</li>
+      <li>Hard / Firm / Soft RTOS: airbag / assembly robot / video call</li>
+      <li>B(1..6): 1, 0.828, 0.779, 0.756, 0.743, 0.734 → 0.693</li>
+      <li>RMS = fixed priority (period) · EDF = dynamic (deadline), optimal</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- ============ M3 U1 ============ -->
+<section class="page unit" id="m3u1" data-mod="3" data-n="1" data-title="Compression basics, entropy, lossless vs lossy" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 3 · UNIT 1</span><h1>Compression basics: why, entropy, lossless vs lossy</h1>
+    <p class="lede">What compression is, how to measure how much a message <i>can</i> be compressed (entropy), and the two families of methods.</p>
+    <div class="chips"><span class="chip k">PYQ: A-Q1b (3 M)</span><span class="chip">Entropy numericals</span></div></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3><button class="btn w" type="button" data-practice="m3u1">Practice mode: hide solutions</button></div>
+    <p class="small">Read each lesson, answer its "Check yourself", then tick it.</p><ol class="ck rm" data-unit="m3u1"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m3u1-l1" data-title="What compression is and why we need it">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>What data compression is, and why we need it</h3></div>
+      <div class="plain"><span class="tag">In plain words</span>
+        <p>Compression means <b>storing or sending the same information using fewer bits</b>. When you text "brb" instead of "be right back", you have compressed the message. Your friend can still recover the meaning.</p>
+        <p>Embedded devices have small memory, slow links and batteries. Fewer bits means less storage, faster transmission, and a free I/O bus.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><ul>
+        <li><b>Why compress:</b> make optimal use of limited storage space; save time and optimize resources.</li>
+        <li>If compression/decompression is done in the I/O processor, less time is needed to move data to/from storage, which frees the I/O bus for other work.</li>
+        <li>When sending over a communication line: less time to transmit and less storage at the host.</li>
+        <li>Data compression is about <b>storing and sending a smaller number of bits</b>.</li></ul></div>
+      <p class="rem"><b>Remember:</b> same information, fewer bits: less storage, less transmit time, a freer bus.</p>
+      <details class="chk"><summary>Check yourself: give two benefits of compressing data before sending it over a network.</summary><p>Less transmission time (lower bandwidth) and less storage needed at the receiving host.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u1-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u1-l2" data-title="Lossless vs lossy methods">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>Two families: lossless and lossy</h3></div>
+      <div class="plain"><span class="tag">In plain words</span>
+        <p><b>Lossless</b>: after decompressing you get back <b>exactly</b> the original, bit for bit, like a ZIP file. Essential for text, programs, bank records and medical reports, where one wrong bit is a disaster.</p>
+        <p><b>Lossy</b>: some detail is thrown away for good, but humans don't notice, like a JPEG photo or an MP3 song. It achieves much higher compression and is used for images, video and audio.</p></div>
+      <figure><div class="dg" data-dg="m3_methods"></div><figcaption>Fig 3.1 · Classification of compression methods (from the slides)</figcaption></figure>
+      <div class="tbl"><table><thead><tr><th></th><th>Lossless</th><th>Lossy</th></tr></thead>
+        <tr><td>Output after decompression</td><td>Exactly the same as the original</td><td>Close to the original, some detail lost</td></tr>
+        <tr><td>How</td><td>Redundant data removed in compression, added back in decompression</td><td>Removes detail the eye/ear can't notice</td></tr>
+        <tr><td>Used for</td><td>Legal and medical documents, programs, text</td><td>Images, video, audio</td></tr>
+        <tr><td>Methods</td><td>Run-length, Huffman, Lempel-Ziv</td><td>JPEG, MPEG, MP3</td></tr>
+        <tr><td>Compression</td><td>Moderate</td><td>High; cheaper in time and space</td></tr></table></div>
+      <p class="rem"><b>Remember:</b> lossless = exact (text, code, records) · lossy = "looks the same" (photo, video, song).</p>
+      <details class="chk"><summary>Check yourself: which family would you use for a hospital's patient lab reports?</summary><p>Lossless. Medical data cannot afford to lose any information.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u1-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u1-l3" data-title="Entropy: measuring information (numerical)">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>Entropy: how much information a message really has</h3></div>
+      <div class="plain"><span class="tag">In plain words</span>
+        <p>If a message is "AAAAAAAAAA", you learn almost nothing new from each letter; it is predictable. If every letter is different and random, each one carries a lot of information. <b>Entropy</b> measures this: the <b>average number of bits per symbol truly needed</b>. No lossless method can go below the entropy, so it is the best possible target.</p></div>
+      <div class="formula">H = − Σ p(x) · log₂ p(x) &nbsp;&nbsp;(bits per symbol)</div>
+      <div class="exam"><span class="tag">Recipe: entropy numerical</span><ol>
+        <li>Count each symbol's frequency f; total N.</li>
+        <li>p = f / N for each symbol.</li>
+        <li>For each symbol compute −p·log₂p. Tip: log₂x = ln x / ln 2 = log₁₀x / 0.301.</li>
+        <li>Add them: H. Total minimum bits ≈ N × H.</li></ol></div>
+      <p><b>Worked example</b> (Paper C message EFFFBBBGGGDBGFFFDDBEEGGBFFF, N = 27):</p>
+      <div class="tbl"><table><thead><tr><th>Symbol</th><th>f</th><th>p</th><th>−p log₂ p</th></tr></thead>
+        <tr><td>F</td><td>9</td><td>0.333</td><td>0.528</td></tr><tr><td>B</td><td>6</td><td>0.222</td><td>0.482</td></tr>
+        <tr><td>G</td><td>6</td><td>0.222</td><td>0.482</td></tr><tr><td>E</td><td>3</td><td>0.111</td><td>0.352</td></tr>
+        <tr><td>D</td><td>3</td><td>0.111</td><td>0.352</td></tr><tr><td colspan="3"><b>H</b></td><td><b>2.197 bits/symbol</b></td></tr></table></div>
+      <p class="small">So the message needs at least 27 × 2.197 ≈ 59.3 bits. Huffman achieves 60 bits (Unit 3), almost perfect.</p>
+      <div class="exam"><span class="tag">Write this in the exam</span><p>Entropy is the measure of information content in a message. Messages with higher entropy carry more information than those with lower entropy. Find p(x) of each symbol; H(x) = −p(x)·log₂p(x). The average entropy over the whole message is the sum over all n symbols.</p></div>
+      <p class="rem"><b>Remember:</b> entropy is the floor: Huffman's average length L ≥ H, and efficiency = H / L.</p>
+      <details class="chk"><summary>Check yourself: what is the entropy of a message where all 4 symbols are equally likely?</summary><p>Each p = 1/4, so H = 4 × (−¼ log₂ ¼) = 4 × ¼ × 2 = <b>2 bits/symbol</b>. With no redundancy, compression can't beat 2 bits.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u1-l3"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u1-l4" data-title="Useful formulas: ratio, bits saved, average length">
+      <div class="lh"><span class="ln">Lesson 4</span><h3>Formulas you will use in every numerical</h3></div>
+      <div class="tbl"><table><thead><tr><th>Quantity</th><th>Formula</th><th>Example (N = 100 chars, Huffman 224 bits)</th></tr></thead>
+        <tr><td>Original size (1 byte each)</td><td>N × 8</td><td>800 bits</td></tr>
+        <tr><td>Fixed-length code size</td><td>N × ⌈log₂ k⌉ (k = number of distinct symbols)</td><td>6 symbols → 3 bits → 300 bits</td></tr>
+        <tr><td>Bits saved</td><td>original − compressed</td><td>800 − 224 = 576 bits</td></tr>
+        <tr><td>Compression ratio</td><td>original / compressed</td><td>800 / 224 = 3.57 : 1</td></tr>
+        <tr><td>Space saving %</td><td>(1 − compressed/original) × 100</td><td>72%</td></tr>
+        <tr><td>Average code length L</td><td>Σ fᵢ·lᵢ / N = Σ pᵢ·lᵢ</td><td>2.24 bits/symbol</td></tr>
+        <tr><td>Efficiency</td><td>H / L × 100</td><td>2.22 / 2.24 = 99.1%</td></tr></table></div>
+      <div class="tip"><b>Tip:</b> read the question carefully. "Each character takes 1 byte" means compare with <b>8 bits per character</b>. If nothing is said, show both 8-bit and fixed-length comparisons. It costs one line and covers both interpretations.</div>
+      <p class="rem"><b>Remember:</b> saved = before − after · ratio = before ÷ after.</p>
+      <details class="chk"><summary>Check yourself: a 50-character message becomes 120 bits. What is the ratio vs 8-bit ASCII?</summary><p>Original = 400 bits; ratio = 400 / 120 = 3.33 : 1; saved = 280 bits.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u1-l4"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u1-l5" data-title="Why encrypted or random data doesn't compress">
+      <div class="lh"><span class="ln">Lesson 5</span><h3>Why encrypted or random data doesn't compress (Paper A-Q1b)</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>Every lossless method works by finding <b>patterns</b>: repeated symbols (RLE), some symbols more common than others (Huffman), repeated phrases (LZ). Good encryption deliberately <b>destroys all patterns</b>: the output looks like random noise, every byte value is about equally likely, and nothing repeats. Its entropy is at the maximum (≈ 8 bits per byte), so there is nothing left to squeeze.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam (3 marks)</span><ul>
+        <li><b>Reason:</b> encryption produces high-entropy, uniformly distributed, pattern-free (pseudo-random) data. Lossless compression depends on redundancy, and there is none, so the file barely shrinks (it may even grow slightly because of headers).</li>
+        <li><b>Corrective measure:</b> <b>compress first, then encrypt</b>. Compress the plain transaction records (which contain repeated fields, names, dates and amounts), then encrypt the smaller file.</li>
+        <li>Bonus: compressing first also means less data to encrypt and transmit. Use a lossless method (Huffman / LZ / DEFLATE) because financial records must be recovered exactly.</li></ul></div>
+      <p class="rem"><b>Remember:</b> compress → encrypt, never encrypt → compress.</p>
+      <details class="chk"><summary>Check yourself: why does zipping a JPEG photo also save very little?</summary><p>A JPEG is already compressed, so its redundancy has been removed and the data is close to maximum entropy.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u1-l5"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson practice" id="m3u1-l6" data-title="Practice: entropy + encrypted-data question">
+      <div class="lh"><span class="ln">Final step</span><h3>Practice on paper</h3></div>
+      <p>Compute the entropy of "AAAABBC" (answer: p = 4/7, 2/7, 1/7 → H ≈ 1.379 bits/symbol). Then write the Paper A-Q1b answer in 5 lines from memory.</p>
+      <label class="got"><input type="checkbox" data-key="m3u1-l6"><span>I did both without looking</span></label>
+    </article>
+  </div>
+  <h2 class="sh"><span class="n">2</span>Mnemonics</h2>
+  <div class="grid2">
+    <div class="mn"><span class="eyebrow">Lossless trio</span><div class="big"><b>R</b>eally <b>H</b>appy <b>L</b>ions = RLE, Huffman, Lempel-Ziv</div></div>
+    <div class="mn"><span class="eyebrow">Lossy trio</span><div class="big"><b>J</b>ust <b>M</b>ake <b>M</b>usic = JPEG, MPEG, MP3</div></div>
+  </div>
+  <h2 class="sh"><span class="n">3</span>Tips &amp; traps</h2>
+  <div class="grid2">
+    <div class="tip"><b>Tip:</b> For any "which method" scenario, first decide <b>lossless or lossy</b> from the data type, then pick the method.</div>
+    <div class="trap"><b>Trap:</b> Never suggest a lossy method for text, code, financial or medical records.</div>
+  </div>
+</section>
+
+<!-- ============ M3 U2 RLE ============ -->
+<section class="page unit" id="m3u2" data-mod="3" data-n="2" data-title="Run-length encoding (RLE)" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 3 · UNIT 2</span><h1>Run-length encoding (RLE)</h1>
+    <p class="lede">The simplest compression: write a repeated symbol once, followed by how many times it repeats.</p>
+    <div class="chips"><span class="chip k">PYQ: C-Q1(ii) (3 M)</span><span class="chip">Numerical</span></div></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3><button class="btn w" type="button" data-practice="m3u2">Practice mode: hide solutions</button></div><ol class="ck rm" data-unit="m3u2"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m3u2-l1" data-title="How RLE works (symbol + count)">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>How RLE works</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>Instead of saying "B B B B B B B B B", say "B, nine times". A <b>run</b> is a group of the same symbol in a row. RLE replaces each run with <b>the symbol + its count</b>.</p></div>
+      <div data-auto="rle" data-in="BBBBBBBBBAAAAAAAAAAAAAAAANMMMMMMMMMM"></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><p>RLE is the simplest compression method. It replaces consecutive repeating occurrences of a symbol with one occurrence of the symbol followed by the number of occurrences. Slide example: <code>BBBBBBBBBAAAAAAAAAAAAAAAANMMMMMMMMMM</code> → <code>B09A16N01M10</code>.</p></div>
+      <p class="rem"><b>Remember:</b> each run is written as symbol + count.</p>
+      <details class="chk"><summary>Check yourself: RLE-encode <code>WWWWBBBWW</code>.</summary><p>W4B3W2 (or W04B03W02 in the slide's 2-digit style).</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u2-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u2-l2" data-title="RLE on bit patterns (counting 0s between 1s)">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>RLE on bit patterns</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>RLE works even better on binary data where one symbol (say 0) is far more common. Since only two symbols exist, just write <b>how many 0s come before each 1</b>, as a fixed-size binary number.</p></div>
+<pre><code>Original : 00000000000000 1 0000 1 1 000000000000
+           └─ 14 zeros ─┘   └4┘   0   └─ 12 zeros ─┘
+Counts   :      14           4    0        12
+4-bit    :     1110         0100 0000     1100      → 1110 0100 0000 1100 (16 bits)</code></pre>
+      <div class="exam"><span class="tag">Write this in the exam</span><p>The method is more efficient if the data uses only 2 symbols (0s and 1s) in bit patterns and one symbol is more frequent than the other. Encode the number of 0s between successive 1s using a fixed number of bits.</p></div>
+      <p class="rem"><b>Remember:</b> in binary RLE you only store the count of zeros before each 1.</p>
+      <details class="chk"><summary>Check yourself: encode <code>0000000100000001</code> with 4-bit counts.</summary><p>7 zeros then 1, 7 zeros then 1 → 0111 0111.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u2-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u2-l3" data-title="Calculating RLE size and when RLE expands data">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>Calculating RLE size, and when RLE makes things worse</h3></div>
+      <div class="exam"><span class="tag">Recipe: RLE numerical</span><ol>
+        <li>Split into runs; count the runs r and note the longest run.</li>
+        <li>Symbol field = ⌈log₂ k⌉ bits (k distinct symbols). Count field = ⌈log₂(longest run + 1)⌉ bits.</li>
+        <li>RLE size = r × (symbol bits + count bits).</li>
+        <li>Compare with the original N × symbol bits (or N × 8).</li></ol></div>
+      <div class="plain"><span class="tag">When RLE fails</span><p>If runs are short (1–3 long), every run costs a symbol <b>plus</b> a count, so the "compressed" data can be <b>bigger</b> than the original. Example: <code>ABCD</code> → <code>A1B1C1D1</code> doubles in size. RLE is great for images with large flat areas, fax pages and sensor logs that stay constant. It is poor for normal text.</p></div>
+      <p class="rem"><b>Remember:</b> long runs → RLE wins · short runs → RLE loses (it can expand the data).</p>
+      <details class="chk"><summary>Check yourself: 20 symbols, 4 distinct, 12 runs, longest run 3. RLE size vs original (fixed-length)?</summary><p>Symbol 2 bits, count ⌈log₂4⌉ = 2 bits → 12 × 4 = 48 bits vs 20 × 2 = 40 bits. RLE is worse.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u2-l3"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson practice" id="m3u2-l4" data-title="Practice: RLE part of PYQ C-Q1">
+      <div class="lh"><span class="ln">Final step</span><h3>Practice</h3></div><p>Do the RLE part of Scenario 3.3 (Unit 3) on paper, then check it. Try your own strings in the <a href="#labs">RLE lab</a>.</p>
+      <label class="got"><input type="checkbox" data-key="m3u2-l4"><span>I can do RLE numericals without looking</span></label>
+    </article>
+  </div>
+  <h2 class="sh"><span class="n">2</span>Tips &amp; traps</h2>
+  <div class="grid2"><div class="tip"><b>Tip:</b> Show the runs visually (underline each run) before writing the output. Examiners give marks for the method.</div>
+  <div class="trap"><b>Trap:</b> Don't merge runs of the same symbol that are separated: <code>BBB G BB</code> is three runs.</div></div>
+</section>
+
+<!-- ============ M3 U3 HUFFMAN ============ -->
+<section class="page unit" id="m3u3" data-mod="3" data-n="3" data-title="Huffman coding" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 3 · UNIT 3</span><h1>Huffman coding</h1>
+    <p class="lede">Frequent symbols get short codes, rare symbols get long codes. The most asked compression numerical in your papers.</p>
+    <div class="chips"><span class="chip k">PYQ: A-Q1a (7 M)</span><span class="chip k">PYQ: B-Q1 (10 M)</span><span class="chip k">PYQ: C-Q1 (10 M)</span></div></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3><button class="btn w" type="button" data-practice="m3u3">Practice mode: hide solutions</button></div><ol class="ck rm" data-unit="m3u3"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m3u3-l1" data-title="The idea: short codes for frequent symbols">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>The idea: short codes for frequent symbols</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>In Morse code, "E" (the most common English letter) is a single dot, while rare letters like "Q" are long. Huffman does the same with bits. Normally each character takes 8 bits. Huffman gives the <b>most frequent</b> character maybe 1–2 bits and a rare one maybe 4–5, so the <b>total</b> drops a lot.</p>
+        <p>Huffman codes are <b>prefix-free</b>: no code is the beginning of another code. That is why a bit stream can be decoded without separators.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><ul><li>Assign <b>fewer bits to symbols that occur more frequently</b> and more bits to symbols that appear less often.</li><li>There is <b>no unique Huffman code</b>, but every Huffman code for the same frequencies has the <b>same average code length</b>.</li></ul></div>
+      <p class="rem"><b>Remember:</b> common → short code, rare → long code, and no code is a prefix of another.</p>
+      <details class="chk"><summary>Check yourself: is {A = 0, B = 01, C = 11} a valid Huffman-style (prefix-free) code?</summary><p>No. "0" (A) is a prefix of "01" (B), so "01" could be read as A then something else.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u3-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u3-l2" data-title="The algorithm and the tie rule">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>The algorithm (slides) and how to break ties</h3></div>
+      <div class="exam"><span class="tag">Algorithm from the slides</span><ol>
+        <li>Make a <b>leaf node</b> for each symbol, holding its frequency (probability).</li>
+        <li>Take the <b>two nodes with the smallest</b> frequencies and connect them to a new node. Label the two branches 0 and 1. The new node's frequency = sum of the two.</li>
+        <li>If only one node is left, the tree is complete. Otherwise go back to step 2.</li></ol></div>
+      <div class="plain"><span class="tag">Tie rule used in this kit (write it in your answer)</span><p>Sort ascending. When two nodes have the same weight, take the one that was in the list <b>first</b> (original symbols before newly merged nodes). The first node taken goes <b>left (0)</b>, the second <b>right (1)</b>. Different tie choices give different but equally good codes with the same total bits. Just state your rule and stay consistent.</p></div>
+      <p class="rem"><b>Remember:</b> smallest two → merge → sum → repeat · left 0, right 1.</p>
+      <details class="chk"><summary>Check yourself: frequencies 4, 6, 7, 3. Which two merge first, and what is the new node?</summary><p>3 and 4 merge into 7.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u3-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u3-l3" data-title="Worked example from the slides (A17 B12 C12 D27 E32)">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>Worked example from the slides</h3></div>
+      <p>Slide Table 15.1: A 17, B 12, C 12, D 27, E 32. The slide gets A 00, B 010, C 011, D 10, E 11, and so does our rule:</p>
+      <div data-auto="huff" data-in="A:17,B:12,C:12,D:27,E:32" data-enc="EAEBAECDEA"></div>
+      <p class="small">The slide's encoding of "EAEBAECDEA" is 1100110100011011101100, the same as above.</p>
+      <p class="rem"><b>Remember:</b> always write Steps 1–5 (count, merge table, tree, codes, compare).</p>
+      <details class="chk"><summary>Check yourself: why is D (27) given a 2-bit code but B (12) a 3-bit code?</summary><p>B is less frequent, so it was merged early and sits deeper in the tree (longer path from the root). D was merged late, near the root.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u3-l3"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u3-l4" data-title="Encoding and decoding with a code table">
+      <div class="lh"><span class="ln">Lesson 4</span><h3>Encoding and decoding</h3></div>
+      <div class="plain"><span class="tag">In plain words</span>
+        <p><b>Encoding:</b> replace each character by its code and join them. Write the per-character codes above the bit string, so the examiner can follow.</p>
+        <p><b>Decoding:</b> read bits from the left, one at a time. The moment the bits you have collected equal a code in the table, write that character and start collecting again. Because the code is prefix-free, there is never a doubt. With a tree: start at the root, go left on 0 and right on 1, and when you hit a leaf, output it and jump back to the root.</p></div>
+<pre><code>Codes: A=00 B=010 C=011 D=10 E=11
+Decode 11 00 11 010 00 11 011 10 11 00
+       E  A  E  B   A  E  C   D  E  A   → EAEBAECDEA</code></pre>
+      <p class="rem"><b>Remember:</b> collect bits until they match a code, output the character, reset.</p>
+      <details class="chk"><summary>Check yourself: with the codes above, decode 1001011.</summary><p>10 = D, 010 = B, 11 = E → DBE.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u3-l4"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u3-l5" data-title="Huffman vs RLE vs fixed length: comparing results">
+      <div class="lh"><span class="ln">Lesson 5</span><h3>Comparing Huffman with other methods</h3></div>
+      <div class="tbl"><table><thead><tr><th>Data looks like…</th><th>Best choice</th><th>Why</th></tr></thead>
+        <tr><td>Some symbols much more common, few long runs</td><td>Huffman</td><td>Exploits unequal frequencies</td></tr>
+        <tr><td>Long runs of identical symbols</td><td>RLE</td><td>One pair replaces a long run</td></tr>
+        <tr><td>Repeated phrases or words</td><td>Lempel-Ziv</td><td>Dictionary reuses whole substrings</td></tr>
+        <tr><td>All symbols equally likely, random</td><td>None helps</td><td>Entropy already at maximum</td></tr></table></div>
+      <div class="exam"><span class="tag">How to "justify which is better"</span><p>Compute the <b>size in bits</b> of each under the same assumptions (same symbol-bit width), compare the numbers, and give the reason in one line (e.g. "runs are at most 3 long, so RLE's count overhead cancels its gain; Huffman exploits the frequency skew").</p></div>
+      <p class="rem"><b>Remember:</b> compare in bits, then give the reason.</p>
+      <details class="chk"><summary>Check yourself: which method suits "AAAAAAAAAAAABBBBBBBBBBBB"?</summary><p>RLE: 2 runs, A12B12. Huffman would still need 1 bit per symbol = 24 bits.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u3-l5"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson practice" id="m3u3-l6" data-title="Practice: PYQ A-Q1a, B-Q1, C-Q1">
+      <div class="lh"><span class="ln">Final step</span><h3>Practice: solve the three PYQs</h3></div><p>Turn on practice mode and do Scenarios 3.1–3.3 on paper. Use the <a href="#labs">Huffman lab</a> to check any frequency set you invent.</p>
+      <label class="got"><input type="checkbox" data-key="m3u3-l6"><span>I solved scenarios 3.1–3.3 without looking</span></label>
+    </article>
+  </div>
+  <h2 class="sh"><span class="n">2</span>Mnemonics</h2>
+  <div class="grid2"><div class="mn"><span class="eyebrow">Huffman loop</span><div class="big"><b>S</b>mallest <b>T</b>wo, <b>M</b>erge, <b>R</b>epeat</div><ul><li>Left 0, right 1 · read codes root → leaf</li></ul></div>
+  <div class="mn"><span class="eyebrow">Answer layout</span><div class="big"><b>C</b>ount · <b>M</b>erge · <b>T</b>ree · <b>C</b>odes · <b>C</b>ompare</div></div></div>
+  <h2 class="sh"><span class="n">3</span>Solved PYQ scenarios</h2>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 3.1</span><span class="chip y">PYQ A-Q1 (a + b)</span><span class="chip">10 marks</span></div>
+    <p>A networking company encodes messages before transmission. Characters and frequencies: A 5, B 9, C 12, D 13, E 16, F 45. (a) If Huffman coding is used, how many bits are saved? Draw the Huffman tree. Each character in the input takes 1 byte. <span class="mk">7 M</span> (b) A financial institution compressed its <b>encrypted</b> transaction records and saw little or no reduction. Why, and what corrective measure should be taken? <span class="mk">3 M</span></p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <div data-auto="huff" data-in="A:5,B:9,C:12,D:13,E:16,F:45"></div>
+      <div class="step"><h4>Answer (a)</h4><p>Total characters = 100 → uncompressed = 100 × 8 = <b>800 bits</b>. Huffman = <b>224 bits</b>. <b>Bits saved = 576 bits</b> (72% saving).</p></div>
+      <div class="step"><h4>Answer (b)</h4><p>Encrypted data is pseudo-random with maximum entropy and no repeated patterns, so lossless compression finds no redundancy. Fix: <b>compress the plain records first, then encrypt</b> (see Unit 1, Lesson 5).</p></div>
+    </div></details></article>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 3.2</span><span class="chip y">PYQ B-Q1</span><span class="chip">10 marks</span></div>
+    <p>Characters a–h have frequencies a 2, b 3, c 5, d 7, e 11, f 13, g 17, h 19. (a) Encode "adhhgehdabchgfe" into the Huffman code. <span class="mk">5 M</span> (b) Decode the bit sequence 111011110011101000. <span class="mk">5 M</span></p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <div data-auto="huff" data-in="a:2,b:3,c:5,d:7,e:11,f:13,g:17,h:19" data-enc="adhhgehdabchgfe" data-dec="111011110011101000"></div>
+      <div class="step"><h4>Final answers</h4><p>(a) 46 bits, shown above (vs 15 × 8 = 120 bits). (b) 111 | 01111 | 00 | 111 | 010 | 00 → <b>f b g f d g</b>. It decodes with no leftover bits, which confirms the tie rule matches the examiner's tree.</p></div>
+    </div></details></article>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 3.3</span><span class="chip y">PYQ C-Q1</span><span class="chip">10 marks</span></div>
+    <p>A telecom company transmits the message <b>EFFFBBBGGGDBGFFFDDBEEGGBFFF</b>. (i) Construct the tree using leaf-node frequency analysis and generate prefix codes. <span class="mk">5 M</span> (ii) Apply run-length encoding to the message. <span class="mk">3 M</span> (iii) Compare both methods and decide which compresses better. Justify. <span class="mk">2 M</span></p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <h4>(i) Huffman</h4><div data-auto="huff" data-in="EFFFBBBGGGDBGFFFDDBEEGGBFFF"></div>
+      <h4>(ii) Run-length encoding</h4><div data-auto="rle" data-in="EFFFBBBGGGDBGFFFDDBEEGGBFFF"></div>
+      <div class="step"><h4>(iii) Comparison</h4><div class="tbl"><table><thead><tr><th>Method</th><th>Size (same 3-bit symbol width)</th></tr></thead>
+        <tr><td>Original (fixed 3-bit)</td><td>27 × 3 = 81 bits</td></tr><tr><td>RLE</td><td>14 runs × (3 + 2) = 70 bits</td></tr><tr><td class="hl">Huffman</td><td class="hl">60 bits</td></tr></table></div>
+      <p><b>Huffman is better.</b> The runs are short (at most 3), so RLE pays a count for every tiny run (its character form <code>E1F3B3…</code> is even longer than the message). Huffman exploits the unequal frequencies (F appears 9 times, E and D only 3) and gets within 1 bit of the entropy limit (59.3 bits).</p></div>
+    </div></details></article>
+  <h2 class="sh"><span class="n">4</span>Tips &amp; traps</h2>
+  <div class="grid2"><div class="tip"><b>Tip:</b> Write the <b>list after each merge</b>. It makes mistakes easy to spot, and examiners award method marks for it.</div>
+  <div class="trap"><b>Trap:</b> Don't forget to add the frequencies correctly. Check that the root equals the total N.</div>
+  <div class="tip"><b>Tip:</b> Check your total with Σ f × length. Recount if Σ f doesn't equal N.</div>
+  <div class="trap"><b>Trap:</b> Different trees are fine, but the <b>total bits must be the same</b>. If yours differs, you picked a wrong minimum somewhere.</div></div>
+</section>
+
+<!-- ============ M3 U4 LZ ============ -->
+<section class="page unit" id="m3u4" data-mod="3" data-n="4" data-title="Lempel-Ziv (dictionary) compression" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 3 · UNIT 4</span><h1>Lempel-Ziv: dictionary-based compression</h1>
+    <p class="lede">Build a dictionary of phrases as you go and replace repeats with their index. This is the method behind ZIP, GIF and PNG.</p>
+    <div class="chips"><span class="chip k">PYQ: D-Q1 (10 M)</span><span class="chip">Slide exercise: LZ78</span></div></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3><button class="btn w" type="button" data-practice="m3u4">Practice mode: hide solutions</button></div><ol class="ck rm" data-unit="m3u4"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m3u4-l1" data-title="The dictionary idea">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>The dictionary idea</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>Imagine you and a friend both keep a numbered list of phrases. The first time you say "good morning", you both write it down as #5. Next time you just say "#5". Lempel-Ziv does this with strings: both sender and receiver <b>build the same dictionary while communicating</b>, so the dictionary itself never has to be sent.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><ul><li>Lempel-Ziv is <b>dictionary-based</b> encoding.</li><li>Create a dictionary (table) of strings used during communication.</li><li>If both sender and receiver have a copy, previously encountered strings can be <b>substituted by their index</b>.</li><li>Two phases: <b>building an indexed dictionary</b> and <b>compressing a string of symbols</b>.</li></ul></div>
+      <p class="rem"><b>Remember:</b> a phrase seen before is sent as its index.</p>
+      <details class="chk"><summary>Check yourself: does the dictionary have to be transmitted with the data?</summary><p>No. The decoder rebuilds exactly the same dictionary from the tokens as it decodes.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u4-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u4-l2" data-title="Compression algorithm with the slide example">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>The compression algorithm, on the slide example</h3></div>
+      <div class="exam"><span class="tag">Algorithm (slides)</span><ol>
+        <li>Extract the <b>smallest substring that cannot be found</b> in the dictionary from the remaining text (= longest known part + one more symbol).</li>
+        <li>Store that substring in the dictionary as a new entry with the next index.</li>
+        <li>The known part is replaced by its index.</li>
+        <li>Insert the index and the last character of the substring into the compressed string.</li></ol></div>
+      <p>Slide example: <b>BAABABBBAABBBBAA</b> → <b>B, A, 2B, 3B, 1A, 4B, 5A</b></p>
+      <div data-auto="lz" data-in="BAABABBBAABBBBAA"></div>
+      <p class="rem"><b>Remember:</b> longest known part + one new symbol = new entry; output = index + symbol.</p>
+      <details class="chk"><summary>Check yourself: at step 3 the remaining text is "ABABBBAABBBBAA". Why is the parsed string "AB" and not "A"?</summary><p>"A" is already entry 2, so it is known. Add the next symbol: "AB" is not in the dictionary, so it becomes entry 3 and the output is 2B.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u4-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u4-l3" data-title="Output format and number of bits">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>Output format and counting bits</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>Every token is really a <b>pair (index, symbol)</b>. The slides write <code>2B</code> for (2, B) and just <code>B</code> for (0, B), where 0 means "no known part". To store the output in binary you need bits for the index and bits for the symbol.</p></div>
+      <div class="formula">bits = number of tokens × ( ⌈log₂(entries + 1)⌉ + ⌈log₂(symbols in alphabet)⌉ )</div>
+      <p class="small">The "+1" leaves room for index 0 (no match). With 9 entries you need ⌈log₂10⌉ = 4 index bits. A 4-symbol alphabet needs 2 symbol bits.</p>
+      <div class="tip"><b>Tip:</b> Short strings often <b>expand</b> under LZ, because the dictionary only pays off on long text with many repeats. If your answer is bigger than the original, say so. That is a correct and thoughtful observation.</div>
+      <p class="rem"><b>Remember:</b> each token = index bits + symbol bits.</p>
+      <details class="chk"><summary>Check yourself: 7 tokens, 7 entries, alphabet {A, B}. How many bits?</summary><p>Index ⌈log₂8⌉ = 3, symbol 1 → 7 × 4 = 28 bits.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u4-l3"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u4-l4" data-title="Decompression (rebuild the dictionary)">
+      <div class="lh"><span class="ln">Lesson 4</span><h3>Decompression: the inverse process</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>Read the tokens in order. For each token, look up the index in the dictionary built so far (0 = nothing), add the symbol, output the result, and store it as the next entry. This is exactly the compression process run backwards.</p></div>
+      <div data-auto="lzd" data-in="B,A,2B,3B,1A,4B,5A"></div>
+      <p class="rem"><b>Remember:</b> dictionary[index] + symbol → output it and store it.</p>
+      <details class="chk"><summary>Check yourself: decode A, B, 1B, 3A.</summary><p>1 = A, 2 = B, 3 = A+B = AB, 4 = AB+A = ABA → A B AB ABA → ABABABA.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u4-l4"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson practice" id="m3u4-l5" data-title="Practice: PYQ D-Q1 and slide LZ78 exercise">
+      <div class="lh"><span class="ln">Final step</span><h3>Practice</h3></div><p>Solve Scenarios 3.4 and 3.5 on paper, then check. Try any string in the <a href="#labs">LZ lab</a>.</p>
+      <label class="got"><input type="checkbox" data-key="m3u4-l5"><span>I solved both scenarios without looking</span></label>
+    </article>
+  </div>
+  <h2 class="sh"><span class="n">2</span>Mnemonic</h2>
+  <div class="mn"><span class="eyebrow">LZ step</span><div class="big"><b>L</b>ongest <b>K</b>nown + <b>O</b>ne <b>N</b>ew = "LK-ON"</div><ul><li>Output = index(known) + new symbol</li></ul></div>
+  <h2 class="sh"><span class="n">3</span>Solved scenarios</h2>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 3.4</span><span class="chip y">PYQ D-Q1</span><span class="chip">10 marks</span></div>
+    <p>Rani designs a tiny Lempel-Ziv lossless compression module for short numerical status strings from symbol set A {3, 4, 5, 6}. (a) What encoded output and dictionary can she expect for <b>"3535353453536636"</b>? <span class="mk">5 M</span> (b) How many bits are required to store the encoded output? <span class="mk">2 M</span> (c) With symbol set B {7, 8, 9, 0}, the compressed output is <b>9, 0, 29, 38, 8, 7, 27, 19</b>. What decoded text and dictionary result? <span class="mk">3 M</span></p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <h4>(a) Encoding</h4><div data-auto="lz" data-in="3535353453536636"></div>
+      <div class="step"><h4>(b) Bits</h4><p>9 tokens, 9 dictionary entries → index field ⌈log₂10⌉ = 4 bits. Alphabet of 4 symbols → 2 bits. Total = 9 × 6 = <b>54 bits</b>. The original 16 symbols × 2 bits = 32 bits, so this short string <b>expands</b>. LZ only pays off on long, repetitive strings.</p></div>
+      <h4>(c) Decoding</h4><p class="small">A token like "29" means index 2 + symbol 9 (the digits are symbols from set B, so a single digit alone is a new symbol).</p>
+      <div data-auto="lzd" data-in="9,0,29,38,8,7,27,19" data-alpha="7890"></div>
+    </div></details></article>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 3.5</span><span class="chip y">Slide exercise (p. 99)</span><span class="chip">10 marks</span></div>
+    <p>Solve LZ78 encoding and decoding for <b>SSCSSCCSCCCCSSSSCCSSCCC</b>.</p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <h4>Encoding</h4><div data-auto="lz" data-in="SSCSSCCSCCCCSSSSCCSSCCC"></div>
+      <h4>Decoding the result back</h4><div data-auto="lzd" data-in="S,1C,1S,C,4S,4C,6S,3S,7S,6C"></div>
+    </div></details></article>
+  <h2 class="sh"><span class="n">4</span>Tips &amp; traps</h2>
+  <div class="grid2"><div class="tip"><b>Tip:</b> Draw the table with columns <i>remaining · parsed · entry · output</i>, exactly like the slide figure.</div>
+  <div class="trap"><b>Trap:</b> Always look for the <b>longest</b> known prefix. Stopping at a shorter match gives a wrong dictionary for every later step.</div></div>
+</section>
+
+<!-- ============ M3 U5 LOSSY ============ -->
+<section class="page unit" id="m3u5" data-mod="3" data-n="5" data-title="Lossy compression: JPEG, MPEG, audio" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 3 · UNIT 5</span><h1>Lossy compression: JPEG, MPEG and audio</h1>
+    <p class="lede">How photos, videos and music are shrunk by throwing away what our senses can't notice.</p>
+    <div class="chips"><span class="chip">Theory + diagrams</span><span class="chip">Scenario questions</span></div></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3><button class="btn w" type="button" data-practice="m3u5">Practice mode: hide solutions</button></div><ol class="ck rm" data-unit="m3u5"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m3u5-l1" data-title="Why lossy is acceptable for media">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>Why lossy is acceptable for media</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>Our eyes can't see tiny colour changes between neighbouring pixels, and our ears can't hear quiet sounds hidden under loud ones. Lossy methods delete exactly that invisible or inaudible detail. The file becomes 10–20× smaller and still looks and sounds the same to us.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><p>Lossy methods are used for compressing images and video files, because our eyes cannot distinguish subtle changes, so lossy data is acceptable. These methods are cheaper and take less time and space. Methods: <b>JPEG</b> (pictures and graphics), <b>MPEG</b> (video), <b>MP3</b> (audio).</p></div>
+      <p class="rem"><b>Remember:</b> lossy removes detail you can't see or hear.</p>
+      <details class="chk"><summary>Check yourself: why is lossy compression unacceptable for firmware images?</summary><p>A changed bit in machine code breaks the program, so firmware needs exact (lossless) recovery.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u5-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u5-l2" data-title="JPEG: 8x8 blocks, DCT, quantization, zig-zag">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>JPEG: blocks → DCT → quantization → zig-zag + RLE</h3></div>
+      <figure><div class="dg" data-dg="m3_jpeg"></div><figcaption>Fig 3.2 · The three phases of JPEG (slide 101)</figcaption></figure>
+      <div class="plain"><span class="tag">In plain words</span><ol>
+        <li><b>Blocks:</b> the grayscale picture is cut into 8×8 pixel blocks, so each calculation stays small.</li>
+        <li><b>DCT</b> (Discrete Cosine Transform; the slide calls it "Discrete Concise Transform"): turns the 64 pixel values into 64 numbers describing <b>how much the block changes</b>. The top-left value is the average brightness; the rest describe finer and finer changes. For a smooth gradient, almost all values become 0. Relationships are kept, and redundancy is revealed.</li>
+        <li><b>Quantization:</b> divide each value by a constant and drop the fraction. Small values become 0. <b>This is the lossy step.</b></li>
+        <li><b>Compression:</b> read the table in a <b>zig-zag</b> path so the 0s (bottom-right) cluster together at the end, then compress with lossless run-length encoding.</li></ol></div>
+      <div class="grid2"><figure><div class="dg" data-dg="zigzag"></div><figcaption>Fig 3.3 · Quantized T(m, n) read in zig-zag order (slide 104)</figcaption></figure>
+        <div class="box"><h4>DCT example (slide 102)</h4><p class="small">A gradient block with every row "20 30 40 50 60 70 80 90" becomes T(m,n) = <b>400, −146, 0, −31, 0, −1, 0, −8</b> in the first row and <b>0 everywhere else</b>. Only 8 numbers are non-zero out of 64, which is the redundancy DCT reveals.</p></div></div>
+      <p class="rem"><b>Remember:</b> <b>B</b>ig <b>D</b>ogs <b>Q</b>uietly <b>Z</b>ig-zag = Blocks, DCT, Quantize, Zig-zag + RLE.</p>
+      <details class="chk"><summary>Check yourself: which JPEG phase actually loses information?</summary><p>Quantization. Dividing and dropping fractions can't be undone. DCT and RLE are reversible.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u5-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u5-l3" data-title="MPEG: spatial + temporal compression, I/P/B frames">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>MPEG: compressing video</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>A video is a rapid sequence of pictures (frames). Two tricks: compress <b>each frame</b> like a JPEG (<b>spatial</b>), and avoid repeating what <b>doesn't change between frames</b> (<b>temporal</b>). In a news video only the reader's lips move, so why store the whole background 30 times a second?</p></div>
+      <figure><div class="dg" data-dg="m3_mpeg"></div><figcaption>Fig 3.4 · I, P and B frames (slide 106)</figcaption></figure>
+      <div class="tbl"><table><thead><tr><th>Frame</th><th>Meaning</th></tr></thead>
+        <tr><td><b>I</b> (intra-coded)</td><td>Complete picture, compressed like a JPEG. Independent of other frames.</td></tr>
+        <tr><td><b>P</b> (predicted)</td><td>Stores only the changes from the previous I or P frame.</td></tr>
+        <tr><td><b>B</b> (bidirectional)</td><td>Built from both the frame before and the frame after. Smallest.</td></tr></table></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><p>Compressing video = <b>spatially compressing each frame + temporally compressing a set of frames</b>. Spatial: each frame is compressed by JPEG. Temporal: redundant frames are removed. For example, in a static scene of someone talking, most frames are the same except for the segment around the speaker's lips.</p></div>
+      <p class="rem"><b>Remember:</b> spatial = inside one frame · temporal = between frames · I is full, P is forward, B is both ways.</p>
+      <details class="chk"><summary>Check yourself: which frame type can be decoded on its own?</summary><p>An I frame. P and B frames need their reference frames.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u5-l3"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m3u5-l4" data-title="Audio: predictive and perceptual (MP3) encoding">
+      <div class="lh"><span class="ln">Lesson 4</span><h3>Audio compression: predictive and perceptual</h3></div>
+      <div class="plain"><span class="tag">In plain words</span>
+        <p><b>Predictive encoding</b>: neighbouring audio samples are close in value, so send only the <b>difference</b> from the previous sample (small numbers need fewer bits). Used for speech.</p>
+        <p><b>Perceptual encoding (MP3)</b>: uses a model of human hearing to drop sounds we can't perceive, e.g. quiet sounds masked by louder ones. Used for music.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><ul>
+        <li>Audio compression is used for speech (compress a 64 kHz digitized signal) or music (compress a 1.411 MHz signal).</li>
+        <li><b>Predictive:</b> only the differences between samples are encoded. Standards: GSM (13 kbps), G.729 (8 kbps), G.723.3 (6.4 or 5.3 kbps).</li>
+        <li><b>Perceptual (MP3):</b> CD-quality audio needs at least 1.411 Mbps and can't be sent over the Internet without compression. MP3 (MPEG audio layer 3) uses perceptual encoding.</li></ul></div>
+      <p class="rem"><b>Remember:</b> speech → predictive (differences) · music → perceptual (MP3).</p>
+      <details class="chk"><summary>Check yourself: samples 100, 102, 101, 104. What does predictive encoding send after 100?</summary><p>The differences +2, −1, +3, which are small numbers needing few bits.</p></details>
+      <label class="got"><input type="checkbox" data-key="m3u5-l4"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson practice" id="m3u5-l5" data-title="Practice: scenario 3.6 (choose the method)">
+      <div class="lh"><span class="ln">Final step</span><h3>Practice</h3></div><p>Answer Scenario 3.6 below without looking.</p>
+      <label class="got"><input type="checkbox" data-key="m3u5-l5"><span>I solved scenario 3.6 without looking</span></label>
+    </article>
+  </div>
+  <h2 class="sh"><span class="n">2</span>Solved scenario</h2>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 3.6</span><span class="chip">10 marks</span><span class="chip">K3</span></div>
+    <p>A <b>smart video doorbell</b> stores (i) 1080p video clips, (ii) a snapshot photo of each visitor, (iii) a firmware update file, and (iv) a log of motion sensor readings that stays 0 for long periods. Choose a compression method for each, justify it, and explain the JPEG steps used for (ii).</p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <div class="tbl"><table><thead><tr><th>Data</th><th>Method</th><th>Justification</th></tr></thead>
+        <tr><td>Video clips</td><td>MPEG (lossy)</td><td>Spatial (JPEG per frame) + temporal (I/P/B frames). The doorway background barely changes, so P/B frames are tiny.</td></tr>
+        <tr><td>Snapshot photo</td><td>JPEG (lossy)</td><td>Eyes don't notice the removed fine detail; 10× smaller.</td></tr>
+        <tr><td>Firmware file</td><td>Lempel-Ziv / Huffman (lossless)</td><td>Code must be recovered bit-exact; LZ exploits repeated instruction patterns.</td></tr>
+        <tr><td>Motion log</td><td>Run-length (lossless)</td><td>Long runs of 0: "0 × 3600" costs one pair.</td></tr></table></div>
+      <div class="step"><h4>JPEG steps for the snapshot</h4><ol><li>Convert to 8×8 blocks.</li><li>DCT turns each block into frequency values; smooth areas give mostly 0s.</li><li>Quantize: divide and drop fractions (lossy).</li><li>Zig-zag read clusters the 0s; run-length + lossless coding produce the compressed stream (Fig 3.2–3.3).</li></ol></div>
+    </div></details></article>
+</section>
+
+<!-- ============ M5 U1 ============ -->
+<section class="page unit" id="m5u1" data-mod="5" data-n="1" data-title="Why RTOS: GPOS vs EOS vs RTOS" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 5 · UNIT 1</span><h1>Why we need an RTOS: GPOS vs EOS vs RTOS</h1>
+    <p class="lede">What "real time" really means, and how to decide whether a product needs an RTOS, a general-purpose OS, or a simple embedded OS.</p>
+    <div class="chips"><span class="chip k">PYQ: B-Q4 (5 M)</span><span class="chip">Scenario</span></div></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3><button class="btn w" type="button" data-practice="m5u1">Practice mode: hide solutions</button></div><ol class="ck rm" data-unit="m5u1"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m5u1-l1" data-title="What real time means (definitions)">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>What "real time" means</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>"Real time" does <b>not</b> mean "very fast". It means <b>always on time, with a guaranteed maximum delay</b>. A car airbag must fire within about 30 ms of a crash, every single time. Being fast on average is useless if one time in a thousand it takes 10 seconds. An RTOS is an operating system built to <b>guarantee</b> those time limits.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam: definitions</span><ul>
+        <li><b>POSIX 1003.1:</b> real time in operating systems is the ability of the OS to provide a required level of service in a <b>bounded response time</b>.</li>
+        <li><b>Wikipedia:</b> an RTOS is an operating system intended to serve real-time application requests.</li>
+        <li><b>Dictionary.com:</b> any OS where interrupts are <b>guaranteed to be handled within a certain specified time</b>, making it suitable for controlling hardware in embedded and time-critical applications.</li>
+        <li><b>Summary:</b> an RTOS guarantees a certain capability within a specified time constraint to serve real-time embedded applications.</li></ul></div>
+      <p class="rem"><b>Remember:</b> real time = predictable and bounded, not just fast.</p>
+      <details class="chk"><summary>Check yourself: system X responds in 1 ms on average but sometimes in 2 s; system Y always responds within 20 ms. Which is real-time?</summary><p>Y. Its response time is bounded and guaranteed. X is fast but unpredictable.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u1-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u1-l2" data-title="GPOS vs EOS vs RTOS (fighter jet, airbag)">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>GPOS vs EOS vs RTOS</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>The slides ask "Why not GPOS or EOS?" with two stories. A <b>fighter jet</b> control system running on a GPOS meets a hill: the OS is busy with some background job and the turn command is delayed, and the jet crashes. An <b>airbag</b> running on an EOS opens 10 s after the collision, which is useless. Only an RTOS <b>guarantees</b> the deadline.</p></div>
+      <div class="tbl"><table><thead><tr><th>Aspect</th><th>GPOS (Windows, desktop Linux, Android)</th><th>EOS (embedded OS)</th><th>RTOS (VxWorks, FreeRTOS, QNX)</th></tr></thead>
+        <tr><td>Goal</td><td>Throughput, fairness, rich features</td><td>Run a dedicated device on limited resources</td><td>Meet every deadline (determinism)</td></tr>
+        <tr><td>Response time</td><td>Unpredictable</td><td>Not guaranteed</td><td><b>Bounded, guaranteed</b></td></tr>
+        <tr><td>Scheduling</td><td>Fair share / time-sharing</td><td>Simple</td><td>Priority-based pre-emptive</td></tr>
+        <tr><td>Size</td><td>Large (GBs)</td><td>Small</td><td>Small, scalable kernel</td></tr>
+        <tr><td>Example device</td><td>Laptop, smart speaker UI</td><td>Washing machine, microwave</td><td>Airbag, ABS, pacemaker, drone autopilot</td></tr></table></div>
+      <div class="exam"><span class="tag">Decision rule for scenario questions</span><ol>
+        <li>Is a missed deadline <b>dangerous</b> (life, money, equipment)? → <b>Hard RTOS</b>.</li>
+        <li>Timing matters but an occasional miss only lowers quality? → <b>Soft / firm RTOS</b>.</li>
+        <li>No strict timing, simple fixed function, tiny MCU? → <b>EOS / bare-metal firmware</b>.</li>
+        <li>Needs rich UI, apps, networking, heavy processing, and timing is relaxed? → <b>GPOS</b> (embedded Linux / Android).</li></ol></div>
+      <p class="rem"><b>Remember:</b> danger → hard RTOS · quality → soft RTOS · simple → EOS · rich apps → GPOS.</p>
+      <details class="chk"><summary>Check yourself: which OS type for a pacemaker?</summary><p>A hard RTOS. A missed pacing deadline can kill the patient.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u1-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson practice" id="m5u1-l3" data-title="Practice: PYQ B-Q4 (choose the OS)">
+      <div class="lh"><span class="ln">Final step</span><h3>Practice</h3></div><p>Apply the 4-step decision rule to Scenario 5.1 below.</p>
+      <label class="got"><input type="checkbox" data-key="m5u1-l3"><span>I solved scenario 5.1 without looking</span></label>
+    </article>
+  </div>
+  <h2 class="sh"><span class="n">2</span>Solved PYQ</h2>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 5.1</span><span class="chip y">PYQ B-Q4</span><span class="chip">5 marks (expand to 10)</span></div>
+    <p>Determine whether an RTOS, GPOS or EOS is necessary for these real-time applications. If an RTOS is required, justify it and specify the type most suitable. (i) Smart thermostat (ii) Wearable fitness tracker (iii) Autonomous drone navigation system (iv) Home voice assistant (v) Automated coffee machine</p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <div class="tbl"><table><thead><tr><th>Application</th><th>Choice</th><th>Justification</th></tr></thead>
+        <tr><td>(i) Smart thermostat</td><td><b>EOS</b> (a small soft RTOS is optional if it also runs Wi-Fi)</td><td>Temperature changes over minutes; a delay of a second is harmless. A simple control loop on a small MCU is enough.</td></tr>
+        <tr><td>(ii) Wearable fitness tracker</td><td><b>Soft RTOS</b> (e.g. FreeRTOS / Zephyr)</td><td>Several concurrent tasks (heart-rate sampling, step counting, BLE, display) on a tiny battery. A missed sample slightly reduces accuracy but isn't dangerous.</td></tr>
+        <tr><td>(iii) Autonomous drone navigation</td><td><b>Hard RTOS</b> (e.g. VxWorks, NuttX/PX4)</td><td>Flight-control and obstacle-avoidance loops must run every few ms. A missed deadline makes the drone unstable and it can crash.</td></tr>
+        <tr><td>(iv) Home voice assistant</td><td><b>GPOS</b> (embedded Linux / Android)</td><td>Speech recognition, networking, apps and a UI need a rich OS; a 0.5 s delay in replying is acceptable.</td></tr>
+        <tr><td>(v) Automated coffee machine</td><td><b>EOS</b> / bare-metal firmware</td><td>A fixed sequence (heat, grind, pour) with relaxed timing; a heater cut-off is usually handled by a hardware thermostat or interrupt.</td></tr></table></div>
+      <p class="small">Marking tip: name the type, then give one justification based on the <b>consequence of a missed deadline</b>.</p>
+    </div></details></article>
+</section>
+
+<!-- ============ M5 U2 ============ -->
+<section class="page unit" id="m5u2" data-mod="5" data-n="2" data-title="RTOS features, types (hard/firm/soft) and applications" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 5 · UNIT 2</span><h1>RTOS features, types and applications</h1>
+    <p class="lede">What an RTOS must provide, and the three kinds of real-time system.</p></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3></div><ol class="ck rm" data-unit="m5u2"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m5u2-l1" data-title="RTOS features (multitasking, priority, IPC, latencies)">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>Features every RTOS must have</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>Think of a hospital emergency room. Many patients (tasks) are handled together (<b>multitasking</b>). The critical patient jumps the queue (<b>priority + pre-emption</b>). Doctors pass notes safely (<b>inter-task communication</b>). A junior who blocks a senior's equipment gets temporarily promoted (<b>priority inheritance</b>). Critical tools stay in reach (<b>memory locking</b>), and switching between patients must be quick (<b>short latencies</b>).</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><ul>
+        <li><b>Multitasking and pre-emptibility:</b> must support multiple tasks and pre-empt a running task.</li>
+        <li><b>Task priority:</b> pre-emption is achieved by giving each task an appropriate priority level.</li>
+        <li><b>Inter-task communication:</b> reliable communication and synchronization mechanisms for timely, consistent data sharing.</li>
+        <li><b>Priority inheritance:</b> enough priority levels to implement applications with stringent priority requirements. It prevents priority inversion.</li>
+        <li><b>Control of memory management:</b> a task can lock its code and data into real memory for predictable interrupt response.</li>
+        <li><b>Predefined short latencies:</b> <i>task-switching latency</i> (save the context and switch to another task), <i>interrupt latency</i> (last instruction of the interrupted task → first instruction of the handler), <i>interrupt dispatch latency</i> (last instruction of the handler → next scheduled task).</li></ul></div>
+      <p class="rem"><b>Remember:</b> <b>M</b>y <b>P</b>riority <b>I</b>s <b>P</b>unctual <b>M</b>emory <b>L</b>atency = Multitasking, Priority, IPC, Priority inheritance, Memory locking, Latencies.</p>
+      <details class="chk"><summary>Check yourself: define interrupt latency.</summary><p>The time from the last instruction executed by the interrupted task to the first instruction of the interrupt handler.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u2-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u2-l2" data-title="Hard, firm and soft RTOS with examples">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>Hard, firm and soft real-time</h3></div>
+      <div class="tbl"><table><thead><tr><th>Type</th><th>Missed deadline means…</th><th>Tolerance</th><th>Examples (slides)</th></tr></thead>
+        <tr><td class="hl">Hard</td><td>Catastrophic failure</td><td>Negligible</td><td>Missile navigation, vehicle airbag control, nuclear power plant control</td></tr>
+        <tr><td class="hl">Firm</td><td>Unacceptable drop in quality, not total failure; a late result is useless</td><td>Low occurrence tolerated</td><td>Robot in a car assembly section, food processing control, weather monitoring</td></tr>
+        <tr><td class="hl">Soft</td><td>Late results still have some value (best effort)</td><td>Frequent misses tolerated</td><td>Multimedia transmission/reception, digital cameras and mobile phones, computer games</td></tr></table></div>
+      <div class="plain"><span class="tag">In plain words</span><p>Hard: late = disaster. Firm: late = throw the result away. Soft: late = a bit annoying (a video call freezes for a moment). Even a soft system can't miss <b>every</b> deadline; it meets them according to priority.</p></div>
+      <p class="rem"><b>Remember:</b> Hard = Harm · Firm = Fail the product quality · Soft = Slight annoyance.</p>
+      <details class="chk"><summary>Check yourself: classify a weather monitoring station.</summary><p>Firm (the slides' example). A late reading is useless, but the system doesn't fail.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u2-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u2-l3" data-title="Characteristics, applications and RTOS in the IoT era">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>Characteristics, famous applications and IoT</h3></div>
+      <div class="exam"><span class="tag">Characteristics to list</span><p><b>Deterministic</b> (predictable timing) · <b>reliable</b> · <b>fast response / low latency</b> · <b>pre-emptive, priority-based scheduling</b> · <b>small footprint / scalable</b> · <b>high performance</b>.</p></div>
+      <div class="tbl"><table><thead><tr><th>Application (slides)</th><th>RTOS</th></tr></thead>
+        <tr><td>Mars Curiosity rover</td><td>VxWorks (split-second decisions) and µC/OS-II (sample analysis)</td></tr>
+        <tr><td>F-35 fighter aircraft</td><td>Integrity DO-178B (POSIX-based, Green Hills Software)</td></tr>
+        <tr><td>Elekta medical equipment</td><td>LynxOS-SE</td></tr>
+        <tr><td>HP printers, Honeywell security systems</td><td>ThreadX</td></tr></table></div>
+      <div class="exam"><span class="tag">RTOS in the IoT era</span><p>More than 100 RTOSes exist. IoT accelerates the use of third-party TCP/IP and USB stacks that are compatible with many RTOSes. Azure RTOS, Amazon FreeRTOS and Segger embOS are qualified for MCUs from large suppliers; this out-of-box integration lowers the barrier for small design firms. However, an RTOS also increases system complexity and can introduce new kinds of bugs.</p></div>
+      <p class="rem"><b>Remember:</b> rover → VxWorks · F-35 → Integrity · printer → ThreadX.</p>
+      <details class="chk"><summary>Check yourself: name one drawback of using an RTOS.</summary><p>It increases overall system complexity and may introduce new types of bugs (race conditions, priority inversion), so developers need RTOS expertise.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u2-l3"><span>I understand this lesson</span></label>
+    </article>
+  </div>
+</section>
+
+<!-- ============ M5 U3 ============ -->
+<section class="page unit" id="m5u3" data-mod="5" data-n="3" data-title="RTOS architecture, kernel types and BSP" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 5 · UNIT 3</span><h1>RTOS architecture: kernel types and BSP</h1>
+    <p class="lede">The layers of an RTOS-based system, the three kernel designs, and the board support package.</p></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3></div><ol class="ck rm" data-unit="m5u3"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m5u3-l1" data-title="RTOS architecture layers and the kernel">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>The layers, and what a kernel is</h3></div>
+      <figure><div class="dg" data-dg="m5_arch"></div><figcaption>Fig 5.1 · RTOS architecture (slide 23)</figcaption></figure>
+      <div class="plain"><span class="tag">In plain words</span><p>From top to bottom: your <b>application</b> uses services of the <b>RTOS</b> (networking, file system, drivers, debugging, POSIX), all built around the <b>kernel</b>. The RTOS talks to the actual board through the <b>BSP</b>, which sits on the <b>target hardware</b>.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><p>The <b>kernel</b> is the smallest and core component of an OS. Its services include managing memory and devices and providing an interface for applications to use resources. Additional services such as protection and multitasking may be included. Three kernel models: <b>monolithic, micro and hybrid</b>.</p></div>
+      <p class="rem"><b>Remember:</b> App → RTOS (kernel inside) → BSP → Hardware.</p>
+      <details class="chk"><summary>Check yourself: which layer contains hardware-specific drivers for a particular board?</summary><p>The BSP (board support package).</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u3-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u3-l2" data-title="Monolithic vs micro vs hybrid kernel">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>Monolithic vs microkernel vs hybrid</h3></div>
+      <figure><div class="dg" data-dg="m5_kernels"></div><figcaption>Fig 5.2 · Where services live in each kernel type</figcaption></figure>
+      <div class="plain"><span class="tag">In plain words</span><p><b>Monolithic</b> = one big building: everything (drivers, file system, IPC) lives in kernel space, so it is fast, but one broken driver brings the whole building down. <b>Microkernel</b> = a small guard house in the middle; most services run outside as separate servers, so it is safe and extendable but slower because of messaging. <b>Hybrid</b> = mostly the microkernel structure, but some services are moved inside for speed.</p></div>
+      <div class="tbl"><table><thead><tr><th>Basis</th><th>Monolithic</th><th>Microkernel</th><th>Hybrid</th></tr></thead>
+        <tr><td>Address space</td><td>User + kernel services in the same space</td><td>Separate spaces</td><td>Combines both</td></tr>
+        <tr><td>Size</td><td>Larger</td><td>Smaller</td><td>Smaller than monolithic</td></tr>
+        <tr><td>Execution</td><td>Fast</td><td>Slow</td><td>Moderate</td></tr>
+        <tr><td>Extendible</td><td>Hard</td><td>Easy</td><td>Dynamically loadable modules</td></tr>
+        <tr><td>Security</td><td>One service crash → whole system crashes</td><td>A service crash doesn't affect the kernel</td><td>Depends on the service</td></tr>
+        <tr><td>Code</td><td>More</td><td>Less</td><td>Moderate</td></tr>
+        <tr><td>Examples</td><td>Linux, BSDs, Windows 95/98/Me, Solaris, DOS</td><td>QNX, Symbian, L4Linux, Integrity, PikeOS</td><td>Windows NT+, Mac OS X, BeOS, ReactOS</td></tr></table></div>
+      <div class="exam"><span class="tag">Which does an RTOS use?</span><p>An RTOS generally <b>avoids</b> the monolithic design. The kernel is a <b>microkernel</b> with added configurable functions (scheduling, memory protection, IPC); other services run in user space as servers. This increases configurability, since each application needs a specific set of services. <b>QNX and VxWorks</b> follow the microkernel approach.</p></div>
+      <p class="rem"><b>Remember:</b> monolithic is fast but fragile · micro is small, safe and slower · RTOS → microkernel.</p>
+      <details class="chk"><summary>Check yourself: why does a crashing driver not crash a microkernel system?</summary><p>The driver runs as a separate user-space server in its own address space, so the kernel and other services keep working.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u3-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u3-l3" data-title="Board Support Package (BSP) and its 6 jobs">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>Board Support Package (BSP)</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>The same RTOS (say VxWorks) runs on hundreds of different boards. The <b>BSP</b> is the "adapter" layer: hardware-specific drivers and start-up code that let that RTOS run on <b>this particular board</b>. If a board can take several graphics cards, the BSP holds a driver for each, and you pick one when building the image.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam: BSP operations</span><ol><li>Initialize the processor</li><li>Initialize the bus</li><li>Initialize the interrupt controller</li><li>Initialize the clock</li><li>Initialize the RAM settings</li><li>Load and run the boot loader from flash</li></ol>
+        <p>Third-party hardware makers who want to support an RTOS must create a BSP for their platform. BSPs are customizable: the user chooses which drivers and routines go into the build.</p></div>
+      <p class="rem"><b>Remember:</b> <b>P</b>lease <b>B</b>ring <b>I</b>ce <b>C</b>ream <b>R</b>ight <b>B</b>ack = Processor, Bus, Interrupt controller, Clock, RAM, Boot loader.</p>
+      <details class="chk"><summary>Check yourself: who writes the BSP when a company launches a new board for FreeRTOS?</summary><p>The hardware maker (or a third party), because the BSP is hardware-specific.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u3-l3"><span>I understand this lesson</span></label>
+    </article>
+  </div>
+</section>
+
+<!-- ============ M5 U4 ============ -->
+<section class="page unit" id="m5u4" data-mod="5" data-n="4" data-title="RTOS performance metrics and selection considerations" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 5 · UNIT 4</span><h1>Performance metrics and choosing an RTOS</h1>
+    <p class="lede">How RTOSes are compared, and the questions to ask before choosing one.</p></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3></div><ol class="ck rm" data-unit="m5u4"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m5u4-l1" data-title="Three performance metrics: memory, latency, kernel services">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>Three things to measure: memory, latency, kernel services</h3></div>
+      <div class="exam"><span class="tag">Write this in the exam</span>
+        <p><b>1. Memory:</b> how much ROM and RAM the kernel needs, and how options/configuration affect it. Factors: static or dynamic kernel configuration, processor instruction count, global variables. Compiler optimization can reduce code size but may hurt performance. Most kernels are scalable; for some RTOSes scalability extends to the middleware too.</p>
+        <p><b>2. Latency:</b> <i>interrupt latency</i> = hardware-dependent time (interrupt controller, interrupt type) + OS-induced overhead; state best and worst case, and measure it with an <b>oscilloscope</b>. <i>Scheduling latency</i>: two measurements, (a) context-switch time and (b) the time overhead the RTOS introduces when scheduling a task.</p>
+        <p><b>3. Performance of kernel services:</b> RTOSes have hundreds of API calls, so focus on the frequently used ones in four categories: <b>threading, synchronization, inter-process communication, memory services</b>.</p></div>
+      <p class="rem"><b>Remember:</b> <b>M</b>ore <b>L</b>atency <b>K</b>ills = Memory, Latency, Kernel services.</p>
+      <details class="chk"><summary>Check yourself: which instrument measures interrupt latency best?</summary><p>An oscilloscope (toggle a pin at the interrupt and in the handler, then measure the gap).</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u4-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u4-l2" data-title="RTOS selection considerations (checklist)">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>Questions to ask before choosing an RTOS</h3></div>
+      <div class="exam"><span class="tag">Considerations (slides)</span><ul>
+        <li>Real-time capability: soft or hard real-time interrupt handling?</li><li>What pre-emptive scheduling services exist?</li>
+        <li>Does the target processor support it?</li><li>How large is the memory footprint?</li><li>Interrupt latencies? Context-switch time?</li>
+        <li>Does the development board have a <b>BSP</b> for this RTOS?</li><li>Which IDEs and debugging tools work with it?</li>
+        <li>Cost: open source, royalty-free?</li><li>Documentation and forums? Supplier reputation?</li>
+        <li>Flexibility of scheduling algorithms (FIFO, round robin, rate-monotonic, sporadic)?</li><li>Tools for remote diagnostics?</li></ul></div>
+      <p class="rem"><b>Remember:</b> timing, CPU, footprint, BSP, tools, cost, support.</p>
+      <details class="chk"><summary>Check yourself: give three non-technical considerations.</summary><p>Cost/licensing, documentation and community support, and supplier reputation.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u4-l2"><span>I understand this lesson</span></label>
+    </article>
+  </div>
+</section>
+
+<!-- ============ M5 U5 ============ -->
+<section class="page unit" id="m5u5" data-mod="5" data-n="5" data-title="Real-time tasks and scheduling criteria" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 5 · UNIT 5</span><h1>Real-time tasks and scheduling criteria</h1>
+    <p class="lede">The vocabulary of scheduling: task types, the (C, T, D) model, the assumptions, and TAT/WT numericals.</p></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3></div><ol class="ck rm" data-unit="m5u5"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m5u5-l1" data-title="Periodic, sporadic and aperiodic tasks">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>Three kinds of real-time task</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p><b>Periodic</b> = a school bell that rings every 45 minutes. <b>Sporadic</b> = a fire alarm: random, but it can't re-trigger faster than some minimum gap. <b>Aperiodic</b> = doorbell presses: random, and two can come at the same moment.</p></div>
+      <figure><div class="dg" data-dg="periodic"></div><figcaption>Fig 5.3 · A periodic task: phase Φ, period p, execution time e, relative deadline d (slide 40)</figcaption></figure>
+      <div class="tbl"><table><thead><tr><th>Type</th><th>Occurs</th><th>Represented as</th><th>Example</th></tr></thead>
+        <tr><td>Periodic (clock-driven)</td><td>After a fixed interval</td><td>(Φᵢ, pᵢ, eᵢ, dᵢ): phase, period, worst-case execution time, relative deadline</td><td>Sampling a temperature sensor</td></tr>
+        <tr><td>Sporadic</td><td>At random instants, with a minimum separation</td><td>(eᵢ, gᵢ, dᵢ): gᵢ = minimum separation between instances</td><td>Robot obstacle handling, factory fire alarm</td></tr>
+        <tr><td>Aperiodic</td><td>At random instants; g can be 0 (instances may coincide)</td><td>—</td><td>Logging task in a distributed system (generally soft RT)</td></tr></table></div>
+      <p class="rem"><b>Remember:</b> periodic = fixed gap · sporadic = random but with a minimum gap · aperiodic = random, no minimum gap.</p>
+      <details class="chk"><summary>Check yourself: why are aperiodic tasks usually treated as soft real-time?</summary><p>They can arrive in quick succession (even together), so meeting every deadline is very hard; soft systems tolerate a few misses.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u5-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u5-l2" data-title="Task model (C, T, D) and the 8 assumptions">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>The task model and its assumptions</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>For scheduling numericals every task is just numbers. <b>C</b> = worst-case computation time (how long it runs), <b>T</b> (or P) = period (how often it comes back), <b>D</b> = deadline (by when, after release, it must finish). Usually D = T. <b>C/T</b> = the fraction of the CPU this task needs (its utilization).</p></div>
+      <div class="exam"><span class="tag">Assumptions A1–A8 (slides)</span><ol>
+        <li>Tasks are periodic (activated at a constant rate).</li><li>All instances of a task have the same computation time Cᵢ.</li><li>Deadline = period (Dᵢ = Pᵢ).</li><li>Tasks are independent (no shared resources or dependencies).</li><li>All tasks are pre-emptible.</li><li>No task can suspend itself.</li><li>Tasks are released as soon as they arrive.</li><li>All kernel overhead is zero.</li></ol></div>
+      <p class="rem"><b>Remember:</b> C = how long · T = how often · D = by when · C/T = CPU share.</p>
+      <details class="chk"><summary>Check yourself: task (C = 3, T = 12). What share of the CPU does it use?</summary><p>3/12 = 0.25 = 25%.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u5-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u5-l3" data-title="Scheduling criteria and TAT / WT numericals">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>Scheduling criteria: formulas and a worked numerical</h3></div>
+      <div class="tbl"><table><thead><tr><th>Criterion</th><th>Meaning / formula</th><th>Goal</th></tr></thead>
+        <tr><td>CPU utilization</td><td>Fraction of time the CPU is busy</td><td>Maximize</td></tr>
+        <tr><td>Throughput</td><td>Processes completed per unit time</td><td>Maximize</td></tr>
+        <tr><td>Turnaround time</td><td>TAT = CT − AT (completion − arrival)</td><td>Minimize</td></tr>
+        <tr><td>Waiting time</td><td>WT = TAT − BT (burst time)</td><td>Minimize</td></tr>
+        <tr><td>Load average</td><td>Average number of processes in the ready queue</td><td>Minimize</td></tr>
+        <tr><td>Response time</td><td>From request submission to first response</td><td>Minimize</td></tr></table></div>
+      <p><b>Worked example (FCFS):</b> P1 (AT 0, BT 5), P2 (AT 1, BT 3), P3 (AT 2, BT 2). Order: P1 0–5, P2 5–8, P3 8–10.</p>
+      <div class="tbl"><table><thead><tr><th>Process</th><th>AT</th><th>BT</th><th>CT</th><th>TAT = CT − AT</th><th>WT = TAT − BT</th></tr></thead>
+        <tr><td>P1</td><td>0</td><td>5</td><td>5</td><td>5</td><td>0</td></tr><tr><td>P2</td><td>1</td><td>3</td><td>8</td><td>7</td><td>4</td></tr>
+        <tr><td>P3</td><td>2</td><td>2</td><td>10</td><td>8</td><td>6</td></tr><tr><td colspan="4"><b>Average</b></td><td><b>6.67</b></td><td><b>3.33</b></td></tr></table></div>
+      <p class="small">Throughput = 3 processes / 10 units = 0.3 per unit. Other algorithms listed on the slides: non-pre-emptive FCFS, priority, SJF; pre-emptive SRTF, round robin, priority, RMS, EDF.</p>
+      <p class="rem"><b>Remember:</b> TAT = CT − AT, WT = TAT − BT. Maximize utilization and throughput, minimize everything else.</p>
+      <details class="chk"><summary>Check yourself: a process arrives at 4, runs 6, completes at 15. TAT and WT?</summary><p>TAT = 15 − 4 = 11; WT = 11 − 6 = 5.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u5-l3"><span>I understand this lesson</span></label>
+    </article>
+  </div>
+</section>
+
+<!-- ============ M5 U6 ============ -->
+<section class="page unit" id="m5u6" data-mod="5" data-n="6" data-title="Schedulability tests: utilization bound and response-time analysis" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 5 · UNIT 6</span><h1>Schedulability tests: utilization and response time</h1>
+    <p class="lede">Before drawing any Gantt chart, test whether the task set <i>can</i> meet its deadlines. This unit gives the exact formulas and when each one is conclusive.</p>
+    <div class="chips"><span class="chip k">PYQ: C-Q4 (10 M)</span><span class="chip">Numericals</span></div></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3><button class="btn w" type="button" data-practice="m5u6">Practice mode: hide solutions</button></div><ol class="ck rm" data-unit="m5u6"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m5u6-l1" data-title="CPU utilization U = Σ C/T">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>CPU utilization of a task set</h3></div>
+      <div class="formula">U = Σ Cᵢ / Tᵢ</div>
+      <div class="plain"><span class="tag">In plain words</span><p>Add up each task's share of the CPU. If the total is more than 1 (100%), you are asking the CPU to do more work than time exists, so some deadline <b>must</b> fail.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><ul><li>U &gt; 1 (overload): some task will fail to meet its deadline.</li><li>U ≤ 1: it depends on the scheduling algorithm.</li><li>U = 1: the CPU is kept busy all the time (and with EDF all deadlines are met).</li><li>Utilization measures how busy the CPU is during the shortest repeating cycle, the <b>hyperperiod = LCM of the periods</b>.</li></ul></div>
+      <p class="rem"><b>Remember:</b> U > 1 is impossible · U ≤ 1 depends on the algorithm.</p>
+      <details class="chk"><summary>Check yourself: tasks (1, 4), (2, 5), (2, 7). Compute U.</summary><p>0.25 + 0.4 + 0.2857 = 0.9357.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u6-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u6-l2" data-title="Necessary, sufficient and exact tests">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>Necessary vs sufficient vs exact</h3></div>
+      <div class="tbl"><table><thead><tr><th>Test</th><th>If PASSED</th><th>If FAILED</th><th>For RMS</th></tr></thead>
+        <tr><td>Necessary</td><td>Maybe schedulable, maybe not</td><td><b>Definitely not</b> schedulable</td><td>U ≤ 1</td></tr>
+        <tr><td>Sufficient</td><td><b>Definitely</b> schedulable</td><td>Maybe schedulable (inconclusive)</td><td>U ≤ n(2^{1/n} − 1)</td></tr>
+        <tr><td>Exact</td><td>Schedulable</td><td>Not schedulable</td><td>Response-time analysis</td></tr></table></div>
+      <div class="plain"><span class="tag">In plain words</span><p>A <b>necessary</b> test is like "you need a ticket to board": no ticket means definitely no boarding, but a ticket alone doesn't guarantee a seat. A <b>sufficient</b> test is like "business-class ticket": that definitely gets you on, but not having one doesn't mean you can't board. An <b>exact</b> test gives the true answer either way.</p></div>
+      <p class="rem"><b>Remember:</b> fail necessary → NO · pass sufficient → YES · anything else → use the exact test.</p>
+      <details class="chk"><summary>Check yourself: U = 0.85 with 3 tasks under RMS. What can you conclude from the two utilization tests?</summary><p>Necessary passes (0.85 ≤ 1), but sufficient fails (0.85 &gt; 0.779): inconclusive, so do response-time analysis.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u6-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u6-l3" data-title="Liu-Layland bound B(n) table">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>The RMS utilization bound B(n)</h3></div>
+      <div class="formula">B(n) = n · (2^{1/n} − 1)</div>
+      <div class="tbl"><table><thead><tr><th>n</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>∞</th></tr></thead>
+        <tr><td>B(n)</td><td>1.0</td><td>0.828</td><td>0.779</td><td>0.756</td><td>0.743</td><td>0.734</td><td>0.693 (ln 2)</td></tr></table></div>
+      <div class="plain"><span class="tag">How to compute without the table</span><p>For n = 3: 2^{1/3} = 1.26 → 3 × 0.26 = 0.779. For n = 5: 2^{0.2} = 1.1487 → 5 × 0.1487 = 0.743. On a calculator: 2 ^ (1 ÷ n).</p></div>
+      <p class="rem"><b>Remember:</b> 1, .828, .779, .756, .743, .734 … .693: "one, eight-two-eight, seven-seven-nine".</p>
+      <details class="chk"><summary>Check yourself: B(2)?</summary><p>2(√2 − 1) = 2 × 0.414 = 0.828.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u6-l3"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u6-l4" data-title="Response-time analysis (RTA) step by step">
+      <div class="lh"><span class="ln">Lesson 4</span><h3>Response-time analysis: the exact RMS test</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>For each task, ask: "In the worst case (everyone released together at t = 0), how long until I finish?" My response time = my own work + all the interruptions by higher-priority tasks during that time. Each higher-priority task j interrupts me ⌈R/Tⱼ⌉ times, costing Cⱼ each time. Since R appears on both sides, <b>iterate</b> until the value stops changing.</p></div>
+      <div class="formula">R⁽ᵏ⁺¹⁾ = Cᵢ + Σ_{j ∈ higher priority} ⌈ R⁽ᵏ⁾ / Tⱼ ⌉ · Cⱼ</div>
+      <div class="exam"><span class="tag">Recipe</span><ol>
+        <li>Sort tasks by RMS priority (shortest period first).</li>
+        <li>Highest priority: R = C.</li>
+        <li>Others: start with R⁰ = Cᵢ + Σ Cⱼ (own + all higher).</li>
+        <li>Plug R into the formula; repeat until R stops changing (converged) or R &gt; D (fails).</li>
+        <li>Schedulable ⇔ every Rᵢ ≤ Dᵢ.</li></ol></div>
+      <p><b>Worked example</b> (slide EDF-1 task set run under RMS): T1 (1, 4), T2 (2, 5), T3 (2, 7).</p>
+      <div data-auto="sched" data-alg="RMS" data-h="15" data-tasks='[{"name":"T1","C":1,"T":4},{"name":"T2","C":2,"T":5},{"name":"T3","C":2,"T":7}]'></div>
+      <p class="small">This matches the slide: T3 misses at t = 7 under RMS, while EDF schedules the same set (see Unit 8).</p>
+      <p class="rem"><b>Remember:</b> my work + ⌈R/T⌉ × others' work, repeated until R stops changing.</p>
+      <details class="chk"><summary>Check yourself: T1 (1, 5) highest, T2 (3, 10). Compute R₂.</summary><p>R⁰ = 3 + 1 = 4 → 3 + ⌈4/5⌉·1 = 4 → converged, R₂ = 4 ≤ 10 ✓.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u6-l4"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson practice" id="m5u6-l5" data-title="Practice: PYQ C-Q4 automotive ECU">
+      <div class="lh"><span class="ln">Final step</span><h3>Practice</h3></div><p>Solve Scenario 5.2 on paper (priorities, UB test, RTA, verdict), then compare.</p>
+      <label class="got"><input type="checkbox" data-key="m5u6-l5"><span>I solved scenario 5.2 without looking</span></label>
+    </article>
+  </div>
+  <h2 class="sh"><span class="n">2</span>Solved PYQ</h2>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 5.2</span><span class="chip y">PYQ C-Q4</span><span class="chip">10 marks</span></div>
+    <p>An automotive ECU runs: ENG engine monitoring C = 1, D = 4; BRA brake control C = 2, D = 8; DIAG diagnostics C = 4, D = 16 (period = deadline). (i) Discuss the priority assignment. <span class="mk">1 M</span> (ii) Perform the RMS schedulability test. <span class="mk">3 M</span> (iii) If the utilization bound fails, verify using response-time analysis. <span class="mk">5 M</span> (iv) State whether the system is fully schedulable. <span class="mk">2 M</span></p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <div data-auto="sched" data-alg="RMS" data-h="16" data-tasks='[{"name":"ENG","C":1,"T":4},{"name":"BRA","C":2,"T":8},{"name":"DIAG","C":4,"T":16}]'></div>
+      <div class="step"><h4>(iv) Conclusion</h4><p>U = 0.75 ≤ B(3) = 0.779, so the sufficient test already passes and RTA isn't strictly required. RTA confirms R = 1, 3, 8, all within 4, 8, 16. The system is <b>fully schedulable under RMS</b>, and the CPU is idle 25% of the time (spare capacity for soft tasks).</p></div>
+    </div></details></article>
+</section>
+
+<!-- ============ M5 U7 RMS ============ -->
+<section class="page unit" id="m5u7" data-mod="5" data-n="7" data-title="Rate Monotonic Scheduling (RMS)" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 5 · UNIT 7</span><h1>Rate Monotonic Scheduling (RMS)</h1>
+    <p class="lede">Fixed priorities: the task that repeats most often gets the highest priority. How to test it and how to draw its Gantt chart by hand.</p>
+    <div class="chips"><span class="chip k">PYQ: A-Q4 (10 M)</span><span class="chip k">PYQ: B-Q5 (15 M)</span><span class="chip k">PYQ: D-Q5a (5 M)</span></div></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3><button class="btn w" type="button" data-practice="m5u7">Practice mode: hide solutions</button></div><ol class="ck rm" data-unit="m5u7"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m5u7-l1" data-title="Scheduling algorithm types; fixed vs dynamic priority">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>Where RMS fits</h3></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><ul>
+        <li><b>Scheduling</b> = how processes are assigned to run on the available CPUs. <b>Real-time scheduling</b> decides which ready process gets the CPU so that deadlines and response times are met.</li>
+        <li>Real-time systems use <b>pre-emptive multitasking with priorities</b>; the RTOS always runs the highest-priority ready task.</li>
+        <li><b>Fixed priority:</b> assigned at design time, constant for the task's lifetime (e.g. <b>RMS</b>). <b>Dynamic priority:</b> assigned at run time from parameters such as the upcoming deadline (e.g. <b>EDF</b>). <b>Mixed:</b> both static and dynamic components.</li></ul></div>
+      <p class="rem"><b>Remember:</b> RMS = fixed priority by period · EDF = dynamic priority by deadline.</p>
+      <details class="chk"><summary>Check yourself: is RMS pre-emptive?</summary><p>Yes. A running task is pre-empted as soon as a task with a shorter period becomes ready.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u7-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u7-l2" data-title="RMS concept and priority assignment">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>RMS: shortest period = highest priority</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>"Rate" = how often a task comes back (1/T). The task with the highest rate (smallest period) gets the highest priority, and that priority <b>never changes</b>. It is simple, predictable and easy to certify, which is why it is used in deterministic embedded systems.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><p>Concept: the task with the shortest period executes with the highest priority. RMS is fixed-priority and pre-emptive: a task is pre-empted if another task with a shorter period is ready. Example: periods Task-1 10 ms, Task-2 15 ms, Task-3 20 ms → priority(T1) &gt; priority(T2) &gt; priority(T3).</p></div>
+      <p class="rem"><b>Remember:</b> small T → big priority.</p>
+      <details class="chk"><summary>Check yourself: order Camera T = 20, Limb T = 15, Voice T = 5, Gesture T = 25, Expression T = 10.</summary><p>Voice (5) &gt; Expression (10) &gt; Limb (15) &gt; Camera (20) &gt; Gesture (25).</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u7-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u7-l3" data-title="Drawing an RMS Gantt chart by hand">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>Drawing an RMS Gantt chart by hand</h3></div>
+      <div class="exam"><span class="tag">Recipe</span><ol>
+        <li>Find the hyperperiod H = LCM of the periods (draw 0 → H, or the window the question asks for).</li>
+        <li>Draw one row per task and mark every release with ↑ at 0, T, 2T, …</li>
+        <li>Go <b>one time unit at a time</b>. At each instant, among tasks that are released and not yet finished, run the <b>highest priority</b> one.</li>
+        <li>A higher-priority release <b>pre-empts</b> the running task. The pre-empted task continues later with its remaining time.</li>
+        <li>At each deadline, check whether that job finished. If not, mark ✗ (deadline miss).</li>
+        <li>Mark idle gaps as "idle".</li></ol></div>
+      <p><b>Slide Example 1</b> (automotive): speed T1 (20, 100), ABS T2 (40, 150), fuel injection T3 (100, 350).</p>
+      <div data-auto="sched" data-alg="RMS" data-h="350" data-tasks='[{"name":"Speed","C":20,"T":100},{"name":"ABS","C":40,"T":150},{"name":"Fuel","C":100,"T":350}]'></div>
+      <p class="rem"><b>Remember:</b> move one tick at a time: the highest-priority ready job runs, and a new release can pre-empt it.</p>
+      <details class="chk"><summary>Check yourself: in the chart above, why does Fuel run in pieces (40, 30, 10, 20)?</summary><p>Each time Speed or ABS is released, it pre-empts Fuel (lower priority). Fuel continues with its remaining time afterwards.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u7-l3"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u7-l4" data-title="RMS pros and cons; slide examples 2 and 3">
+      <div class="lh"><span class="ln">Lesson 4</span><h3>Pros, cons, and what the slide examples teach</h3></div>
+      <div class="grid2"><div class="box"><h4>Pros</h4><ul><li>Simple to understand</li><li>Easy to implement (static priorities)</li><li>Stable: if some low-priority tasks miss, the others may still meet deadlines</li></ul></div>
+        <div class="box"><h4>Cons</h4><ul><li>Lower CPU utilization (only guaranteed up to about 69–78%)</li><li>Requires D = T</li><li>Only deals with independent tasks</li><li>Non-precise schedulability analysis (the UB test is only sufficient)</li></ul></div></div>
+      <div class="plain"><span class="tag">Slide examples 2 and 3</span><p>Ex 2: T1 (1, 3), T2 (1, 5), T3 (1, 6), T4 (2, 20): U = 0.899 &gt; B(4) = 0.756, so the UB test is inconclusive, yet the Gantt chart shows it is schedulable. Ex 3: (10, 30), (15, 40), (5, 50): U = 0.808 &gt; 0.779, also inconclusive and also schedulable. <b>Lesson: failing the bound does NOT mean failing.</b> Check with RTA or a Gantt chart.</p></div>
+      <p class="rem"><b>Remember:</b> UB fail = "not sure", never "not schedulable".</p>
+      <details class="chk"><summary>Check yourself: a set has U = 0.8 and n = 4. What must you do?</summary><p>0.8 &gt; 0.756 is inconclusive, so run RTA (or draw the Gantt chart over the hyperperiod) to decide.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u7-l4"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson practice" id="m5u7-l5" data-title="Practice: PYQ A-Q4 and B-Q5">
+      <div class="lh"><span class="ln">Final step</span><h3>Practice</h3></div><p>Solve Scenarios 5.3 and 5.4 on paper. Check any other task set in the <a href="#labs">scheduler lab</a>.</p>
+      <label class="got"><input type="checkbox" data-key="m5u7-l5"><span>I solved scenarios 5.3 and 5.4 without looking</span></label>
+    </article>
+  </div>
+  <h2 class="sh"><span class="n">2</span>Mnemonic</h2>
+  <div class="mn"><span class="eyebrow">RMS answer order</span><div class="big"><b>P</b>riority · <b>U</b>tilization · <b>B</b>ound · <b>R</b>TA · <b>G</b>antt = "PUB-RG"</div></div>
+  <h2 class="sh"><span class="n">3</span>Solved PYQs</h2>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 5.3</span><span class="chip y">PYQ A-Q4</span><span class="chip">10 marks</span></div>
+    <p>An RMS schedule for a real-time military tracking system has 3 tasks: UTL update track log C = 10, T = 20; UTr object tracking C = 3, T = 10; GPST GPS triangulation C = 1, T = 5. Verify whether the RMS schedulability test was correct by calculating the response times of all three tasks. <span class="mk">7 M</span> Fill the priority column. <span class="mk">1 M</span> State your findings and compare them with the schedulability test. <span class="mk">2 M</span></p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <div class="tbl"><table><thead><tr><th>Task</th><th>Description</th><th>C</th><th>T</th><th>Priority</th></tr></thead>
+        <tr><td>UTL</td><td>Update track log</td><td>10</td><td>20</td><td>3 (lowest)</td></tr><tr><td>UTr</td><td>Object tracking</td><td>3</td><td>10</td><td>2</td></tr><tr><td>GPST</td><td>GPS triangulation</td><td>1</td><td>5</td><td>1 (highest)</td></tr></table></div>
+      <div data-auto="sched" data-alg="RMS" data-h="20" data-tasks='[{"name":"UTL","C":10,"T":20},{"name":"UTr","C":3,"T":10},{"name":"GPST","C":1,"T":5}]'></div>
+      <div class="step"><h4>Findings (2 M)</h4><p>The utilization-bound test says U = 1.0 &gt; B(3) = 0.779, so it <b>cannot guarantee</b> schedulability. But the UB test is only <b>sufficient</b> (pessimistic). The exact RTA gives R = 1, 4, 20 ≤ 5, 10, 20, so the set <b>is schedulable</b>, with the CPU 100% busy and UTL finishing exactly at its deadline (zero slack). Relying only on the bound would wrongly reject this design.</p></div>
+    </div></details></article>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 5.4</span><span class="chip y">PYQ B-Q5</span><span class="chip">15 marks</span></div>
+    <p>A smart home automation system runs: Camera control (C 4, T 20), Limb control (2, 15), Voice (1, 5), Gesture (3, 25), Expression control (2, 10). (a) Assign priorities. <span class="mk">2 M</span> (b) Verify using the necessary and sufficient schedulability tests. <span class="mk">3 M</span> (c) Create Gantt-chart schedules using RMS and EDF. <span class="mk">10 M</span></p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <h4>RMS</h4>
+      <div data-auto="sched" data-alg="RMS" data-h="60" data-tasks='[{"name":"Camera","C":4,"T":20},{"name":"Limb","C":2,"T":15},{"name":"Voice","C":1,"T":5},{"name":"Gesture","C":3,"T":25},{"name":"Expr","C":2,"T":10}]'></div>
+      <h4>EDF</h4>
+      <div data-auto="sched" data-alg="EDF" data-h="60" data-tasks='[{"name":"Camera","C":4,"T":20},{"name":"Limb","C":2,"T":15},{"name":"Voice","C":1,"T":5},{"name":"Gesture","C":3,"T":25},{"name":"Expr","C":2,"T":10}]'></div>
+      <div class="step"><h4>Notes for the answer sheet</h4><p>The hyperperiod is LCM(20, 15, 5, 25, 10) = 300 ms, too long to draw in an exam. Draw the first 50–60 ms (as above) and state: "RTA proves all Rᵢ ≤ Dᵢ, so the pattern repeats without misses." Necessary test: 0.853 ≤ 1 passes. Sufficient: 0.853 &gt; B(5) = 0.743 is inconclusive, and RTA gives R = 1, 3, 5, 10, 19, so the set is schedulable. EDF: U ≤ 1 with D = T, so it is schedulable.</p></div>
+    </div></details></article>
+</section>
+
+<!-- ============ M5 U8 EDF ============ -->
+<section class="page unit" id="m5u8" data-mod="5" data-n="8" data-title="Earliest Deadline First (EDF)" hidden>
+  <header class="uhead"><span class="ubadge">MODULE 5 · UNIT 8</span><h1>Earliest Deadline First (EDF)</h1>
+    <p class="lede">Dynamic priorities: whoever's deadline is nearest runs first. It is the optimal uniprocessor algorithm.</p>
+    <div class="chips"><span class="chip k">PYQ: A-Q5 (10 M)</span><span class="chip k">PYQ: C-Q5 (10 M)</span><span class="chip k">PYQ: D-Q5 (10 M)</span></div></header>
+  <div class="box roadmap"><div class="rmh"><h3>Your path through this unit</h3><button class="btn w" type="button" data-practice="m5u8">Practice mode: hide solutions</button></div><ol class="ck rm" data-unit="m5u8"></ol></div>
+  <h2 class="sh"><span class="n">1</span>Learn it, step by step</h2>
+  <div class="lessons">
+    <article class="lesson" id="m5u8-l1" data-title="EDF concept, optimality and tie rule">
+      <div class="lh"><span class="ln">Lesson 1</span><h3>EDF: nearest deadline runs first</h3></div>
+      <div class="plain"><span class="tag">In plain words</span><p>Like a student doing homework: you always work on the assignment <b>due soonest</b>. Priorities change all the time, because the same task can be most urgent now and least urgent later.</p></div>
+      <div class="exam"><span class="tag">Write this in the exam</span><ul>
+        <li>Concept: the task closest to the end of its period (earliest absolute deadline) gets the highest priority.</li>
+        <li>Dynamic-priority, pre-emptive: a task is pre-empted if another task with a nearer deadline becomes ready.</li>
+        <li><b>Optimal:</b> if any algorithm can schedule the task set, EDF can.</li>
+        <li><b>Tie:</b> if two tasks have the same deadline, choose either (at random). In most cases the currently executing task continues, to avoid context-switch overhead.</li></ul></div>
+      <p class="rem"><b>Remember:</b> absolute deadline = release time + D; the smallest one runs.</p>
+      <details class="chk"><summary>Check yourself: T1 released at 4 with D = 4; T2 released at 0 with D = 10. At t = 4, who runs?</summary><p>T1's absolute deadline is 8 and T2's is 10, so T1 runs.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u8-l1"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u8-l2" data-title="EDF schedulability test (D = T and D < T)">
+      <div class="lh"><span class="ln">Lesson 2</span><h3>The EDF schedulability test</h3></div>
+      <div class="tbl"><table><thead><tr><th>Case</th><th>Test</th><th>Type</th></tr></thead>
+        <tr><td>D = T (the usual case)</td><td>U = Σ C/T ≤ 1</td><td><b>Exact</b>: pass means schedulable, fail means not</td></tr>
+        <tr><td>D &lt; T</td><td>Density Δ = Σ C/D ≤ 1</td><td>Sufficient: pass means schedulable; fail means draw the timeline over one hyperperiod (or two with arrival offsets) to decide</td></tr></table></div>
+      <div class="plain"><span class="tag">Slide examples</span><p>Ex 1 (weather station) T1 (1, 4), T2 (2, 5), T3 (2, 7): U = 0.935 ≤ 1, so it is schedulable by EDF (it fails under RMS). Ex 3: (5, 20), (10, 40), (40, 80): U = 1, so the CPU is 100% busy without idle time. At t = 80 all three deadlines coincide and any one may be picked.</p></div>
+      <div data-auto="sched" data-alg="EDF" data-h="15" data-tasks='[{"name":"T1","C":1,"T":4},{"name":"T2","C":2,"T":5},{"name":"T3","C":2,"T":7}]'></div>
+      <p class="rem"><b>Remember:</b> D = T: U ≤ 1 is the exact test · D &lt; T: Σ C/D ≤ 1 is sufficient, otherwise draw the timeline.</p>
+      <details class="chk"><summary>Check yourself: (2, T 8, D 6), (1, 5, 4), (3, 10, 8). Is it EDF-schedulable?</summary><p>Density = 2/6 + 1/4 + 3/8 = 0.958 ≤ 1, so it is schedulable (this is PYQ C-Q5).</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u8-l2"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u8-l3" data-title="Drawing an EDF Gantt chart (with arrival times)">
+      <div class="lh"><span class="ln">Lesson 3</span><h3>Drawing an EDF Gantt chart, including arrival times</h3></div>
+      <div class="exam"><span class="tag">Recipe</span><ol>
+        <li>List job releases: task i releases at Aᵢ, Aᵢ + T, Aᵢ + 2T, … (Aᵢ = arrival/offset, default 0).</li>
+        <li>Each job's absolute deadline = release + D.</li>
+        <li>At each time unit, among released unfinished jobs, run the <b>smallest absolute deadline</b>. On a tie, keep the job already running.</li>
+        <li>Recheck whenever a new job arrives (it may pre-empt).</li>
+        <li>Continue for one hyperperiod after the last first arrival, and mark deadlines and misses.</li></ol></div>
+      <div class="tip"><b>Tip:</b> Write a small table above the chart: <i>time · ready jobs with their deadlines · chosen</i>. It shows the examiner why each choice was made.</div>
+      <p class="rem"><b>Remember:</b> release + D = deadline; smallest deadline runs; recheck at every arrival.</p>
+      <details class="chk"><summary>Check yourself: at t = 5, the ready jobs are T1 (deadline 10) and T3 (deadline 7, currently running). Who runs?</summary><p>T3, because its deadline is earlier.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u8-l3"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson" id="m5u8-l4" data-title="EDF pros/cons and RMS vs EDF">
+      <div class="lh"><span class="ln">Lesson 4</span><h3>Pros, cons, and RMS vs EDF</h3></div>
+      <div class="tbl"><table><thead><tr><th>Aspect</th><th>RMS</th><th>EDF</th></tr></thead>
+        <tr><td>Priority</td><td>Fixed (by period)</td><td>Dynamic (by absolute deadline)</td></tr>
+        <tr><td>Test</td><td>U ≤ n(2^{1/n} − 1) sufficient; RTA exact</td><td>U ≤ 1 exact (D = T)</td></tr>
+        <tr><td>Max utilization</td><td>≈ 69–100% depending on the set</td><td>100%</td></tr>
+        <tr><td>Optimal?</td><td>Optimal among fixed-priority algorithms</td><td>Optimal (any algorithm)</td></tr>
+        <tr><td>Implementation</td><td>Easy</td><td>Harder (priorities change at run time)</td></tr>
+        <tr><td>Overload</td><td>Stable: low-priority tasks miss first</td><td>Unpredictable: any task may miss</td></tr>
+        <tr><td>Task types</td><td>Periodic, D = T</td><td>Periodic and non-periodic</td></tr></table></div>
+      <div class="exam"><span class="tag">EDF pros / cons (slides)</span><p><b>Pros:</b> works for periodic and non-periodic tasks; simple schedulability test; best CPU utilization; optimal. <b>Cons:</b> difficult to implement (dynamic priorities); any task could get the highest priority even if it isn't important; unstable, because if a task misses its deadline the system becomes unpredictable.</p></div>
+      <p class="rem"><b>Remember:</b> RMS = simple and stable · EDF = optimal and uses 100% of the CPU, but is unstable under overload.</p>
+      <details class="chk"><summary>Check yourself: a set passes EDF but fails RMS RTA. Which should a medical pump use, and why might an engineer still prefer RMS?</summary><p>Only EDF meets the deadlines for this set. Engineers like RMS for predictability under overload and ease of certification, so they might reduce C or change periods to make RMS pass.</p></details>
+      <label class="got"><input type="checkbox" data-key="m5u8-l4"><span>I understand this lesson</span></label>
+    </article>
+    <article class="lesson practice" id="m5u8-l5" data-title="Practice: PYQ A-Q5, C-Q5, D-Q5">
+      <div class="lh"><span class="ln">Final step</span><h3>Practice</h3></div><p>Solve Scenarios 5.5–5.7 on paper, then compare.</p>
+      <label class="got"><input type="checkbox" data-key="m5u8-l5"><span>I solved scenarios 5.5–5.7 without looking</span></label>
+    </article>
+  </div>
+  <h2 class="sh"><span class="n">2</span>Solved PYQs</h2>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 5.5</span><span class="chip y">PYQ A-Q5</span><span class="chip">10 marks</span></div>
+    <p>The RMS task set of Scenario 5.3 (UTL 10/20, UTr 3/10, GPST 1/5) is converted to an EDF schedule with arrival times 1, 3 and 0 for UTL, UTr and GPST respectively. Determine whether it is schedulable using (1) the EDF schedulability test <span class="mk">3 M</span> and (2) the timing diagram method <span class="mk">7 M</span>.</p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <div data-auto="sched" data-alg="EDF" data-h="41" data-tasks='[{"name":"UTL","C":10,"T":20,"A":1},{"name":"UTr","C":3,"T":10,"A":3},{"name":"GPST","C":1,"T":5,"A":0}]'></div>
+      <div class="step"><h4>Conclusion</h4><p>(1) D = T and U = 1.0 ≤ 1, so it is schedulable by EDF (exact test; offsets don't change this for implicit deadlines). (2) The timeline from 0 to 41 (the last first arrival at 3, plus the hyperperiod 20, drawn for two cycles) shows every job finishing before its deadline, with no idle time once all tasks have arrived. <b>Schedulable.</b></p></div>
+    </div></details></article>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 5.6</span><span class="chip y">PYQ C-Q5</span><span class="chip">10 marks</span></div>
+    <p>Periodic tasks: T1 C = 2, D = 6, T = 8; T2 C = 1, D = 4, T = 5; T3 C = 3, D = 8, T = 10. (i) Calculate the total CPU utilization. <span class="mk">3 M</span> (ii) Determine whether the task set is schedulable using EDF. <span class="mk">3 M</span> (iii) Draw the Gantt chart for one hyperperiod to justify your answer. <span class="mk">4 M</span></p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <div data-auto="sched" data-alg="EDF" data-h="40" data-tasks='[{"name":"T1","C":2,"T":8,"D":6},{"name":"T2","C":1,"T":5,"D":4},{"name":"T3","C":3,"T":10,"D":8}]'></div>
+      <div class="step"><h4>Answer</h4><p>(i) U = 2/8 + 1/5 + 3/10 = <b>0.75</b>. (ii) Because D &lt; T, use density: 2/6 + 1/4 + 3/8 = <b>0.958 ≤ 1</b>, so it is schedulable by EDF. (iii) The hyperperiod is LCM(8, 5, 10) = 40, and the Gantt chart shows no misses.</p></div>
+    </div></details></article>
+  <article class="scn"><div class="q"><div class="meta"><span class="chip k">Scenario 5.7</span><span class="chip y">PYQ D-Q5</span><span class="chip">10 marks</span></div>
+    <p>A real-time embedded control system executes: T1 C = 2, P = 5, D = 5; T2 C = 3, P = 10, D = 7; T3 C = 4, P = 20, D = 15. (a) Using RMS, analyse whether the task set is schedulable for the given deadlines. <span class="mk">5 M</span> (b) If it fails under RMS, evaluate whether EDF can guarantee all deadlines. Justify with calculations. <span class="mk">5 M</span></p></div>
+    <details class="sol" open><summary>Solution</summary><div class="body">
+      <h4>(a) RMS</h4>
+      <div data-auto="sched" data-alg="RMS" data-h="20" data-tasks='[{"name":"T1","C":2,"T":5,"D":5},{"name":"T2","C":3,"T":10,"D":7},{"name":"T3","C":4,"T":20,"D":15}]'></div>
+      <p class="small">RTA for T3: R⁰ = 9 → 4 + ⌈9/5⌉·2 + ⌈9/10⌉·3 = 11 → 4 + ⌈11/5⌉·2 + ⌈11/10⌉·3 = 16 &gt; 15. T3 misses its deadline, so the set is <b>not schedulable under RMS</b> (the Gantt chart shows T3 still unfinished at t = 15).</p>
+      <h4>(b) EDF</h4>
+      <div data-auto="sched" data-alg="EDF" data-h="20" data-tasks='[{"name":"T1","C":2,"T":5,"D":5},{"name":"T2","C":3,"T":10,"D":7},{"name":"T3","C":4,"T":20,"D":15}]'></div>
+      <div class="step"><h4>Justification</h4><p>U = 0.9 ≤ 1 (necessary passes). Density Σ C/D = 1.095 &gt; 1 is inconclusive, so check the timeline over the hyperperiod LCM(5, 10, 20) = 20: every job meets its deadline, and T3 finishes at t = 11 ≤ 15. <b>EDF guarantees all deadlines</b>; RMS does not. The difference: at t = 10 EDF runs T3 (deadline 15) instead of the new T1 job (deadline 15, tie resolved in favour of the running task), whereas RMS keeps pre-empting T3.</p></div>
+    </div></details></article>
+  <h2 class="sh"><span class="n">3</span>Tips &amp; traps</h2>
+  <div class="grid2"><div class="tip"><b>Tip:</b> Always state <b>which test is exact and which is only sufficient</b>. That sentence alone often earns a mark.</div>
+  <div class="trap"><b>Trap:</b> With D &lt; T, don't claim "U ≤ 1 so schedulable". Use density or the timeline.</div>
+  <div class="tip"><b>Tip:</b> Use the scheduler lab to verify your hand-drawn Gantt charts before the exam.</div>
+  <div class="trap"><b>Trap:</b> With arrival offsets, the first job of each task starts at its arrival time, not at 0.</div></div>
+</section>
+
+<!-- ============ LABS ============ -->
+<section class="page" id="labs" hidden>
+  <header class="uhead"><span class="ubadge">INTERACTIVE</span><h1>Numerical labs</h1>
+    <p class="lede">Type any question from a paper or textbook and get the full worked solution: tables, tree or Gantt chart, and final numbers. Solve on paper first, then check here.</p></header>
+
+  <div class="box lab">
+    <h2>Huffman lab</h2>
+    <label for="hlIn" class="eyebrow">Frequencies (A:5,B:9,…) or a raw message</label>
+    <textarea id="hlIn" rows="2">A:5,B:9,C:12,D:13,E:16,F:45</textarea>
+    <div class="labrow"><div><label for="hlEnc" class="eyebrow">Encode this text (optional)</label><input id="hlEnc" placeholder="e.g. FACE"></div>
+      <div><label for="hlDec" class="eyebrow">Decode these bits (optional)</label><input id="hlDec" placeholder="e.g. 1100100"></div></div>
+    <button class="btn" id="hlGo" type="button">Solve Huffman</button>
+    <div id="hlOut" class="labout"></div>
+  </div>
+
+  <div class="box lab">
+    <h2>Run-length lab</h2>
+    <label for="rlIn" class="eyebrow">Message</label>
+    <input id="rlIn" value="EFFFBBBGGGDBGFFFDDBEEGGBFFF">
+    <button class="btn" id="rlGo" type="button">Solve RLE</button>
+    <div id="rlOut" class="labout"></div>
+  </div>
+
+  <div class="box lab">
+    <h2>Lempel-Ziv lab</h2>
+    <div class="labrow">
+      <div><label for="lzIn" class="eyebrow">Encode: message</label><input id="lzIn" value="SSCSSCCSCCCCSSSSCCSSCCC"><button class="btn" id="lzGo" type="button">Encode</button></div>
+      <div><label for="lzdIn" class="eyebrow">Decode: tokens (comma separated)</label><input id="lzdIn" value="B,A,2B,3B,1A,4B,5A">
+        <label for="lzdAlpha" class="eyebrow">Alphabet (needed if symbols are digits, e.g. 7890)</label><input id="lzdAlpha" value=""><button class="btn" id="lzdGo" type="button">Decode</button></div>
+    </div>
+    <div id="lzOut" class="labout"></div><div id="lzdOut" class="labout"></div>
+  </div>
+
+  <div class="box lab">
+    <h2>Scheduler lab: RMS / EDF</h2>
+    <p class="small">Enter each task's computation time C, period T, deadline D (leave blank if D = T) and arrival time. The lab runs the tests, RTA (for RMS) and draws the Gantt chart.</p>
+    <div class="tbl"><table class="edit"><thead><tr><th>Name</th><th>C</th><th>T</th><th>D</th><th>Arrival</th><th></th></tr></thead><tbody id="skRows"></tbody></table></div>
+    <div class="labrow">
+      <div><label for="skAlg" class="eyebrow">Algorithm</label><select id="skAlg"><option value="RMS">RMS (fixed priority)</option><option value="EDF">EDF (earliest deadline)</option></select></div>
+      <div><label for="skH" class="eyebrow">Chart length (blank = one hyperperiod, max 240)</label><input id="skH" type="number" min="1" placeholder="auto"></div>
+    </div>
+    <div class="chips"><button class="btn w" id="skAdd" type="button">+ Add task</button><button class="btn" id="skGo" type="button">Solve schedule</button></div>
+    <p class="bad small" id="skMsg"></p>
+    <div id="skOut" class="labout"></div>
+  </div>
+</section>
+
+<!-- ============ GLOSSARY ============ -->
+<section class="page" id="glossary" hidden>
+  <header class="uhead"><span class="ubadge">QUICK REFERENCE</span><h1>Glossary</h1>
+    <p class="lede">One-line definitions for 2-mark answers.</p>
+    <label for="glq" class="eyebrow">Search terms</label><input type="search" id="glq" placeholder="e.g. entropy, BSP, EDF"></header>
+  <dl class="gl" id="glList">
+    <div><dt>Data compression</dt><dd class="u">M3</dd><dd>Storing or sending information using fewer bits.</dd></div>
+    <div><dt>Lossless</dt><dd class="u">M3</dd><dd>Decompressed data is exactly the original (RLE, Huffman, LZ).</dd></div>
+    <div><dt>Lossy</dt><dd class="u">M3</dd><dd>Some detail is permanently removed; used for media (JPEG, MPEG, MP3).</dd></div>
+    <div><dt>Entropy</dt><dd class="u">M3</dd><dd>Average information per symbol, H = −Σ p log₂ p; the lower limit for lossless coding.</dd></div>
+    <div><dt>Redundancy</dt><dd class="u">M3</dd><dd>Predictable, repeated content that compression removes.</dd></div>
+    <div><dt>Compression ratio</dt><dd class="u">M3</dd><dd>Original size ÷ compressed size.</dd></div>
+    <div><dt>Run-length encoding</dt><dd class="u">M3</dd><dd>Replaces a run of repeated symbols by the symbol and its count.</dd></div>
+    <div><dt>Huffman coding</dt><dd class="u">M3</dd><dd>Variable-length prefix code: frequent symbols get shorter codes, built by merging the two least frequent nodes.</dd></div>
+    <div><dt>Prefix-free code</dt><dd class="u">M3</dd><dd>No codeword is the start of another, so decoding is unambiguous.</dd></div>
+    <div><dt>Average code length</dt><dd class="u">M3</dd><dd>L = Σ pᵢlᵢ bits per symbol.</dd></div>
+    <div><dt>Lempel-Ziv</dt><dd class="u">M3</dd><dd>Dictionary method: repeated strings are replaced by their dictionary index.</dd></div>
+    <div><dt>LZ78 token</dt><dd class="u">M3</dd><dd>(index of known prefix, next symbol), written like 2B.</dd></div>
+    <div><dt>JPEG</dt><dd class="u">M3</dd><dd>Lossy image compression: 8×8 blocks → DCT → quantization → zig-zag + RLE.</dd></div>
+    <div><dt>DCT</dt><dd class="u">M3</dd><dd>Discrete Cosine Transform: converts pixel values to frequency values, revealing redundancy.</dd></div>
+    <div><dt>Quantization</dt><dd class="u">M3</dd><dd>Dividing by a constant and dropping fractions; the lossy step of JPEG.</dd></div>
+    <div><dt>Zig-zag scan</dt><dd class="u">M3</dd><dd>Diagonal reading order that groups the trailing 0s for run-length coding.</dd></div>
+    <div><dt>MPEG</dt><dd class="u">M3</dd><dd>Video compression = spatial (JPEG per frame) + temporal (remove redundant frames).</dd></div>
+    <div><dt>I / P / B frame</dt><dd class="u">M3</dd><dd>Intra (complete) / Predicted from the previous frame / Bidirectional from the previous and next frames.</dd></div>
+    <div><dt>Predictive encoding</dt><dd class="u">M3</dd><dd>Audio coding that sends only the differences between samples (GSM, G.729).</dd></div>
+    <div><dt>Perceptual encoding</dt><dd class="u">M3</dd><dd>Audio coding that drops sounds humans can't hear (MP3).</dd></div>
+    <div><dt>RTOS</dt><dd class="u">M5</dd><dd>An OS that guarantees service within a bounded response time for real-time applications.</dd></div>
+    <div><dt>GPOS / EOS</dt><dd class="u">M5</dd><dd>General-purpose OS (throughput, not time-bounded) / embedded OS for dedicated devices.</dd></div>
+    <div><dt>Hard real-time</dt><dd class="u">M5</dd><dd>A missed deadline is catastrophic (airbag, missile).</dd></div>
+    <div><dt>Firm real-time</dt><dd class="u">M5</dd><dd>Rare misses are tolerated; late results are useless (assembly robot).</dd></div>
+    <div><dt>Soft real-time</dt><dd class="u">M5</dd><dd>Late results still have value; best effort (multimedia, games).</dd></div>
+    <div><dt>Pre-emption</dt><dd class="u">M5</dd><dd>Interrupting a running task to run a higher-priority one.</dd></div>
+    <div><dt>Priority inheritance</dt><dd class="u">M5</dd><dd>A low-priority task holding a resource temporarily gets the higher priority of a waiting task.</dd></div>
+    <div><dt>Interrupt latency</dt><dd class="u">M5</dd><dd>Time from the last instruction of the interrupted task to the first instruction of the handler.</dd></div>
+    <div><dt>Dispatch latency</dt><dd class="u">M5</dd><dd>Time from the last instruction of the handler to the next scheduled task.</dd></div>
+    <div><dt>Context switch</dt><dd class="u">M5</dd><dd>Saving one task's state and restoring another's.</dd></div>
+    <div><dt>Kernel</dt><dd class="u">M5</dd><dd>The core of the OS managing memory, devices and resource access.</dd></div>
+    <div><dt>Monolithic kernel</dt><dd class="u">M5</dd><dd>All OS services run in kernel space; fast but one crash brings the whole system down.</dd></div>
+    <div><dt>Microkernel</dt><dd class="u">M5</dd><dd>Minimal kernel (IPC, scheduling, memory); other services run as user-space servers (QNX, VxWorks).</dd></div>
+    <div><dt>Hybrid kernel</dt><dd class="u">M5</dd><dd>Microkernel structure with some services run in kernel mode (Windows NT, macOS).</dd></div>
+    <div><dt>BSP</dt><dd class="u">M5</dd><dd>Board Support Package: hardware-specific drivers and init code that let an RTOS run on a board.</dd></div>
+    <div><dt>Periodic task</dt><dd class="u">M5</dd><dd>Repeats at a fixed interval; (Φ, p, e, d).</dd></div>
+    <div><dt>Sporadic task</dt><dd class="u">M5</dd><dd>Random arrivals with a minimum separation g; (e, g, d).</dd></div>
+    <div><dt>Aperiodic task</dt><dd class="u">M5</dd><dd>Random arrivals, possibly simultaneous; usually soft.</dd></div>
+    <div><dt>Utilization</dt><dd class="u">M5</dd><dd>U = Σ C/T, the fraction of CPU time the task set needs.</dd></div>
+    <div><dt>Hyperperiod</dt><dd class="u">M5</dd><dd>LCM of all periods; the schedule repeats after it.</dd></div>
+    <div><dt>Necessary test</dt><dd class="u">M5</dd><dd>Failing it proves the set is unschedulable (U ≤ 1).</dd></div>
+    <div><dt>Sufficient test</dt><dd class="u">M5</dd><dd>Passing it proves the set is schedulable (RMS: U ≤ n(2^{1/n} − 1)).</dd></div>
+    <div><dt>Response-time analysis</dt><dd class="u">M5</dd><dd>Exact fixed-priority test: R = C + Σ ⌈R/Tⱼ⌉Cⱼ, iterated until stable; need R ≤ D.</dd></div>
+    <div><dt>RMS</dt><dd class="u">M5</dd><dd>Rate Monotonic Scheduling: fixed priority, shorter period = higher priority.</dd></div>
+    <div><dt>EDF</dt><dd class="u">M5</dd><dd>Earliest Deadline First: dynamic priority, nearest absolute deadline runs; optimal.</dd></div>
+    <div><dt>TAT / WT</dt><dd class="u">M5</dd><dd>Turnaround = completion − arrival; waiting = turnaround − burst.</dd></div>
+  </dl>
+  <p class="muted" id="glEmpty" hidden>No term matches that search. Try a shorter word.</p>
+</section>
+</main>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="Ma" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0,0.6 L10,5 L0,9.4 z" fill="#121212"/></marker>
+    <marker id="Mo" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.5,0.8 L9.5,5 L0.5,9.2" fill="none" stroke="#121212" stroke-width="1.5"/></marker>
+    <marker id="Mh" viewBox="0 0 14 14" refX="13.2" refY="7" markerWidth="15" markerHeight="15" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0.8,0.8 L13.2,7 L0.8,13.2 z" fill="#ffffff" stroke="#121212" stroke-width="1.5"/></marker>
+    <marker id="Mdf" viewBox="0 0 20 12" refX="0.5" refY="6" markerWidth="20" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M0.5,6 L10,0.8 L19.5,6 L10,11.2 z" fill="#121212"/></marker>
+    <marker id="Mdh" viewBox="0 0 20 12" refX="0.5" refY="6" markerWidth="20" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto"><path d="M0.5,6 L10,0.8 L19.5,6 L10,11.2 z" fill="#ffffff" stroke="#121212" stroke-width="1.4"/></marker>
+  </defs>
+</svg>
+<script>
+(function(){
+'use strict';
+var INK='#121212', Y='#FFD60A', WASH='#F6F5EF';
+var SANS='Work Sans, system-ui, sans-serif', MONO='JetBrains Mono, ui-monospace, monospace';
+var MK={a:'Ma',o:'Mo',h:'Mh',df:'Mdf',dh:'Mdh'};
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function f1(v){return Math.round(v*10)/10;}
+
+function text(x,y,str,o){
+  o=o||{};
+  var lines=String(str).split('\n'), fs=o.fs||12, lh=fs*1.22;
+  var y0=y-(lines.length-1)*lh/2+fs*0.36;
+  var s='<text x="'+f1(x)+'" y="'+f1(y0)+'" font-size="'+fs+'" font-family="'+(o.mono?MONO:SANS)+'" font-weight="'+(o.bold?700:500)+'" text-anchor="'+(o.anchor||'middle')+'" fill="'+(o.fill||INK)+'"'+(o.italic?' font-style="italic"':'')+(o.halo?' stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke"':'')+(o.ul?' text-decoration="underline"':'')+'>';
+  for(var i=0;i<lines.length;i++){s+='<tspan x="'+f1(x)+'" dy="'+(i?f1(lh):0)+'">'+esc(lines[i])+'</tspan>';}
+  return s+'</text>';
+}
+function svgWrap(w,h,body,label){
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+w+' '+h+'" width="'+w+'" height="'+h+'" role="img" aria-label="'+esc(label||'diagram')+'">'+body+'</svg>';
+}
+function bpt(n,tx,ty){
+  var dx=tx-n.x, dy=ty-n.y;
+  if(Math.abs(dx)<1e-6&&Math.abs(dy)<1e-6) return [n.x,n.y];
+  var t;
+  if(n.shape==='circle') t=n.r/Math.hypot(dx,dy);
+  else if(n.shape==='dia') t=1/(Math.abs(dx)/(n.w/2)+Math.abs(dy)/(n.h/2));
+  else if(n.shape==='ell') t=1/Math.sqrt(dx*dx/(n.rx*n.rx)+dy*dy/(n.ry*n.ry));
+  else t=Math.min((n.w/2)/Math.max(Math.abs(dx),1e-6),(n.h/2)/Math.max(Math.abs(dy),1e-6));
+  return [n.x+dx*t,n.y+dy*t];
+}
+function pathD(pts){return 'M'+pts.map(function(q){return f1(q[0])+','+f1(q[1]);}).join(' L');}
+function edgePath(pts,e){
+  var head=(e.head===undefined)?'a':e.head;
+  return '<path d="'+pathD(pts)+'" fill="none" stroke="'+INK+'" stroke-width="'+(e.w||1.6)+'"'+(e.dash?' stroke-dasharray="6 4"':'')+(head&&head!=='none'?' marker-end="url(#'+MK[head]+')"':'')+(e.tail?' marker-start="url(#'+MK[e.tail]+')"':'')+'/>';
+}
+function segLabel(pts,e,fs){
+  if(!e.l) return '';
+  var k=(e.ls!==undefined)?e.ls:Math.floor((pts.length-2)/2);
+  k=Math.max(0,Math.min(k,pts.length-2));
+  var fr=(e.lf!==undefined)?e.lf:0.5;
+  var x=pts[k][0]+(pts[k+1][0]-pts[k][0])*fr, y=pts[k][1]+(pts[k+1][1]-pts[k][1])*fr;
+  if(e.lo){x+=e.lo[0];y+=e.lo[1];}
+  return text(x,y,e.l,{fs:fs||11,halo:1,bold:e.lb,italic:e.li,anchor:e.la});
+}
+function stick(x,y,label,fs){
+  var s='<g fill="none" stroke="'+INK+'" stroke-width="2" stroke-linecap="round">'+
+    '<circle cx="'+x+'" cy="'+(y-24)+'" r="8" fill="#fff"/>'+
+    '<path d="M'+x+','+(y-16)+' L'+x+','+(y+6)+' M'+(x-14)+','+(y-8)+' L'+(x+14)+','+(y-8)+' M'+x+','+(y+6)+' L'+(x-11)+','+(y+24)+' M'+x+','+(y+6)+' L'+(x+11)+','+(y+24)+'"/></g>';
+  if(label) s+=text(x,y+40,label,{fs:fs||12,bold:1});
+  return s;
+}
+
+/* ---------- generic graph (Petri, CDFG, DFG, state, activity, block) ---------- */
+function autoSize(l,fs){
+  var lines=String(l||'').split('\n'), m=0;
+  lines.forEach(function(t){m=Math.max(m,t.length);});
+  return {w:m*fs*0.58+22,h:lines.length*fs*1.22+14};
+}
+function graph(sp){
+  var N={}, back='', edges='', nodes='', labels='';
+  sp.nodes.forEach(function(n){
+    var o={}; for(var k in n) o[k]=n[k];
+    var t=n.t;
+    if(t==='place'){o.shape='circle';o.r=n.r||16;o.lpos=n.lpos||'below';}
+    else if(t==='op'){o.shape='circle';o.r=n.r||15;}
+    else if(t==='init'){o.shape='circle';o.r=n.r||8;}
+    else if(t==='final'){o.shape='circle';o.r=11;}
+    else if(t==='trans'){o.shape='rect';o.w=n.w||10;o.h=n.h||38;o.lpos=n.lpos||'above';}
+    else if(t==='htrans'){o.shape='rect';o.w=n.w||38;o.h=n.h||10;o.lpos=n.lpos||'above';}
+    else if(t==='bar'){o.shape='rect';o.w=n.w||200;o.h=n.h||8;}
+    else if(t==='dia'){o.shape='dia';o.w=n.w||40;o.h=n.h||40;}
+    else if(t==='val'){o.shape='rect';var a=autoSize(n.l,12);o.w=n.w||Math.max(34,a.w-6);o.h=n.h||30;}
+    else {o.shape='rect';var b=autoSize(n.l,n.fs||12);o.w=n.w||b.w;o.h=n.h||b.h;}
+    N[n.id]=o;
+  });
+  function nlabel(n){
+    if(!n.l) return '';
+    var fs=n.fs||11.5, lines=String(n.l).split('\n').length, hh=lines*fs*1.22/2;
+    var pos=n.lpos||'below', x=n.x, y=n.y, anchor='middle';
+    var hv=(n.shape==='circle')?n.r:n.h/2, hw=(n.shape==='circle')?n.r:n.w/2;
+    if(pos==='below') y=n.y+hv+5+hh;
+    else if(pos==='above') y=n.y-hv-5-hh;
+    else if(pos==='left'){x=n.x-hw-6;anchor='end';}
+    else if(pos==='right'){x=n.x+hw+6;anchor='start';}
+    if(n.lo){x+=n.lo[0];y+=n.lo[1];}
+    return text(x,y,n.l,{fs:fs,anchor:anchor,halo:1,bold:n.lb});
+  }
+  function tokens(n){
+    var k=n.k||0, s='', r=3.6, P;
+    if(!k) return '';
+    if(k===1) P=[[0,0]]; else if(k===2) P=[[-5,0],[5,0]]; else if(k===3) P=[[-5,-4],[5,-4],[0,5]];
+    else if(k===4) P=[[-5,-5],[5,-5],[-5,5],[5,5]];
+    else return '<circle cx="'+n.x+'" cy="'+(n.y-4)+'" r="3.4" fill="'+INK+'"/>'+text(n.x,n.y+7,String(k),{fs:10,bold:1});
+    P.forEach(function(p){s+='<circle cx="'+(n.x+p[0])+'" cy="'+(n.y+p[1])+'" r="'+r+'" fill="'+INK+'"/>';});
+    return s;
+  }
+  Object.keys(N).forEach(function(id){
+    var n=N[id], fill=n.hl?Y:(n.fill||'#fff'), sw=n.sw||2;
+    var x0=n.x-(n.w||0)/2, y0=n.y-(n.h||0)/2;
+    switch(n.t){
+      case 'comp':
+        back+='<rect x="'+x0+'" y="'+y0+'" width="'+n.w+'" height="'+n.h+'" rx="16" fill="'+WASH+'" stroke="'+INK+'" stroke-width="2"/>'+text(x0+14,y0+16,n.l,{fs:12.5,bold:1,anchor:'start'});
+        break;
+      case 'place':
+        nodes+='<circle cx="'+n.x+'" cy="'+n.y+'" r="'+n.r+'" fill="'+fill+'" stroke="'+INK+'" stroke-width="'+sw+'"/>'+tokens(n);
+        labels+=nlabel(n); break;
+      case 'trans': case 'htrans':
+        nodes+='<rect x="'+x0+'" y="'+y0+'" width="'+n.w+'" height="'+n.h+'" fill="'+(n.hl?Y:INK)+'" stroke="'+INK+'" stroke-width="1.6"/>';
+        labels+=nlabel(n); break;
+      case 'op':
+        nodes+='<circle cx="'+n.x+'" cy="'+n.y+'" r="'+n.r+'" fill="'+fill+'" stroke="'+INK+'" stroke-width="1.8"/>'+text(n.x,n.y,n.l,{fs:n.fs||14,bold:1});
+        break;
+      case 'init':
+        nodes+='<circle cx="'+n.x+'" cy="'+n.y+'" r="'+n.r+'" fill="'+INK+'"/>'; break;
+      case 'final':
+        nodes+='<circle cx="'+n.x+'" cy="'+n.y+'" r="11" fill="#fff" stroke="'+INK+'" stroke-width="2"/><circle cx="'+n.x+'" cy="'+n.y+'" r="6.5" fill="'+INK+'"/>'; break;
+      case 'bar':
+        nodes+='<rect x="'+x0+'" y="'+y0+'" width="'+n.w+'" height="'+n.h+'" fill="'+INK+'"/>'; break;
+      case 'dia':
+        nodes+='<polygon points="'+n.x+','+y0+' '+(n.x+n.w/2)+','+n.y+' '+n.x+','+(n.y+n.h/2)+' '+(n.x-n.w/2)+','+n.y+'" fill="'+fill+'" stroke="'+INK+'" stroke-width="1.8"/>'+(n.l?text(n.x,n.y,n.l,{fs:n.fs||11.5,bold:1}):'');
+        if(n.ol) labels+=nlabel({x:n.x,y:n.y,l:n.ol,lpos:n.lpos||'right',shape:'dia',w:n.w,h:n.h,lo:n.lo});
+        break;
+      case 'txt':
+        nodes+=text(n.x+(n.anchor==='start'?-n.w/2:0),n.y,n.l,{fs:n.fs||12,bold:n.lb,anchor:n.anchor||'middle',italic:n.italic}); break;
+      case 'round':
+        nodes+='<rect x="'+x0+'" y="'+y0+'" width="'+n.w+'" height="'+n.h+'" rx="'+(n.rx||12)+'" fill="'+fill+'" stroke="'+INK+'" stroke-width="'+sw+'"/>'+text(n.x,n.y,n.l,{fs:n.fs||12,bold:n.lb}); break;
+      case 'val':
+        nodes+='<rect x="'+x0+'" y="'+y0+'" width="'+n.w+'" height="'+n.h+'" fill="'+fill+'" stroke="'+INK+'" stroke-width="1.8"/>'+text(n.x,n.y,n.l,{fs:12.5,bold:1,mono:1}); break;
+      default: /* box */
+        nodes+='<rect x="'+x0+'" y="'+y0+'" width="'+n.w+'" height="'+n.h+'" fill="'+fill+'" stroke="'+INK+'" stroke-width="'+sw+'"/>'+text(n.x,n.y,n.l,{fs:n.fs||12,bold:n.lb,mono:n.mono});
+    }
+  });
+  (sp.edges||[]).forEach(function(e){
+    var A=N[e.f], B=N[e.t], pts=e.pts||[];
+    var first=pts.length?pts[0]:[B.x,B.y], last=pts.length?pts[pts.length-1]:[A.x,A.y];
+    var s=e.fs||bpt(A,first[0],first[1]), t=e.ts||bpt(B,last[0],last[1]);
+    var all=[s].concat(pts,[t]);
+    edges+=edgePath(all,e); labels+=segLabel(all,e);
+  });
+  return svgWrap(sp.w,sp.h,back+edges+nodes+labels,sp.label);
+}
+
+/* ===== pure algorithms (shared by labs and solved PYQs) ===== */
+var ALG=(function(){
+function parseFreq(s){
+  // "A:5,B:9" or "A=5 B=9" or a raw message
+  s=String(s).trim();
+  var m=s.match(/^([^\s:=,]+\s*[:=]\s*\d+[\s,;]*)+$/);
+  if(m){
+    var out=[];
+    s.split(/[\s,;]+/).filter(Boolean).forEach(function(p){var q=p.split(/[:=]/);out.push({sym:q[0],f:+q[1]});});
+    return {items:out,message:null};
+  }
+  var msg=s.replace(/\s+/g,''), cnt={}, order=[];
+  for(var i=0;i<msg.length;i++){var c=msg[i]; if(!(c in cnt)){cnt[c]=0;order.push(c);} cnt[c]++;}
+  return {items:order.map(function(c){return {sym:c,f:cnt[c]};}),message:msg};
+}
+function huffman(items){
+  // rule: repeatedly take two smallest; ties -> older node first (leaves in given order, then merged nodes in creation order)
+  // first taken = left = 0, second = right = 1
+  var q=items.map(function(it,i){return {w:it.f,sym:it.sym,ord:i,leaf:true,label:it.sym};});
+  var ord=items.length, steps=[], nodes=q.slice();
+  if(q.length===1){ return {root:q[0],codes:(function(){var c={};c[q[0].sym]='0';return c;})(),steps:[]}; }
+  while(q.length>1){
+    q.sort(function(a,b){return a.w-b.w||a.ord-b.ord;});
+    var a=q.shift(), b=q.shift();
+    var n={w:a.w+b.w,left:a,right:b,ord:ord++,leaf:false,label:a.label+b.label};
+    steps.push({a:a,b:b,n:n,queue:q.map(function(x){return x.label+'('+x.w+')';})});
+    q.push(n);
+  }
+  var root=q[0], codes={};
+  (function walk(n,c){ if(n.leaf){codes[n.sym]=c||'0';return;} walk(n.left,c+'0'); walk(n.right,c+'1'); })(root,'');
+  return {root:root,codes:codes,steps:steps};
+}
+function huffEncode(codes,msg){ return msg.split('').map(function(c){return codes[c]||'?';}).join(''); }
+function huffDecode(codes,bits){
+  var inv={}; Object.keys(codes).forEach(function(k){inv[codes[k]]=k;});
+  var out=[], cur='', parts=[];
+  for(var i=0;i<bits.length;i++){cur+=bits[i]; if(inv[cur]!==undefined){out.push(inv[cur]);parts.push(cur);cur='';}}
+  return {text:out.join(''),parts:parts,leftover:cur};
+}
+function entropy(items){
+  var tot=items.reduce(function(s,i){return s+i.f;},0), H=0;
+  items.forEach(function(i){var p=i.f/tot; if(p>0) H-=p*Math.log2(p);});
+  return H;
+}
+function rle(s){
+  var runs=[]; for(var i=0;i<s.length;){var j=i; while(j<s.length&&s[j]===s[i]) j++; runs.push({sym:s[i],n:j-i}); i=j;}
+  return runs;
+}
+function lz78(s){
+  var dict={}, list=[], steps=[], i=0;
+  while(i<s.length){
+    var w='', idx=0, j=i;
+    while(j<s.length && dict[w+s[j]]!==undefined){ w+=s[j]; idx=dict[w]; j++; }
+    if(j<s.length){
+      var c=s[j], entry=w+c; list.push(entry); dict[entry]=list.length;
+      steps.push({rem:s.slice(i),parsed:entry,idx:idx,ch:c,entry:list.length,out:(idx?idx:'')+c});
+      i=j+1;
+    } else { // string ended inside a known phrase
+      steps.push({rem:s.slice(i),parsed:w,idx:idx,ch:'',entry:null,out:String(idx)});
+      i=j;
+    }
+  }
+  return {steps:steps,dict:list};
+}
+function lz78Decode(tokens,alphabet){
+  // tokens like ["B","A","2B"] or pairs; last char is symbol, leading digits are index
+  var list=[], out=[], steps=[];
+  tokens.forEach(function(t){
+    t=String(t).trim(); if(!t) return;
+    var m=t.match(/^(\d*)(.)$/), idx, ch;
+    if(alphabet && alphabet.indexOf(t)>=0 && t.length===1){ idx=0; ch=t; }
+    else if(m){ idx=m[1]?+m[1]:0; ch=m[2]; } else return;
+    var e=(idx?list[idx-1]:'')+ch; list.push(e); out.push(e);
+    steps.push({tok:t,idx:idx,ch:ch,entry:list.length,str:e});
+  });
+  return {text:out.join(''),steps:steps,dict:list};
+}
+/* ---------- scheduling ---------- */
+function gcd(a,b){return b?gcd(b,a%b):a;}
+function lcm(a,b){return a/gcd(a,b)*b;}
+function bound(n){return n*(Math.pow(2,1/n)-1);}
+function util(tasks){return tasks.reduce(function(s,t){return s+t.C/t.T;},0);}
+function density(tasks){return tasks.reduce(function(s,t){return s+t.C/Math.min(t.D||t.T,t.T);},0);}
+function rmsOrder(tasks){ return tasks.map(function(t,i){return i;}).sort(function(a,b){return tasks[a].T-tasks[b].T||a-b;}); }
+function rta(tasks){
+  var ord=rmsOrder(tasks), res=[];
+  ord.forEach(function(ti,k){
+    var t=tasks[ti], hp=ord.slice(0,k).map(function(j){return tasks[j];});
+    var R=t.C+hp.reduce(function(s,h){return s+h.C;},0), it=[], D=t.D||t.T, guard=0;
+    while(guard++<60){
+      var terms=hp.map(function(h){return {name:h.name,n:Math.ceil(R/h.T),C:h.C};});
+      var nR=t.C+terms.reduce(function(s,x){return s+x.n*x.C;},0);
+      it.push({R:R,terms:terms,next:nR});
+      if(nR===R||nR>D) {R=nR;break;}
+      R=nR;
+    }
+    res.push({task:t,idx:ti,prio:k+1,R:R,D:D,ok:R<=D,iters:it,hp:hp});
+  });
+  return res;
+}
+function simulate(tasks,alg,horizon){
+  var H=tasks.reduce(function(s,t){return lcm(s,t.T);},1), maxA=Math.max.apply(null,tasks.map(function(t){return t.A||0;}));
+  if(!horizon) horizon=Math.min(maxA+H,240);
+  var jobs=[], slots=[], misses=[], cur=null;
+  for(var t=0;t<horizon;t++){
+    tasks.forEach(function(k,i){ var a=k.A||0; if(t>=a && (t-a)%k.T===0) jobs.push({i:i,rel:t,dl:t+(k.D||k.T),rem:k.C,n:(t-a)/k.T+1}); });
+    jobs.forEach(function(j){ if(j.rem>0 && t>=j.dl && !j.missed){ j.missed=true; misses.push({i:j.i,t:j.dl,n:j.n}); } });
+    var ready=jobs.filter(function(j){return j.rem>0;});
+    var pick=null;
+    if(ready.length){
+      if(alg==='RMS') ready.sort(function(x,y){return tasks[x.i].T-tasks[y.i].T||x.i-y.i||x.rel-y.rel;});
+      else ready.sort(function(x,y){ return x.dl-y.dl || ((y===cur)-(x===cur)) || x.i-y.i; });
+      pick=ready[0];
+    }
+    if(pick){ pick.rem--; if(pick.rem===0) pick.fin=t+1; }
+    slots.push(pick?{i:pick.i,n:pick.n}:null); cur=pick&&pick.rem>0?pick:null;
+  }
+  jobs.forEach(function(j){ if(j.rem>0 && j.dl<=horizon && !j.missed){ j.missed=true; misses.push({i:j.i,t:j.dl,n:j.n}); } });
+  return {slots:slots,misses:misses,H:H,horizon:horizon,jobs:jobs};
+}
+return {parseFreq:parseFreq,huffman:huffman,huffEncode:huffEncode,huffDecode:huffDecode,entropy:entropy,rle:rle,lz78:lz78,lz78Decode:lz78Decode,bound:bound,util:util,density:density,rta:rta,simulate:simulate,lcm:lcm,rmsOrder:rmsOrder};
+})();
+
+
+/* =================== renderers =================== */
+var TF=['#FFD60A','#121212','#B8B4A6','#FFF1A8','#6B675C','#F4A300','#E9E6DA'];
+var TT=['#121212','#FFD60A','#121212','#121212','#FFFFFF','#121212','#121212'];
+function fx(n,d){return (Math.round(n*Math.pow(10,d||3))/Math.pow(10,d||3)).toFixed(d===undefined?3:d);}
+function tbl(head,rows,cls){
+  return '<div class="tbl'+(cls?' '+cls:'')+'"><table><thead><tr>'+head.map(function(h){return '<th>'+h+'</th>';}).join('')+'</tr></thead><tbody>'+
+    rows.map(function(r){return '<tr>'+r.map(function(c){return '<td>'+c+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table></div>';
+}
+function bitsFor(k){return Math.max(1,Math.ceil(Math.log2(k)));}
+
+/* ---------- Huffman ---------- */
+function treeSVG(root){
+  var leaves=[], maxD=0;
+  (function walk(n,d){ n.d=d; maxD=Math.max(maxD,d); if(n.leaf){n.x=leaves.length*62+36; leaves.push(n);} else { walk(n.left,d+1); walk(n.right,d+1); n.x=(n.left.x+n.right.x)/2; } })(root,0);
+  var W=Math.max(200,leaves.length*62+12), H=maxD*70+90, s='', nodes='';
+  (function walk(n){
+    var y=n.d*70+28;
+    if(!n.leaf){
+      [['0',n.left],['1',n.right]].forEach(function(p){
+        var c=p[1], cy=c.d*70+28;
+        s+='<line x1="'+n.x+'" y1="'+y+'" x2="'+c.x+'" y2="'+cy+'" stroke="#121212" stroke-width="1.8"/>';
+        s+=text((n.x+c.x)/2+(p[0]==='0'?-9:9),(y+cy)/2-4,p[0],{fs:13,bold:1,mono:1,halo:1});
+        walk(c);
+      });
+      nodes+='<circle cx="'+n.x+'" cy="'+y+'" r="16" fill="#fff" stroke="#121212" stroke-width="2"/>'+text(n.x,y,String(n.w),{fs:11.5,bold:1});
+    } else {
+      nodes+='<rect x="'+(n.x-18)+'" y="'+(y-16)+'" width="36" height="32" fill="#FFD60A" stroke="#121212" stroke-width="2"/>'+text(n.x,y,String(n.w),{fs:11.5,bold:1})+
+        text(n.x,y+30,n.sym,{fs:14,bold:1,mono:1});
+    }
+  })(root);
+  return svgWrap(W,H,s+nodes,'Huffman tree');
+}
+function huffBlock(input,opt){
+  opt=opt||{};
+  var p=ALG.parseFreq(input), items=p.items, h=ALG.huffman(items), N=items.reduce(function(a,i){return a+i.f;},0), k=items.length;
+  var out='';
+  out+='<div class="step"><h4>Step 1 · Count frequencies'+(p.message?' in the message ('+p.message.length+' symbols)':'')+'</h4>'+
+    tbl(['Symbol','Frequency','Probability p = f / '+N],items.map(function(i){return ['<b class="mono">'+esc(i.sym)+'</b>',i.f,fx(i.f/N)];}))+'</div>';
+  out+='<div class="step"><h4>Step 2 · Merge the two smallest, repeat</h4><p class="small">Rule used: sort ascending; take the two smallest (on a tie, the one that was in the list first). The first taken becomes the <b>left child = 0</b>, the second the <b>right child = 1</b>.</p>'+
+    tbl(['#','Take (smallest two)','New node','Remaining list'],h.steps.map(function(s,i){return [i+1,'<span class="mono">'+esc(s.a.label)+'('+s.a.w+') + '+esc(s.b.label)+'('+s.b.w+')</span>','<b>'+s.n.w+'</b>','<span class="mono small">'+esc(s.queue.concat([s.n.label+'('+s.n.w+')']).join(', '))+'</span>'];}))+'</div>';
+  out+='<div class="step"><h4>Step 3 · Draw the tree (0 = left, 1 = right)</h4><div class="dg">'+treeSVG(h.root)+'</div></div>';
+  var tot=0, rows=items.slice().sort(function(a,b){return b.f-a.f;}).map(function(i){var c=h.codes[i.sym]; tot+=i.f*c.length; return ['<b class="mono">'+esc(i.sym)+'</b>',i.f,'<span class="mono">'+c+'</span>',c.length,i.f+' × '+c.length+' = <b>'+(i.f*c.length)+'</b>'];});
+  rows.push(['<b>Total</b>','<b>'+N+'</b>','','','<b>'+tot+' bits</b>']);
+  out+='<div class="step"><h4>Step 4 · Read codes (root → leaf) and count bits</h4>'+tbl(['Symbol','f','Code','Length','f × length'],rows)+'</div>';
+  var fixedB=bitsFor(k), H=ALG.entropy(items), L=tot/N, bytes=opt.byteBits||8;
+  out+='<div class="step"><h4>Step 5 · Compare</h4>'+tbl(['Quantity','Working','Value'],[
+    ['Huffman bits','Σ f × length','<b>'+tot+'</b>'],
+    ['1 byte per char','N × 8 = '+N+' × 8','<b>'+(N*bytes)+'</b>'],
+    ['Fixed-length code',N+' × ⌈log₂'+k+'⌉ = '+N+' × '+fixedB,'<b>'+(N*fixedB)+'</b>'],
+    ['Bits saved vs 8-bit',(N*bytes)+' − '+tot,'<b>'+(N*bytes-tot)+'</b> ('+fx((1-tot/(N*bytes))*100,1)+'%)'],
+    ['Bits saved vs fixed-length',(N*fixedB)+' − '+tot,'<b>'+(N*fixedB-tot)+'</b>'],
+    ['Average code length L',tot+' / '+N,'<b>'+fx(L)+'</b> bits/symbol'],
+    ['Entropy H','−Σ p log₂ p','<b>'+fx(H)+'</b> bits/symbol'],
+    ['Efficiency','H / L','<b>'+fx(H/L*100,1)+'%</b>'],
+    ['Compression ratio','8-bit size / Huffman size = '+(N*bytes)+' / '+tot,'<b>'+fx(N*bytes/tot,2)+' : 1</b>']
+  ])+'</div>';
+  if(opt.enc){
+    var bits=ALG.huffEncode(h.codes,opt.enc);
+    out+='<div class="step"><h4>Encode “'+esc(opt.enc)+'”</h4><div class="chips">'+opt.enc.split('').map(function(c){return '<span class="chip"><b>'+esc(c)+'</b>&nbsp;'+h.codes[c]+'</span>';}).join('')+'</div><p class="mono bits">'+bits+'</p><p class="small">'+bits.length+' bits (vs '+(opt.enc.length*8)+' bits in 8-bit ASCII)</p></div>';
+  }
+  if(opt.dec){
+    var d=ALG.huffDecode(h.codes,opt.dec);
+    out+='<div class="step"><h4>Decode '+esc(opt.dec)+'</h4><p class="small">Read bits left to right; the moment the bits so far match a code, output that symbol and restart (prefix property guarantees no ambiguity).</p><div class="chips">'+d.parts.map(function(pt){var inv={};Object.keys(h.codes).forEach(function(k){inv[h.codes[k]]=k;});return '<span class="chip">'+pt+' → <b>'+esc(inv[pt])+'</b></span>';}).join('')+'</div><p class="mono bits">'+esc(d.text)+(d.leftover?' <span class="bad">(left-over bits: '+d.leftover+')</span>':'')+'</p></div>';
+  }
+  return out;
+}
+/* ---------- RLE ---------- */
+function rleBlock(s,opt){
+  opt=opt||{}; s=String(s).replace(/\s+/g,'');
+  var runs=ALG.rle(s), syms={}; s.split('').forEach(function(c){syms[c]=1;});
+  var k=Object.keys(syms).length, maxRun=Math.max.apply(null,runs.map(function(r){return r.n;}));
+  var sb=bitsFor(k), cb=bitsFor(maxRun+1), out='';
+  var blocks='<div class="runs">'+runs.map(function(r,i){return '<span class="run" style="background:'+TF[i%2?2:0]+'"><b>'+esc(r.sym.repeat(Math.min(r.n,12)))+(r.n>12?'…':'')+'</b><i>'+r.n+'</i></span>';}).join('')+'</div>';
+  out+='<div class="step"><h4>Step 1 · Split into runs of the same symbol ('+runs.length+' runs)</h4>'+blocks+'</div>';
+  var slide=runs.map(function(r){return r.sym+(r.n<10?'0':'')+r.n;}).join('');
+  var simple=runs.map(function(r){return r.sym+r.n;}).join('');
+  out+='<div class="step"><h4>Step 2 · Write symbol + count</h4>'+tbl(['Style','Encoded output','Characters'],[
+    ['Symbol + count','<span class="mono">'+esc(simple)+'</span>',simple.length],
+    ['Symbol + 2-digit count (slide style)','<span class="mono">'+esc(slide)+'</span>',slide.length],
+    ['Original','<span class="mono">'+esc(s)+'</span>',s.length]])+'</div>';
+  out+='<div class="step"><h4>Step 3 · Count bits</h4>'+tbl(['Representation','Working','Bits'],[
+    ['Original, fixed-length','N × ⌈log₂'+k+'⌉ = '+s.length+' × '+sb,'<b>'+(s.length*sb)+'</b>'],
+    ['RLE, fixed-length','runs × (symbol '+sb+' + count '+cb+') = '+runs.length+' × '+(sb+cb),'<b>'+(runs.length*(sb+cb))+'</b>'],
+    ['Original, 8-bit ASCII',s.length+' × 8','<b>'+(s.length*8)+'</b>'],
+    ['RLE, 8-bit symbol + 8-bit count',runs.length+' × 16','<b>'+(runs.length*16)+'</b>']])+
+    '<p class="small">Count field needs ⌈log₂(longest run + 1)⌉ = ⌈log₂'+(maxRun+1)+'⌉ = '+cb+' bits. RLE only wins when runs are long.</p></div>';
+  return out;
+}
+/* ---------- LZ ---------- */
+function lzBlock(s,opt){
+  s=String(s).replace(/\s+/g,''); var r=ALG.lz78(s), syms={}; s.split('').forEach(function(c){syms[c]=1;});
+  var k=Object.keys(syms).length, ib=bitsFor(r.dict.length+1), sb=bitsFor(k), out='';
+  out+='<div class="step"><h4>Step-by-step parsing</h4><p class="small">At each step: find the <b>longest</b> prefix of the remaining text already in the dictionary, add <b>one more symbol</b> → that is the new entry. Output = index of the known part + the new symbol (just the symbol if nothing matched).</p>'+
+    tbl(['#','Remaining text','Parsed string','Known part (index)','New entry','Output'],r.steps.map(function(st,i){return [i+1,'<span class="mono small">'+esc(st.rem)+'</span>','<b class="mono">'+esc(st.parsed)+'</b>',st.idx?('“'+esc(st.parsed.slice(0,-1))+'” = '+st.idx):'none (0)',st.entry?(st.entry+': <b class="mono">'+esc(st.parsed)+'</b>'):'—','<b class="mono">'+esc(st.out)+'</b>'];}))+'</div>';
+  out+='<div class="step"><h4>Dictionary built</h4><div class="chips">'+r.dict.map(function(d,i){return '<span class="chip"><b>'+(i+1)+'</b>&nbsp;'+esc(d)+'</span>';}).join('')+'</div></div>';
+  var toks=r.steps.map(function(st){return st.out;});
+  out+='<div class="step"><h4>Compressed output</h4><p class="mono bits">'+esc(toks.join(', '))+'</p>'+
+    tbl(['Quantity','Working','Value'],[
+      ['Pairs (tokens)','count of outputs','<b>'+toks.length+'</b>'],
+      ['Index field','⌈log₂('+r.dict.length+' entries + “0 = none”)⌉ = ⌈log₂'+(r.dict.length+1)+'⌉',ib+' bits'],
+      ['Symbol field','⌈log₂'+k+'⌉ ('+k+' symbols)',sb+' bits'],
+      ['Compressed size',toks.length+' × ('+ib+' + '+sb+')','<b>'+(toks.length*(ib+sb))+' bits</b>'],
+      ['Original size',s.length+' × '+sb+' bits','<b>'+(s.length*sb)+' bits</b>'],
+      ['With 8-bit symbols',toks.length+' × ('+ib+' + 8) vs '+s.length+' × 8','<b>'+(toks.length*(ib+8))+'</b> vs <b>'+(s.length*8)+'</b>']])+'</div>';
+  return out;
+}
+function lzdBlock(tokens,alpha){
+  var toks=String(tokens).split(/[,\s]+/).filter(Boolean), r=ALG.lz78Decode(toks,alpha||''), out='';
+  out+='<div class="step"><h4>Rebuild the dictionary token by token</h4><p class="small">Each token = (index)(symbol). Look up the index (0 / missing = empty string), append the symbol, output it and store it as the next entry.</p>'+
+    tbl(['#','Token','Index → string','+ symbol','New entry','Output so far'],r.steps.map(function(st,i){return [i+1,'<b class="mono">'+esc(st.tok)+'</b>',st.idx?(st.idx+' → “'+esc(r.dict[st.idx-1])+'”'):'none','<span class="mono">'+esc(st.ch)+'</span>',st.entry+': <b class="mono">'+esc(st.str)+'</b>','<span class="mono small">'+esc(r.dict.slice(0,i+1).join(''))+'</span>'];}))+'</div>';
+  out+='<div class="step"><h4>Decoded text</h4><p class="mono bits">'+esc(r.text)+'</p></div>';
+  return out;
+}
+/* ---------- Scheduling ---------- */
+function frac(tasks,f){return tasks.map(function(t){return t.C+'/'+f(t);}).join(' + ');}
+function schedTests(tasks,alg){
+  var n=tasks.length, U=ALG.util(tasks), B=ALG.bound(n), dT=tasks.every(function(t){return !t.D||t.D===t.T;}), out='';
+  var rows=[['Utilization U = Σ C/T',frac(tasks,function(t){return t.T;})+' = '+tasks.map(function(t){return fx(t.C/t.T);}).join(' + '),'<b>'+fx(U)+'</b>'],
+            ['Necessary test: U ≤ 1',fx(U)+(U<=1+1e-9?' ≤ 1':' > 1'),U<=1+1e-9?'<span class="ok">PASS</span>':'<span class="bad">FAIL: not schedulable by any algorithm</span>']];
+  if(alg==='RMS'){
+    rows.push(['Liu–Layland bound B(n) = n(2^{1/n} − 1)','n = '+n+': '+n+'(2^{1/'+n+'} − 1)','<b>'+fx(B)+'</b>']);
+    rows.push(['Sufficient (UB) test: U ≤ B(n)',fx(U)+(U<=B+1e-9?' ≤ ':' > ')+fx(B),U<=B+1e-9?'<span class="ok">PASS: definitely schedulable under RMS</span>':'<span class="warn">FAIL: inconclusive → do response-time analysis</span>']);
+  } else {
+    if(dT) rows.push(['EDF exact test (D = T): U ≤ 1',fx(U),U<=1+1e-9?'<span class="ok">PASS: schedulable by EDF</span>':'<span class="bad">FAIL</span>']);
+    else { var Dn=ALG.density(tasks);
+      rows.push(['Density Δ = Σ C/D (D < T)',frac(tasks,function(t){return t.D||t.T;})+' = '+tasks.map(function(t){return fx(t.C/(t.D||t.T));}).join(' + '),'<b>'+fx(Dn)+'</b>']);
+      rows.push(['Sufficient test: Δ ≤ 1',fx(Dn)+(Dn<=1+1e-9?' ≤ 1':' > 1'),Dn<=1+1e-9?'<span class="ok">PASS: schedulable by EDF</span>':'<span class="warn">FAIL: inconclusive → check the timeline over one hyperperiod</span>']); }
+  }
+  return tbl(['Test','Working','Result'],rows);
+}
+function rtaBlock(tasks){
+  var R=ALG.rta(tasks), out='';
+  out+=tbl(['Priority','Task (C, T, D)','Iterations  Rₖ₊₁ = C + Σ ⌈Rₖ / Tⱼ⌉·Cⱼ','R','Verdict'],R.map(function(r){
+    var its=r.iters.map(function(it){ return 'R='+it.R+': '+r.task.C+(it.terms.length?' + '+it.terms.map(function(x){return '⌈'+it.R+'/'+tasks.filter(function(t){return t.name===x.name;})[0].T+'⌉·'+x.C;}).join(' + '):'')+' = <b>'+it.next+'</b>'; }).join('<br>');
+    return [r.prio+(r.prio===1?' (highest)':''),'<b>'+esc(r.task.name)+'</b> ('+r.task.C+', '+r.task.T+', '+r.D+')','<span class="mono small">'+its+'</span>','<b>'+(r.ok?r.R:'&gt; '+r.D)+'</b>',r.ok?'<span class="ok">R ≤ D ✓</span>':'<span class="bad">R &gt; D ✗ misses</span>'];
+  }));
+  var all=R.every(function(r){return r.ok;});
+  out+='<p class="'+(all?'ok':'bad')+'"><b>'+(all?'Every task meets its deadline → schedulable under RMS (exact test).':'At least one task misses → NOT schedulable under RMS.')+'</b></p>';
+  return out;
+}
+function ganttSVG(tasks,sim){
+  var n=tasks.length, hz=sim.horizon, u=Math.max(4,Math.min(30,Math.floor(900/hz))), L=110, rowH=44, top=34;
+  var W=L+hz*u+30, H=top+(n+1)*rowH+30, s='';
+  var lab=[1,2,5,10,20,25,50,100].filter(function(s){return s*u>=24;})[0]||100;
+  for(var t=0;t<=hz;t++){ var x=L+t*u; s+='<line x1="'+x+'" y1="'+(top-6)+'" x2="'+x+'" y2="'+(top+(n+1)*rowH)+'" stroke="'+(t%lab?'#E6E3D8':'#B8B4A6')+'" stroke-width="1"/>'; if(t%lab===0) s+=text(x,top-15,String(t),{fs:10.5,mono:1}); }
+  tasks.forEach(function(k,i){
+    var y=top+i*rowH;
+    s+=text(L-10,y+rowH/2,k.name+' ('+k.C+','+k.T+(k.D&&k.D!==k.T?','+k.D:'')+')',{fs:11,bold:1,anchor:'end'});
+    s+='<line x1="'+L+'" y1="'+(y+rowH-6)+'" x2="'+(L+hz*u)+'" y2="'+(y+rowH-6)+'" stroke="#121212" stroke-width="1.4"/>';
+    var a=k.A||0;
+    for(var r=a;r<=hz;r+=k.T){ var xr=L+r*u; s+='<path d="M'+xr+','+(y+rowH-6)+' V'+(y+6)+'" stroke="#121212" stroke-width="1.6" marker-end="url(#Ma)"/>';
+      var dl=r+(k.D||k.T); if(k.D&&k.D!==k.T&&dl<=hz){ var xd=L+dl*u; s+='<path d="M'+(xd-4)+','+(y+6)+' h8 l-4,7 z" fill="#C1121F"/>'; } }
+  });
+  var cpuY=top+n*rowH; s+=text(L-10,cpuY+rowH/2,'CPU',{fs:11.5,bold:1,anchor:'end'});
+  s+='<line x1="'+L+'" y1="'+(cpuY+rowH-6)+'" x2="'+(L+hz*u)+'" y2="'+(cpuY+rowH-6)+'" stroke="#121212" stroke-width="1.4"/>';
+  // merge consecutive slots
+  var t0=0;
+  while(t0<hz){
+    var sl=sim.slots[t0]; if(!sl){t0++;continue;}
+    var t1=t0+1; while(t1<hz&&sim.slots[t1]&&sim.slots[t1].i===sl.i&&sim.slots[t1].n===sl.n) t1++;
+    var i=sl.i, y=top+i*rowH, x=L+t0*u, w=(t1-t0)*u;
+    s+='<rect x="'+x+'" y="'+(y+14)+'" width="'+w+'" height="'+(rowH-20)+'" fill="'+TF[i%TF.length]+'" stroke="#121212" stroke-width="1.6"/>';
+    if(w>=14) s+=text(x+w/2,y+14+(rowH-20)/2,String(t1-t0),{fs:10.5,bold:1,fill:TT[i%TT.length]});
+    s+='<rect x="'+x+'" y="'+(cpuY+14)+'" width="'+w+'" height="'+(rowH-20)+'" fill="'+TF[i%TF.length]+'" stroke="#121212" stroke-width="1.6"/>';
+    if(w>=22) s+=text(x+w/2,cpuY+14+(rowH-20)/2,tasks[i].name.slice(0,4),{fs:9.5,bold:1,fill:TT[i%TT.length]});
+    t0=t1;
+  }
+  sim.misses.forEach(function(m){ var x=L+m.t*u, y=top+m.i*rowH; s+='<g><circle cx="'+x+'" cy="'+(y+10)+'" r="9" fill="#C1121F"/>'+text(x,y+10,'✗',{fs:12,bold:1,fill:'#fff'})+'</g>'+text(x+12,y+4,'miss',{fs:10,bold:1,anchor:'start',fill:'#C1121F',halo:1}); });
+  return svgWrap(W,H,s,'Gantt chart');
+}
+function schedBlock(tasks,alg,hz,opt){
+  opt=opt||{}; var out='', sim=ALG.simulate(tasks,alg,hz);
+  if(alg==='RMS'){
+    var ord=ALG.rmsOrder(tasks);
+    out+='<div class="step"><h4>Step 1 · Assign priorities (RMS: shorter period = higher priority)</h4><p class="mono">'+ord.map(function(i,k){return (k+1)+'. '+esc(tasks[i].name)+' (T='+tasks[i].T+')';}).join('  &gt;  ')+'</p></div>';
+  } else {
+    out+='<div class="step"><h4>Step 1 · Priorities are dynamic (EDF)</h4><p class="small">At every instant, run the ready job with the <b>earliest absolute deadline</b> (release + D). On a tie, keep the job already running.</p></div>';
+  }
+  out+='<div class="step"><h4>Step 2 · Schedulability test</h4>'+schedTests(tasks,alg)+'</div>';
+  if(alg==='RMS'&&opt.rta!==false) out+='<div class="step"><h4>Step 3 · Response-time analysis (exact RMS test)</h4>'+rtaBlock(tasks)+'</div>';
+  out+='<div class="step"><h4>Step '+(alg==='RMS'&&opt.rta!==false?4:3)+' · Gantt chart, 0 to '+sim.horizon+' (hyperperiod = LCM of periods = '+sim.H+')</h4><div class="dg">'+ganttSVG(tasks,sim)+'</div>'+
+    '<p class="small">↑ = job released · numbers = time units executed in that stretch'+(tasks.some(function(t){return t.D&&t.D!==t.T;})?' · red ▼ = deadline (D ≠ T)':'')+'.</p>'+
+    (sim.misses.length?'<p class="bad"><b>Deadline miss: '+sim.misses.map(function(m){return esc(tasks[m.i].name)+' job '+m.n+' at t = '+m.t;}).join(', ')+'.</b></p>':'<p class="ok"><b>No deadline missed in this window.</b></p>')+'</div>';
+  return out;
+}
+/* ---------- auto blocks ---------- */
+function renderAutos(root){
+  (root||document).querySelectorAll('[data-auto]').forEach(function(el){
+    var k=el.getAttribute('data-auto');
+    try{
+      if(k==='huff') el.innerHTML=huffBlock(el.getAttribute('data-in'),{enc:el.getAttribute('data-enc'),dec:el.getAttribute('data-dec')});
+      else if(k==='rle') el.innerHTML=rleBlock(el.getAttribute('data-in'));
+      else if(k==='lz') el.innerHTML=lzBlock(el.getAttribute('data-in'));
+      else if(k==='lzd') el.innerHTML=lzdBlock(el.getAttribute('data-in'),el.getAttribute('data-alpha'));
+      else if(k==='sched') el.innerHTML=schedBlock(JSON.parse(el.getAttribute('data-tasks')),el.getAttribute('data-alg'),+el.getAttribute('data-h')||0,{rta:el.getAttribute('data-rta')!=='0'});
+    }catch(err){ el.innerHTML='<p class="bad">Could not render: '+esc(err.message)+'</p>'; }
+  });
+}
+
+/* =================== static diagrams =================== */
+var DG={};
+DG.m3_methods=function(){return graph({w:660,h:235,label:'Compression methods',nodes:[
+  {id:'r',t:'box',x:330,y:30,w:230,h:36,l:'Data compression methods',hl:1,lb:1},
+  {id:'a',t:'box',x:170,y:112,w:170,h:44,l:'Lossless\n(text, programs)',lb:1},{id:'b',t:'box',x:490,y:112,w:190,h:44,l:'Lossy\n(image, video, audio)',lb:1},
+  {id:'a1',t:'box',x:65,y:200,w:100,h:32,l:'Run-length'},{id:'a2',t:'box',x:170,y:200,w:95,h:32,l:'Huffman'},{id:'a3',t:'box',x:275,y:200,w:100,h:32,l:'Lempel-Ziv'},
+  {id:'b1',t:'box',x:390,y:200,w:80,h:32,l:'JPEG'},{id:'b2',t:'box',x:490,y:200,w:80,h:32,l:'MPEG'},{id:'b3',t:'box',x:590,y:200,w:80,h:32,l:'MP3'}],
+ edges:[{f:'r',t:'a',head:'none'},{f:'r',t:'b',head:'none'},{f:'a',t:'a1',head:'none'},{f:'a',t:'a2',head:'none'},{f:'a',t:'a3',head:'none'},{f:'b',t:'b1',head:'none'},{f:'b',t:'b2',head:'none'},{f:'b',t:'b3',head:'none'}]});};
+DG.m3_jpeg=function(){return graph({w:780,h:150,label:'JPEG pipeline',nodes:[
+  {id:'a',t:'box',x:80,y:70,w:130,h:50,l:'Image split into\n8×8 pixel blocks'},{id:'b',t:'box',x:245,y:70,w:110,h:50,l:'DCT',hl:1,lb:1},
+  {id:'c',t:'box',x:400,y:70,w:130,h:50,l:'Quantization',hl:1,lb:1},{id:'d',t:'box',x:570,y:70,w:140,h:50,l:'Zig-zag + lossless\n(run-length)',hl:1,lb:1},
+  {id:'e',t:'txt',x:715,y:70,w:80,h:34,l:'Compressed\nbit stream',lb:1}],
+ edges:[{f:'a',t:'b'},{f:'b',t:'c',l:'T(m,n) table',lo:[0,-34]},{f:'c',t:'d',l:'many 0s',lo:[0,-34]},{f:'d',t:'e'}]});};
+DG.m3_mpeg=function(){var N=[],E=[],L='IBBPBBI';for(var i=0;i<7;i++){N.push({id:'f'+i,t:'box',x:70+i*90,y:120,w:50,h:50,l:L[i]+'\n'+(i+1),lb:1,fill:L[i]==='I'?'#FFD60A':(L[i]==='P'?'#B8B4A6':'#fff')});}
+  E.push({f:'f0',t:'f3',pts:[[70,50],[340,50]],l:'P is predicted from the previous I (or P)',ls:1,lo:[0,-10]});
+  E.push({f:'f3',t:'f6',pts:[[340,50],[610,50]],head:'none',dash:1});
+  [[0,1],[0,2],[3,1],[3,2],[3,4],[3,5],[6,4],[6,5]].forEach(function(p){var a=70+p[0]*90,b=70+p[1]*90; E.push({f:'f'+p[0],t:'f'+p[1],pts:[[a,178+(p[0]===3?10:0)],[b,178+(p[0]===3?10:0)]],w:1.2});});
+  N.push({id:'t1',t:'txt',x:340,y:222,w:0,l:'B frames are built from BOTH the frame before and the frame after (bidirectional)',fs:11.5});
+  return graph({w:700,h:240,label:'MPEG frames',nodes:N,edges:E});};
+DG.m5_arch=function(){return graph({w:560,h:385,label:'RTOS architecture',nodes:[
+  {id:'rt',t:'comp',x:280,y:168,w:500,h:196,l:'RTOS'},
+  {id:'ap',t:'box',x:280,y:34,w:500,h:40,l:'Application',lb:1},
+  {id:'n1',t:'box',x:130,y:118,w:140,h:40,l:'Networking\nprotocols',fs:11},{id:'n2',t:'box',x:280,y:118,w:130,h:40,l:'File system',fs:11},{id:'n3',t:'box',x:430,y:118,w:140,h:40,l:'Other\ncomponents',fs:11},
+  {id:'n4',t:'box',x:130,y:170,w:140,h:40,l:'C/C++ support\nlibraries',fs:11},{id:'k',t:'round',x:280,y:170,w:130,h:40,l:'KERNEL',hl:1,lb:1,rx:20},{id:'n6',t:'box',x:430,y:170,w:140,h:40,l:'POSIX support',fs:11},
+  {id:'n7',t:'box',x:130,y:222,w:140,h:40,l:'Device drivers',fs:11},{id:'n8',t:'box',x:280,y:222,w:130,h:40,l:'Debugging\nfacilities',fs:11},{id:'n9',t:'box',x:430,y:222,w:140,h:40,l:'Device I/O',fs:11},
+  {id:'bsp',t:'box',x:280,y:300,w:500,h:36,l:'BSP (Board Support Package)',lb:1,hl:1},{id:'hw',t:'box',x:280,y:355,w:500,h:36,l:'Target hardware',lb:1}],edges:[]});};
+DG.m5_kernels=function(){return graph({w:780,h:270,label:'Kernel types',nodes:[
+  {id:'h1',t:'txt',x:130,y:18,w:0,l:'Monolithic',lb:1,fs:14},{id:'h2',t:'txt',x:390,y:18,w:0,l:'Microkernel',lb:1,fs:14},{id:'h3',t:'txt',x:650,y:18,w:0,l:'Hybrid',lb:1,fs:14},
+  {id:'u1',t:'box',x:130,y:70,w:220,h:56,l:'USER SPACE\napplications'},{id:'k1',t:'box',x:130,y:180,w:220,h:130,l:'KERNEL SPACE\nfile system · IPC\ndevice drivers\nscheduler · memory mgmt\n(everything together)',hl:1},
+  {id:'u2',t:'box',x:390,y:95,w:220,h:106,l:'USER SPACE\napplications\nfile-system server\ndevice-driver servers\nnetwork server'},{id:'k2',t:'box',x:390,y:205,w:220,h:66,l:'KERNEL (tiny)\nIPC · basic scheduling\nlow-level memory',hl:1},
+  {id:'u3',t:'box',x:650,y:78,w:220,h:72,l:'USER SPACE\napplications\nsome servers'},{id:'k3',t:'box',x:650,y:190,w:220,h:116,l:'KERNEL\nmicrokernel-style core\n+ selected services run\nin kernel mode\n(loadable modules)',hl:1}],edges:[]});};
+function zigzagSVG(){
+  var V=[[20,15,12,0,0,0,0,0],[15,17,0,0,0,0,0,0],[12,0,0,0,0,0,0,0]], c=38, ox=20, oy=20, s='';
+  for(var r=0;r<8;r++)for(var k=0;k<8;k++){ var v=(V[r]&&V[r][k])||0; s+='<rect x="'+(ox+k*c)+'" y="'+(oy+r*c)+'" width="'+c+'" height="'+c+'" fill="'+(v?'#FFD60A':'#fff')+'" stroke="#121212" stroke-width="1.2"/>'+text(ox+k*c+c/2,oy+r*c+c/2,String(v),{fs:12,bold:v?1:0,mono:1}); }
+  var order=[]; for(var d=0;d<15;d++){ var cells=[]; for(var r2=0;r2<8;r2++){var k2=d-r2; if(k2>=0&&k2<8) cells.push([r2,k2]);} if(d%2===0) cells.reverse(); order=order.concat(cells); }
+  var pts=order.slice(0,15).map(function(p){return [ox+p[1]*c+c/2+8, oy+p[0]*c+c/2+8];});
+  s+='<path d="'+pathD(pts)+'" fill="none" stroke="#C1121F" stroke-width="2.2" marker-end="url(#Ma)" opacity="0.85"/>';
+  var seqv=order.map(function(p){return (V[p[0]]&&V[p[0]][p[1]])||0;});
+  s+=text(ox+4*c,oy+8*c+26,'Zig-zag read: '+seqv.slice(0,12).join(' ')+' … 0',{fs:13,bold:1,mono:1});
+  return svgWrap(ox*2+8*c,oy+8*c+46,s,'JPEG zigzag');
+}
+function periodicSVG(){
+  var s='', y=120, x0=40, sc=1;
+  s+='<path d="M'+x0+','+y+' H600" stroke="#121212" stroke-width="2" marker-end="url(#Ma)"/>'+text(612,y,'t',{fs:12,bold:1});
+  var ph=120, p=150, e=34, d=100;
+  s+=text(x0,y+18,'0',{fs:11,mono:1});
+  for(var k=0;k<3;k++){ var r=x0+ph+k*p;
+    s+='<rect x="'+r+'" y="'+(y-28)+'" width="'+e+'" height="28" fill="#FFD60A" stroke="#121212" stroke-width="1.8"/>';
+    s+='<path d="M'+r+','+(y+2)+' V'+(y-52)+'" stroke="#121212" stroke-width="1.6" marker-end="url(#Ma)"/>';
+    s+='<path d="M'+(r+d)+','+(y-58)+' V'+(y-4)+'" stroke="#C1121F" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#Ma)"/>';
+    s+=text(r,y+18,k===0?'Φ':'Φ+'+(k===1?'p':'2p'),{fs:12,bold:1,mono:1});
+  }
+  var r0=x0+ph;
+  s+='<path d="M'+x0+','+(y-78)+' H'+r0+'" stroke="#121212" stroke-width="1.2" marker-start="url(#Ma)" marker-end="url(#Ma)"/>'+text((x0+r0)/2,y-88,'phase Φ',{fs:11.5,bold:1});
+  s+='<path d="M'+r0+','+(y-66)+' H'+(r0+d)+'" stroke="#C1121F" stroke-width="1.2" marker-start="url(#Ma)" marker-end="url(#Ma)"/>'+text(r0+d/2,y-74,'relative deadline d',{fs:11,bold:1,fill:'#C1121F'});
+  s+=text(r0+e/2,y-14,'e',{fs:12,bold:1});
+  s+='<path d="M'+r0+','+(y+34)+' H'+(r0+p)+'" stroke="#121212" stroke-width="1.2" marker-start="url(#Ma)" marker-end="url(#Ma)"/>'+text(r0+p/2,y+46,'period p',{fs:11.5,bold:1});
+  return svgWrap(630,180,s,'Periodic task');
+}
+
+/* =================== labs =================== */
+function bindLabs(){
+  function on(id,fn){var b=document.getElementById(id); if(b) b.addEventListener('click',fn);}
+  function val(id){return document.getElementById(id).value;}
+  on('hlGo',function(){ document.getElementById('hlOut').innerHTML=huffBlock(val('hlIn'),{enc:val('hlEnc').trim()||null,dec:val('hlDec').replace(/[^01]/g,'')||null}); });
+  on('rlGo',function(){ document.getElementById('rlOut').innerHTML=rleBlock(val('rlIn')); });
+  on('lzGo',function(){ document.getElementById('lzOut').innerHTML=lzBlock(val('lzIn')); });
+  on('lzdGo',function(){ document.getElementById('lzdOut').innerHTML=lzdBlock(val('lzdIn'),val('lzdAlpha')); });
+  var body=document.getElementById('skRows');
+  function row(t){ var tr=document.createElement('tr'); tr.innerHTML='<td><input aria-label="Task name" value="'+esc(t.name)+'"></td><td><input aria-label="C" type="number" min="1" value="'+t.C+'"></td><td><input aria-label="T" type="number" min="1" value="'+t.T+'"></td><td><input aria-label="D" type="number" min="1" value="'+(t.D||'')+'" placeholder="=T"></td><td><input aria-label="Arrival" type="number" min="0" value="'+(t.A||0)+'"></td><td><button class="btn w sm" type="button" aria-label="Remove task">✕</button></td>'; tr.querySelector('button').onclick=function(){tr.remove();}; body.appendChild(tr); }
+  [{name:'T1',C:2,T:5,D:5},{name:'T2',C:3,T:10,D:7},{name:'T3',C:4,T:20,D:15}].forEach(row);
+  on('skAdd',function(){ row({name:'T'+(body.children.length+1),C:1,T:10}); });
+  on('skGo',function(){
+    var tasks=[].slice.call(body.children).map(function(tr){var v=[].slice.call(tr.querySelectorAll('input')).map(function(i){return i.value;}); return {name:v[0]||'T',C:+v[1],T:+v[2],D:v[3]?+v[3]:0,A:+v[4]||0};}).filter(function(t){return t.C>0&&t.T>0;});
+    var msg=document.getElementById('skMsg');
+    if(!tasks.length){msg.textContent='Add at least one task with C and T.';return;}
+    if(tasks.some(function(t){return t.C>t.T;})){msg.textContent='A task has C > T. That can never meet its period; fix C or T.';return;}
+    msg.textContent='';
+    document.getElementById('skOut').innerHTML=schedBlock(tasks,val('skAlg'),+val('skH')||0,{});
+  });
+}
+
+/* =================== checklist + router =================== */
+var PFX='m35kit:';
+function sget(k){try{return window.localStorage.getItem(PFX+k)==='1';}catch(e){return false;}}
+function sset(k,v){try{if(v)window.localStorage.setItem(PFX+k,'1');else window.localStorage.removeItem(PFX+k);}catch(e){}}
+var UNITS=[].slice.call(document.querySelectorAll('section.unit')).map(function(sec){
+  return {id:sec.id,mod:sec.getAttribute('data-mod'),t:sec.getAttribute('data-title'),n:sec.getAttribute('data-n'),
+    lessons:[].slice.call(sec.querySelectorAll('.lesson')).map(function(a,j){return {key:a.id,title:a.getAttribute('data-title'),num:a.classList.contains('practice')?'★':String(j+1)};})};
+});
+function ckItem(l){return '<li><label><input type="checkbox" data-key="'+l.key+'"'+(sget(l.key)?' checked':'')+'><span><span class="lnum">'+l.num+'</span><a href="#'+l.key+'">'+esc(l.title)+'</a></span></label></li>';}
+function doneItem(u){return '<li class="doneli"><label><input type="checkbox" data-key="done-'+u.id+'"'+(sget('done-'+u.id)?' checked':'')+'><span><b>Unit done</b>: I can answer a 10-mark question on this unit</span></label></li>';}
+document.querySelectorAll('.ck[data-unit]').forEach(function(ul){ var u=UNITS.filter(function(x){return x.id===ul.getAttribute('data-unit');})[0]; ul.innerHTML=u.lessons.map(ckItem).join('')+doneItem(u); });
+['3','5'].forEach(function(m){
+  var g=document.getElementById('cards'+m); if(!g) return;
+  g.innerHTML=UNITS.filter(function(u){return u.mod===m;}).map(function(u){
+    return '<article class="ucard" data-card="'+u.id+'"><div class="top"><span class="eyebrow">Module '+m+' · Unit '+u.n+'</span><span class="cnt" data-count="'+u.id+'">0/'+u.lessons.length+'</span></div>'+
+    '<div class="mid"><h3>'+esc(u.t)+'</h3><div class="prog zero" data-bar="'+u.id+'"><i></i></div>'+
+    '<details><summary>Lessons ('+u.lessons.length+')</summary><ul class="ck small">'+u.lessons.map(ckItem).join('')+'</ul></details>'+
+    '<label class="done"><input type="checkbox" data-key="done-'+u.id+'"'+(sget('done-'+u.id)?' checked':'')+'><span>Unit done</span></label>'+
+    '<a class="go" href="#'+u.id+'">Start unit</a></div></article>';
+  }).join('');
+});
+document.querySelectorAll('.lesson input[data-key]').forEach(function(i){ i.checked=sget(i.getAttribute('data-key')); });
+document.querySelectorAll('.dg[data-dg]').forEach(function(el){
+  var id=el.getAttribute('data-dg');
+  try{ el.innerHTML=id==='zigzag'?zigzagSVG():id==='periodic'?periodicSVG():(DG[id]?DG[id]():'<p class="small">Diagram missing</p>'); }catch(err){ el.innerHTML='<p class="bad">Diagram failed: '+esc(err.message)+'</p>'; }
+});
+renderAutos(); bindLabs();
+function refresh(){
+  var tot=0, done=0;
+  UNITS.forEach(function(u){
+    var c=0; u.lessons.forEach(function(l){var on=sget(l.key); if(on) c++; var a=document.getElementById(l.key); if(a) a.classList.toggle('learned',on);});
+    tot+=u.lessons.length; done+=c; var pct=Math.round(c/u.lessons.length*100);
+    document.querySelectorAll('[data-count="'+u.id+'"]').forEach(function(e){e.textContent=c+'/'+u.lessons.length;});
+    document.querySelectorAll('[data-bar="'+u.id+'"]').forEach(function(e){e.firstChild.style.width=pct+'%';e.classList.toggle('zero',pct===0);});
+    var fin=sget('done-'+u.id), card=document.querySelector('[data-card="'+u.id+'"]'); if(card) card.classList.toggle('complete',fin);
+    var a=document.querySelector('nav.top a[data-p="'+u.id+'"]'); if(a){var d=a.querySelector('.dot'); if(!d){d=document.createElement('span');d.className='dot';a.appendChild(d);} d.classList.toggle('full',fin);}
+  });
+  var p=tot?Math.round(done/tot*100):0;
+  document.getElementById('totalPct').textContent=p+'%';
+  var tb=document.getElementById('totalBar'); tb.firstChild.style.width=p+'%'; tb.classList.toggle('zero',p===0);
+  document.getElementById('totalTxt').textContent=done+' of '+tot+' lessons ticked · '+UNITS.filter(function(u){return sget('done-'+u.id);}).length+' of '+UNITS.length+' units done';
+}
+document.addEventListener('change',function(ev){
+  var t=ev.target; if(!t.matches||!t.matches('input[type=checkbox][data-key]')) return;
+  var k=t.getAttribute('data-key'); sset(k,t.checked);
+  document.querySelectorAll('input[data-key="'+k+'"]').forEach(function(o){o.checked=t.checked;}); refresh();
+});
+var resetBtn=document.getElementById('resetAll'), resetMsg=document.getElementById('resetMsg'), armed=false;
+resetBtn.addEventListener('click',function(){
+  if(!armed){armed=true;resetBtn.textContent='Click again to clear every tick';resetMsg.hidden=true;return;}
+  armed=false;resetBtn.textContent='Reset all ticks';
+  document.querySelectorAll('input[type=checkbox][data-key]').forEach(function(o){o.checked=false;sset(o.getAttribute('data-key'),false);});
+  refresh(); resetMsg.hidden=false; resetMsg.textContent='All ticks cleared.';
+});
+document.querySelectorAll('[data-practice]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var sec=document.getElementById(b.getAttribute('data-practice')), on=b.getAttribute('aria-pressed')!=='true';
+    b.setAttribute('aria-pressed',on?'true':'false'); sec.querySelectorAll('details.sol').forEach(function(d){d.open=!on;});
+    b.textContent=on?'Show all solutions':'Practice mode: hide solutions';
+  });
+});
+var glq=document.getElementById('glq');
+glq.addEventListener('input',function(){
+  var q=glq.value.trim().toLowerCase(), any=false;
+  document.querySelectorAll('#glList>div').forEach(function(d){var hit=!q||d.textContent.toLowerCase().indexOf(q)>=0; d.hidden=!hit; if(hit) any=true;});
+  document.getElementById('glEmpty').hidden=any;
+});
+var PAGES=['home','labs','glossary'].concat(UNITS.map(function(u){return u.id;}));
+function show(){
+  var h=(location.hash||'').replace('#',''), m=h.match(/^(m[35]u\d+)-l\d+$/), page=m?m[1]:h;
+  if(PAGES.indexOf(page)<0) page='home';
+  PAGES.forEach(function(p){var s=document.getElementById(p); if(s) s.hidden=(p!==page);});
+  document.querySelectorAll('nav.top a').forEach(function(a){var on=a.getAttribute('data-p')===page; a.classList.toggle('on',on); if(on) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');});
+  var on=document.querySelector('nav.top a.on'); if(on&&on.parentNode) on.parentNode.scrollLeft=on.offsetLeft-40;
+  var el=m&&document.getElementById(h); if(el) el.scrollIntoView({block:'start'}); else window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',show);
+refresh(); show();
+})();
+</script>
